@@ -1,0 +1,66 @@
+PASS	Basic Statistics	SRR8652105_pass_1.fastq.gz
+PASS	Per base sequence quality	SRR8652105_pass_1.fastq.gz
+PASS	Per sequence quality scores	SRR8652105_pass_1.fastq.gz
+PASS	Per base sequence content	SRR8652105_pass_1.fastq.gz
+PASS	Per sequence GC content	SRR8652105_pass_1.fastq.gz
+PASS	Per base N content	SRR8652105_pass_1.fastq.gz
+PASS	Sequence Length Distribution	SRR8652105_pass_1.fastq.gz
+PASS	Sequence Duplication Levels	SRR8652105_pass_1.fastq.gz
+PASS	Overrepresented sequences	SRR8652105_pass_1.fastq.gz
+PASS	Adapter Content	SRR8652105_pass_1.fastq.gz
+WARN	Kmer Content	SRR8652105_pass_1.fastq.gz
+PASS	Basic Statistics	SRR8652105_pass_2.fastq.gz
+PASS	Per base sequence quality	SRR8652105_pass_2.fastq.gz
+PASS	Per sequence quality scores	SRR8652105_pass_2.fastq.gz
+PASS	Per base sequence content	SRR8652105_pass_2.fastq.gz
+WARN	Per sequence GC content	SRR8652105_pass_2.fastq.gz
+PASS	Per base N content	SRR8652105_pass_2.fastq.gz
+PASS	Sequence Length Distribution	SRR8652105_pass_2.fastq.gz
+PASS	Sequence Duplication Levels	SRR8652105_pass_2.fastq.gz
+WARN	Overrepresented sequences	SRR8652105_pass_2.fastq.gz
+PASS	Adapter Content	SRR8652105_pass_2.fastq.gz
+PASS	Kmer Content	SRR8652105_pass_2.fastq.gz
+PASS	Basic Statistics	SRR8652107_pass_1.fastq.gz
+PASS	Per base sequence quality	SRR8652107_pass_1.fastq.gz
+PASS	Per sequence quality scores	SRR8652107_pass_1.fastq.gz
+PASS	Per base sequence content	SRR8652107_pass_1.fastq.gz
+PASS	Per sequence GC content	SRR8652107_pass_1.fastq.gz
+PASS	Per base N content	SRR8652107_pass_1.fastq.gz
+PASS	Sequence Length Distribution	SRR8652107_pass_1.fastq.gz
+PASS	Sequence Duplication Levels	SRR8652107_pass_1.fastq.gz
+PASS	Overrepresented sequences	SRR8652107_pass_1.fastq.gz
+PASS	Adapter Content	SRR8652107_pass_1.fastq.gz
+WARN	Kmer Content	SRR8652107_pass_1.fastq.gz
+PASS	Basic Statistics	SRR8652107_pass_2.fastq.gz
+PASS	Per base sequence quality	SRR8652107_pass_2.fastq.gz
+PASS	Per sequence quality scores	SRR8652107_pass_2.fastq.gz
+PASS	Per base sequence content	SRR8652107_pass_2.fastq.gz
+PASS	Per sequence GC content	SRR8652107_pass_2.fastq.gz
+PASS	Per base N content	SRR8652107_pass_2.fastq.gz
+PASS	Sequence Length Distribution	SRR8652107_pass_2.fastq.gz
+PASS	Sequence Duplication Levels	SRR8652107_pass_2.fastq.gz
+PASS	Overrepresented sequences	SRR8652107_pass_2.fastq.gz
+PASS	Adapter Content	SRR8652107_pass_2.fastq.gz
+WARN	Kmer Content	SRR8652107_pass_2.fastq.gz
+PASS	Basic Statistics	SRR8670674_pass_1.fastq.gz
+PASS	Per base sequence quality	SRR8670674_pass_1.fastq.gz
+PASS	Per sequence quality scores	SRR8670674_pass_1.fastq.gz
+WARN	Per base sequence content	SRR8670674_pass_1.fastq.gz
+PASS	Per sequence GC content	SRR8670674_pass_1.fastq.gz
+PASS	Per base N content	SRR8670674_pass_1.fastq.gz
+PASS	Sequence Length Distribution	SRR8670674_pass_1.fastq.gz
+WARN	Sequence Duplication Levels	SRR8670674_pass_1.fastq.gz
+WARN	Overrepresented sequences	SRR8670674_pass_1.fastq.gz
+PASS	Adapter Content	SRR8670674_pass_1.fastq.gz
+FAIL	Kmer Content	SRR8670674_pass_1.fastq.gz
+PASS	Basic Statistics	SRR8670674_pass_2.fastq.gz
+PASS	Per base sequence quality	SRR8670674_pass_2.fastq.gz
+PASS	Per sequence quality scores	SRR8670674_pass_2.fastq.gz
+WARN	Per base sequence content	SRR8670674_pass_2.fastq.gz
+PASS	Per sequence GC content	SRR8670674_pass_2.fastq.gz
+PASS	Per base N content	SRR8670674_pass_2.fastq.gz
+PASS	Sequence Length Distribution	SRR8670674_pass_2.fastq.gz
+WARN	Sequence Duplication Levels	SRR8670674_pass_2.fastq.gz
+WARN	Overrepresented sequences	SRR8670674_pass_2.fastq.gz
+PASS	Adapter Content	SRR8670674_pass_2.fastq.gz
+WARN	Kmer Content	SRR8670674_pass_2.fastq.gz
