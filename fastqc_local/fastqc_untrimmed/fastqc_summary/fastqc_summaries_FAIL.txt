@@ -1,1 +1,0 @@
-FAIL	Kmer Content	SRR8670674_pass_1.fastq.gz
