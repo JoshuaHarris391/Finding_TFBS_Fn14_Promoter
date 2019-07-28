@@ -2,5 +2,6 @@
 .Rhistory
 .RData
 .Ruserdata
-fastqc_local
+fastqc_trimmed
+fastqc_untrimmed
 outputs
