@@ -20,7 +20,14 @@ mkdir -p  outputs/alignments/sam \
 # Alignment BWA
 #################################
 echo "Begining BWA Alignment"
-# Indexing hg19 reference
-echo "Indexing hg19 reference"
-module load "BWA/0.7.17-foss-2018b"
-bwa index hg19/hg19.fa
+# # Indexing hg19 reference
+# echo "Indexing hg19 reference"
+# module load "BWA/0.7.17-foss-2018b"
+# bwa index hg19/hg19.fa
+
+echo "Running BWA mem aligner"
+
+bwa mem data/ref_genome/ecoli_rel606.fasta \
+        data/trimmed_fastq_small/SRR2584866_1.trim.sub.fastq \
+        data/trimmed_fastq_small/SRR2584866_2.trim.sub.fastq > \
+        results/sam/SRR2584866.aligned.sam
