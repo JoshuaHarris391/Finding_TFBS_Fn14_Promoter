@@ -5,3 +5,4 @@
 fastqc_trimmed
 fastqc_untrimmed
 outputs
+hg19
