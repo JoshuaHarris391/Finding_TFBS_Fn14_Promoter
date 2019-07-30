@@ -10,8 +10,8 @@ mkdir -p  outputs/alignments/sam \
           outputs/variant_calls/bcf
 
 # Downloading hg19 human reference genome
-# mkdir hg19
-# cd hg19
+# mkdir -p ../data/hg19
+# cd ../data/hg19
 # wget http://hgdownload.cse.ucsc.edu/goldenPath/hg19/bigZips/hg19.fa.gz
 # chmod -w *.gz
 # gunzip hg19.fa.gz
@@ -29,7 +29,7 @@ module load "BWA/0.7.17-foss-2018b"
 
 echo "Running BWA mem aligner"
 
-bwa mem -t 4 -P hg19/hg19.fa \
+bwa mem -t 4 -P ../data/hg19/hg19.fa \
         outputs/fastq_trimmed/SRR8652105_pass_1.trimmed.fastq.gz \
         outputs/fastq_trimmed/SRR8652105_pass_2.trimmed.fastq.gz > \
         outputs/alignments/sam/SRR8652105.aligned.sam

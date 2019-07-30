@@ -6,3 +6,5 @@ fastqc_trimmed
 fastqc_untrimmed
 outputs
 hg19
+*.out
+*/*.out
