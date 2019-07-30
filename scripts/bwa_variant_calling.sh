@@ -59,4 +59,25 @@ for BAM_FILE in outputs/alignments/bam/*.aligned.bam; do
                    outputs/alignments/bam/$base.aligned.bam
 done
 
+
+# Creating summary report for sorted bams
+mkdir -p outputs/alignments/bam/metrics
+for flag_FILE in outputs/alignments/bam/*.aligned.sorted.bam; do
+  base=$(basename ${flag_FILE} .aligned.sorted.bam)
+  samtools flagstat outputs/alignments/bam/${base}.aligned.sorted.bam > \
+                    outputs/alignments/bam/metrics/${base}_bam_summary.txt
+  echo "[UPDATE] created flagstat summary for ${base}"
+done
+# Merging into summary document
+cat outputs/alignments/bam/metrics/*.txt > outputs/alignments/bam/summary.txt
+
+# Indexing bam files
+echo "[UPDATE] indexing bam files"
+
+for flag_FILE in outputs/alignments/bam/*.aligned.sorted.bam; do
+  base=$(basename ${flag_FILE} .aligned.sorted.bam)
+  samtools index outputs/alignments/bam/${base}.aligned.sorted.bam
+  echo "[UPDATE] indexed ${base}.aligned.sorted.bam"
+done
+
 echo "[UPDATE] end of script"
