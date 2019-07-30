@@ -44,7 +44,7 @@ done
 echo "[UPDATE] converting to bam file"
 module load 'SAMtools/1.9-foss-2016b'
 # Converting to bam
-for SAM_FILE in outputs/alignments/*.aligned.sam; do
+for SAM_FILE in outputs/alignments/sam/*.aligned.sam; do
 base=$(basename ${SAM_FILE} .aligned.sam)
 samtools view -S -b outputs/alignments/sam/$base.aligned.sam > \
                     outputs/alignments/bam/$base.aligned.bam
