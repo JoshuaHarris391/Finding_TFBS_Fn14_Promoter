@@ -10,7 +10,6 @@ for SRA_REF_VAR in ${SRA_REF_LIST[@]}; do
 ~/tools/bin/fastq-dump --outdir ../test_data/ \
  --gzip \
  --skip-technical \
-    --readids \
 	--read-filter pass \
      --dumpbase \
       --split-3 \
