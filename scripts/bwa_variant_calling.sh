@@ -45,15 +45,18 @@ echo "[UPDATE] converting to bam file"
 module load 'SAMtools/1.9-foss-2016b'
 # Converting to bam
 for SAM_FILE in outputs/alignments/sam/*.aligned.sam; do
-base=$(basename ${SAM_FILE} .aligned.sam)
-samtools view -S -b outputs/alignments/sam/$base.aligned.sam > \
-                    outputs/alignments/bam/$base.aligned.bam
-echo "[UPDATE] converted $base to bam"
+  base=$(basename ${SAM_FILE} .aligned.sam)
+  samtools view -S -b outputs/alignments/sam/$base.aligned.sam > \
+                      outputs/alignments/bam/$base.aligned.bam
+  echo "[UPDATE] converted $base to bam"
 done
 
 # Sorting bam files
 echo "[UPDATE] Sorting BAM files"
 for BAM_FILE in outputs/alignments/bam/*.aligned.bam; do
-base=$(basename ${SAM_FILE} .aligned.bam)
-samtools sort -o outputs/alignments/bam/$base.aligned.sorted.bam \
-                 outputs/alignments/bam/$base.aligned.bam
+  base=$(basename ${SAM_FILE} .aligned.bam)
+  samtools sort -o outputs/alignments/bam/$base.aligned.sorted.bam \
+                   outputs/alignments/bam/$base.aligned.bam
+done
+
+echo "[UPDATE] end of script"
