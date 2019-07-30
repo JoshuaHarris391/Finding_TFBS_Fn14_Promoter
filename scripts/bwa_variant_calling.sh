@@ -29,7 +29,7 @@ module load "BWA/0.7.17-foss-2018b"
 
 echo "Running BWA mem aligner"
 
-bwa mem -t 4 hg19/hg19.fa \
+bwa mem -t -P 4 hg19/hg19.fa \
         outputs/fastq_trimmed/SRR8652105_pass_1.trimmed.fastq.gz \
         outputs/fastq_trimmed/SRR8652105_pass_2.trimmed.fastq.gz > \
         outputs/alignments/sam/SRR8652105.aligned.sam
