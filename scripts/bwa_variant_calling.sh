@@ -1,6 +1,7 @@
 # Set wd
 set -e
 cd /home/STUDENT/harjo391/JRA/JRA_5_TFBS_Fn14_Promoter
+DATA=../test_data
 
 # Creating directories
 mkdir -p  outputs/alignments/sam \
@@ -20,6 +21,7 @@ mkdir -p  outputs/alignments/sam \
 # Alignment BWA
 #################################
 echo "Begining BWA Alignment"
+module load "BWA/0.7.17-foss-2018b"
 # # Indexing hg19 reference
 # echo "Indexing hg19 reference"
 # module load "BWA/0.7.17-foss-2018b"
@@ -27,7 +29,8 @@ echo "Begining BWA Alignment"
 
 echo "Running BWA mem aligner"
 
-bwa mem data/ref_genome/ecoli_rel606.fasta \
-        data/trimmed_fastq_small/SRR2584866_1.trim.sub.fastq \
-        data/trimmed_fastq_small/SRR2584866_2.trim.sub.fastq > \
-        results/sam/SRR2584866.aligned.sam
+bwa mem -t 4 hg19/hg19.fa \
+        outputs/fastq_trimmed/SRR8652105_pass_1.trimmed.fastq.gz \
+        outputs/fastq_trimmed/SRR8652105_pass_2.trimmed.fastq.gz > \
+        results/sam/SRR8652105.aligned.sam
+echo "finished alignment"
