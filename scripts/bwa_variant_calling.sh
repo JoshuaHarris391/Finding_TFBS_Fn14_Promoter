@@ -1,7 +1,7 @@
 # Set wd
 set -e
 cd /home/STUDENT/harjo391/JRA/JRA_5_TFBS_Fn14_Promoter
-DATA=../test_data
+DATA=../data
 
 # Creating directories
 mkdir -p  outputs/alignments/sam \

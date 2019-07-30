@@ -8,3 +8,4 @@ outputs
 hg19
 *.out
 */*.out
+bam

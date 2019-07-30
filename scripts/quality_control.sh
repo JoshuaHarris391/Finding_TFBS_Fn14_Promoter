@@ -6,7 +6,7 @@ cd /home/STUDENT/harjo391/JRA/JRA_5_TFBS_Fn14_Promoter
 # Creating outputs folder
 mkdir -p outputs
 # Defining data folder
-DATA=../test_data
+DATA=../data
 
 ####################################
 # Conducting Quality Control
