@@ -32,5 +32,5 @@ echo "Running BWA mem aligner"
 bwa mem -t 4 hg19/hg19.fa \
         outputs/fastq_trimmed/SRR8652105_pass_1.trimmed.fastq.gz \
         outputs/fastq_trimmed/SRR8652105_pass_2.trimmed.fastq.gz > \
-        results/sam/SRR8652105.aligned.sam
+        outputs/alignments/sam/SRR8652105.aligned.sam
 echo "finished alignment"
