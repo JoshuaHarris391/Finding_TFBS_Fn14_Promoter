@@ -54,7 +54,7 @@ done
 # Sorting bam files
 echo "[UPDATE] Sorting BAM files"
 for BAM_FILE in outputs/alignments/bam/*.aligned.bam; do
-  base=$(basename ${SAM_FILE} .aligned.bam)
+  base=$(basename ${BAM_FILE} .aligned.bam)
   samtools sort -o outputs/alignments/bam/$base.aligned.sorted.bam \
                    outputs/alignments/bam/$base.aligned.bam
 done
