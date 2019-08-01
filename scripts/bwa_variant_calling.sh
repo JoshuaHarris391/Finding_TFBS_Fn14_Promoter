@@ -31,7 +31,7 @@ echo "[UPDATE] Running BWA mem aligner"
 
 for BWA_FILE in outputs/fastq_trimmed/*_1.trimmed.fastq.gz; do
 base=$(basename ${BWA_FILE} _1.trimmed.fastq.gz)
-bwa mem -t 4 -P ../data/hg19/hg19.fa \
+bwa mem -t 12 -P ../data/hg19/hg19.fa \
         outputs/fastq_trimmed/${base}_1.trimmed.fastq.gz \
         outputs/fastq_trimmed/${base}_2.trimmed.fastq.gz > \
         outputs/alignments/sam/${base}.aligned.sam
