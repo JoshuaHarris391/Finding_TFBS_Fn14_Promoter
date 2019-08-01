@@ -42,7 +42,7 @@ done
 # Convert to Bam
 #################################
 echo "[UPDATE] converting to bam file"
-module load 'SAMtools/1.9-foss-2016b'
+module load "SAMtools/1.9-foss-2018a"
 # Converting to bam
 for SAM_FILE in outputs/alignments/sam/*.aligned.sam; do
   base=$(basename ${SAM_FILE} .aligned.sam)
