@@ -40,7 +40,6 @@ bwa mem -t 4 -P ../data/hg19/hg19.fa \
         outputs/fastq_trimmed/$SRA_REF/${SRA_REF}_2.trimmed.fastq.gz > \
         outputs/alignments/sam/${SRA_REF}.aligned.sam
 echo "[UPDATE] completed ${SRA_REF} alignment"
-done
 
 #################################
 # Convert to Bam
