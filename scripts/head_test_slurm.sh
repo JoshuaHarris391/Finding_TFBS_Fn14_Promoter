@@ -10,7 +10,4 @@ cd /home/STUDENT/harjo391/JRA/JRA_5_TFBS_Fn14_Promoter
 # Read variable
 echo $filename_input
 
-mv head_test/$filename_input head_test/${filename_input}_modified
-
-# Output the modified file
-echo | ls head_test
+mkdir -p outputs/$filename_input

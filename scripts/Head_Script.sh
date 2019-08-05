@@ -1,16 +1,11 @@
 # Setting WD
 cd /home/STUDENT/harjo391/JRA/JRA_5_TFBS_Fn14_Promoter
-# Making test director
-mkdir -p head_test
-# Creating a file
-filenames=(Josh.txt Brett.txt Sean.txt Liam.txt)
-for i in ${filenames[*]}; do
-  touch head_test/$i
-done
-
+# Getting filenames
+filenames=$(ls ../test_data/*_1.fastq.gz)
+SRA_REF=$(basename -s _1.fastq.gz $filenames)
+# Defining Data folder
+DATA=../test_data
 # Running sbatch on script
-for filename_input in ${filenames[*]}; do
-  sbatch --export=filename_input=$filename_input scripts/head_test_slurm.sh
+for filename_input in ${SRA_REF[*]}; do
+  sbatch --export=SRA_REF=$filename_input,DATA=$DATA scripts/head_test_slurm.sh
 done
-
-# echo | ls head_test
