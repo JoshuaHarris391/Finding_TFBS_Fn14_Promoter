@@ -1,5 +1,7 @@
 # Setting WD
 cd /home/STUDENT/harjo391/JRA/JRA_5_TFBS_Fn14_Promoter
+# Removing current outputs folder
+rm -R outputs
 # Getting filenames
 filenames=$(ls ../test_data/*_1.fastq.gz)
 SRA_REF=$(basename -s _1.fastq.gz $filenames)
