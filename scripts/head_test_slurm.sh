@@ -8,6 +8,6 @@
 cd /home/STUDENT/harjo391/JRA/JRA_5_TFBS_Fn14_Promoter
 
 # Read variable
-echo $filename_input
+echo $SRA_REF
 
-mkdir -p outputs/$filename_input
+mkdir -p outputs/$SRA_REF
