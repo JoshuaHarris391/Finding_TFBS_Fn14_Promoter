@@ -20,17 +20,17 @@ mkdir -p outputs/$SRA_REF
 # Loading fastqc
 module load FastQC/0.11.5-Java-1.8.0_74
 # Running fastqc on all fastq files
-mkdir -p outputs/$SRA_REF/fastqc_untrimmed
+mkdir -p outputs/fastqc_untrimmed/$SRA_REF
 echo "Running FastQC on untrimmed reads"
-fastqc $DATA/*.fastq.gz --outdir=outputs/$SRA_REF/fastqc_untrimmed/
+fastqc $DATA/*.fastq.gz --outdir=outputs/fastqc_untrimmed/$SRA_REF/
 # Unziping fastqc files
 echo "Unzipping FastQC files"
-for FILENAME in outputs/$SRA_REF/fastqc_untrimmed/*.zip ; do
-  unzip $FILENAME -d outputs/$SRA_REF/fastqc_untrimmed/
+for FILENAME in outputs/fastqc_untrimmed/$SRA_REF/*.zip ; do
+  unzip $FILENAME -d outputs/fastqc_untrimmed/$SRA_REF/
 done
 # Concatenating Fastqc results
 echo "Saving FastQC results"
-dir_fastqc_untrimmed=outputs/$SRA_REF/fastqc_untrimmed
+dir_fastqc_untrimmed=outputs/fastqc_untrimmed/$SRA_REF
 mkdir -p $dir_fastqc_untrimmed/fastqc_summary
 cat $dir_fastqc_untrimmed/*/summary.txt > $dir_fastqc_untrimmed/fastqc_summary/fastqc_summaries.txt
 # Filtering for failed Fastqc results
@@ -42,35 +42,35 @@ grep FAIL $dir_fastqc_untrimmed/fastqc_summary/fastqc_summaries.txt > $dir_fastq
 # Trimming reads
 ####################################
 # Note, FASTQC analysis did not detect any contaminating adaptor sequences
-mkdir -p outputs/$SRA_REF/fastq_trimmed
+mkdir -p outputs/fastq_trimmed/$SRA_REF
 echo "Running Trimmomatic"
 # Running trimmomatic
 java -jar ~/tools/Trimmomatic-0.39/trimmomatic-0.39.jar PE -threads 4 \
               $DATA/${SRA_REF}_1.fastq.gz \
               $DATA/${SRA_REF}_2.fastq.gz \
-              outputs/$SRA_REF/fastq_trimmed/${SRA_REF}_1.trimmed.fastq.gz \
-              outputs/$SRA_REF/fastq_trimmed/${SRA_REF}_1.untrimmed.fastq.gz \
-              outputs/$SRA_REF/fastq_trimmed/${SRA_REF}_2.trimmed.fastq.gz \
-              outputs/$SRA_REF/fastq_trimmed/${SRA_REF}_2.untrimmed.fastq.gz \
+              outputs/fastq_trimmed/$SRA_REF/${SRA_REF}_1.trimmed.fastq.gz \
+              outputs/fastq_trimmed/$SRA_REF/${SRA_REF}_1.untrimmed.fastq.gz \
+              outputs/fastq_trimmed/$SRA_REF/${SRA_REF}_2.trimmed.fastq.gz \
+              outputs/fastq_trimmed/$SRA_REF/${SRA_REF}_2.untrimmed.fastq.gz \
               SLIDINGWINDOW:4:20
 
 ####################################
 # Re-running fastqc on trimmed reads
 ####################################
 # Making fastqc trimmed folder
-mkdir -p outputs/$SRA_REF/fastqc_trimmed
+mkdir -p outputs/fastqc_trimmed/$SRA_REF
 # Re-running fastqc
 echo "Running FastQC on trimmed reads"
-fastqc outputs/$SRA_REF/fastq_trimmed/*.trimmed.fastq.gz --outdir=outputs/$SRA_REF/fastqc_trimmed/
+fastqc outputs/fastq_trimmed/$SRA_REF/*.trimmed.fastq.gz --outdir=outputs/fastqc_trimmed/$SRA_REF/
 # Unziping fastqc files
 echo "Unzipping FastQC files"
-for FILENAME in outputs/$SRA_REF/fastqc_trimmed/*.zip ; do
-  unzip $FILENAME -d outputs/$SRA_REF/fastqc_trimmed/
+for FILENAME in outputs/fastqc_trimmed/$SRA_REF/*.zip ; do
+  unzip $FILENAME -d outputs/fastqc_trimmed/$SRA_REF/
 done
 # Concatenating Fastqc results
 echo "Saving FastQC results"
-mkdir -p outputs/$SRA_REF/fastqc_trimmed/fastqc_summary
-cat outputs/$SRA_REF/fastqc_trimmed/*/summary.txt > outputs/$SRA_REF/fastqc_trimmed/fastqc_summary/fastqc_summaries.txt
+mkdir -p outputs/fastqc_trimmed/$SRA_REF/fastqc_summary
+cat outputs/fastqc_trimmed/$SRA_REF/*/summary.txt > outputs/fastqc_trimmed/$SRA_REF/fastqc_summary/fastqc_summaries.txt
 # Filtering for failed Fastqc results
-grep WARN outputs/$SRA_REF/fastqc_trimmed/fastqc_summary/fastqc_summaries.txt > outputs/$SRA_REF/fastqc_trimmed/fastqc_summary/fastqc_summaries_WARN.txt
-grep FAIL outputs/$SRA_REF/fastqc_trimmed/fastqc_summary/fastqc_summaries.txt > outputs/$SRA_REF/fastqc_trimmed/fastqc_summary/fastqc_summaries_FAIL.txt
+grep WARN outputs/fastqc_trimmed/$SRA_REF/fastqc_summary/fastqc_summaries.txt > outputs/fastqc_trimmed/$SRA_REF/fastqc_summary/fastqc_summaries_WARN.txt
+grep FAIL outputs/fastqc_trimmed/$SRA_REF/fastqc_summary/fastqc_summaries.txt > outputs/fastqc_trimmed/$SRA_REF/fastqc_summary/fastqc_summaries_FAIL.txt
