@@ -1,12 +1,21 @@
-# Removing folder
+#!/bin/bash
+#SBATCH --job-name=Fastqc_Trim # job name (shows up in the queue)
+#SBATCH --time=24:00:00 #Walltime (HH:MM:SS)
+#SBATCH --mem=8000 # Memory in MB
+#SBATCH --cpus-per-task=4
+
 
 # Setting working directory
 set -e
 cd /home/STUDENT/harjo391/JRA/JRA_5_TFBS_Fn14_Promoter
+# Purging modules
+module purge
+# Removing folder
+rm -R outputs
 # Creating outputs folder
 mkdir -p outputs
 # Defining data folder
-DATA=../data
+DATA=../test_data
 
 ####################################
 # Conducting Quality Control
