@@ -11,7 +11,7 @@ cd /home/STUDENT/harjo391/JRA/JRA_5_TFBS_Fn14_Promoter
 # Purging modules
 module purge
 # Creating outputs folder
-mkdir -p outputs/$SRA_REF
+mkdir -p outputs
 
 ####################################
 # Conducting Quality Control
