@@ -10,7 +10,7 @@ done
 
 # Running sbatch on script
 for filename_input in ${filenames[*]}; do
-  sbatch $filename_input scripts/head_test_slurm.sh
+  sbatch --export=filename_input=$filename_input scripts/head_test_slurm.sh
 done
 
-echo | ls head_test
+# echo | ls head_test

@@ -9,3 +9,4 @@ hg19
 *.out
 */*.out
 bam
+outputs_full
