@@ -10,8 +10,6 @@ set -e
 cd /home/STUDENT/harjo391/JRA/JRA_5_TFBS_Fn14_Promoter
 # Purging modules
 module purge
-# Removing folder
-rm -R outputs
 # Creating outputs folder
 mkdir -p outputs
 # Defining data folder
