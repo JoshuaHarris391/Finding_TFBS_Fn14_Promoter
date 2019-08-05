@@ -9,5 +9,5 @@ SRA_REF=$(basename -s _1.fastq.gz $filenames)
 DATA=../test_data
 # Running sbatch on script
 for filename_input in ${SRA_REF[*]}; do
-  sbatch --export=SRA_REF=$filename_input,DATA=$DATA scripts/head_test_slurm.sh
+  sbatch --export=SRA_REF=$filename_input,DATA=$DATA scripts/quality_control.sh
 done
