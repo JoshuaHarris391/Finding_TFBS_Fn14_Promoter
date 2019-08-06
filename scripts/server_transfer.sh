@@ -10,6 +10,5 @@ scp -r STUDENT+harjo391@dsmc0.otago.ac.nz:~/JRA/JRA_5_TFBS_Fn14_Promoter/outputs
 
 scp -r STUDENT+harjo391@dsmc0.otago.ac.nz:~/JRA/JRA_5_TFBS_Fn14_Promoter/outputs/fastqc_trimmed $DEST
 
-# # Pulling BAM files
-# scp -r STUDENT+harjo391@dsmc0.otago.ac.nz:~/JRA/JRA_5_TFBS_Fn14_Promoter/outputs/alignments/bam \
-#     ~/Dropbox/Research/JRA_Cunliffe_Lab_2019/Experimentzs/JRA_5/JRA_5_TFBS_Fn14_Promoter/
+# Pulling BAM files
+scp -r STUDENT+harjo391@dsmc0.otago.ac.nz:~/JRA/JRA_5_TFBS_Fn14_Promoter/outputs/alignments/bam $DEST
