@@ -62,7 +62,7 @@ mkdir -p outputs/alignments/bam/metrics
 samtools flagstat outputs/alignments/bam/${SRA_REF}.aligned.sorted.bam > \
                   outputs/alignments/bam/metrics/${SRA_REF}_bam_summary.txt
 echo "[UPDATE] created flagstat summary for ${SRA_REF}"
-done
+
 # Merging into summary document
 cat outputs/alignments/bam/metrics/*.txt > outputs/alignments/bam/summary.txt
 
