@@ -6,7 +6,9 @@
 
 # Set wd
 set -e
-cd /home/STUDENT/harjo391/JRA/JRA_5_TFBS_Fn14_Promoter
+# WORKING_DIR=/home/STUDENT/harjo391/JRA/JRA_5_TFBS_Fn14_Promoter
+WORKING_DIR=/Users/joshua_harris/Dropbox/Research/JRA_Cunliffe_Lab_2019/Experiments/JRA_5/JRA_5_TFBS_Fn14_Promoter
+cd $WORKING_DIR
 module purge
 
 # Creating directories
@@ -21,7 +23,7 @@ mkdir -p  outputs/alignments/sam \
 # wget http://hgdownload.cse.ucsc.edu/goldenPath/hg19/bigZips/hg19.fa.gz
 # chmod -w *.gz
 # gunzip hg19.fa.gz
-# cd /home/STUDENT/harjo391/JRA/JRA_5_TFBS_Fn14_Promoter
+# cd $WORKING_DIR
 
 #################################
 # Alignment BWA

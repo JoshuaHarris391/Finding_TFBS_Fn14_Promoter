@@ -7,7 +7,9 @@
 
 # Setting working directory
 set -e
-cd /home/STUDENT/harjo391/JRA/JRA_5_TFBS_Fn14_Promoter
+# WORKING_DIR=/home/STUDENT/harjo391/JRA/JRA_5_TFBS_Fn14_Promoter
+WORKING_DIR=/Users/joshua_harris/Dropbox/Research/JRA_Cunliffe_Lab_2019/Experiments/JRA_5/JRA_5_TFBS_Fn14_Promoter
+cd $WORKING_DIR
 # Purging modules
 module purge
 # Creating outputs folder

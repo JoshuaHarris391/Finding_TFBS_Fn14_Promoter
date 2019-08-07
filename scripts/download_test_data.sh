@@ -7,7 +7,9 @@
 #SBATCH --mail-user=harjo391@student.otago.ac.nz
 
 # Set wd
-cd /home/STUDENT/harjo391/JRA/JRA_5_TFBS_Fn14_Promoter
+# WORKING_DIR=/home/STUDENT/harjo391/JRA/JRA_5_TFBS_Fn14_Promoter
+WORKING_DIR=/Users/joshua_harris/Dropbox/Research/JRA_Cunliffe_Lab_2019/Experiments/JRA_5/JRA_5_TFBS_Fn14_Promoter
+cd $WORKING_DIR
 # Download files
 mkdir -p ../test_data
 # Defining SRA references to Download
