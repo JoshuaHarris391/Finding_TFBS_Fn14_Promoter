@@ -17,7 +17,11 @@ declare -a SRA_REF_LIST=("SRR8652107" "SRR8652105" "SRR8670674")
 
 for SRA_REF_VAR in ${SRA_REF_LIST[@]}; do
 
-~/tools/bin/fastq-dump --outdir ../test_data/ \
+# DSMC fastq-dump
+dsmc_fastq_dump=~/tools/bin/fastq-dump
+local_fastq_dump=../tools/sratoolkit.2.9.6-1-mac64/bin/fastq-dump
+
+eval $local_fastq_dump --outdir ../test_data/ \
  --gzip \
  --skip-technical \
 	--read-filter pass \
