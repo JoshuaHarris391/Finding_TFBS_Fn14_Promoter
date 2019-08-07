@@ -12,4 +12,4 @@ cd $WORKING_DIR
 # Indexing hg19 reference
 echo "Indexing hg19 reference"
 # module load "BWA/0.7.17-foss-2018b"
-bwa index hg19/hg19.fa
+bwa index ../data/hg19/hg19.fa
