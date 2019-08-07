@@ -6,8 +6,10 @@ rm *.out
 # Removing current outputs folder
 rm -R outputs
 # Getting filenames
-filenames=$(ls ../test_data/*_1.fastq.gz)
-SRA_REF=$(basename -s _1.fastq.gz $filenames)
+cd $WORKING_DIR/../test_data
+SRA_REF=$(find . -name "*_1\.fastq\.gz"  | sed -e 's/\_1\.fastq\.gz$//' | sed -e 's/\.\///')
+cd $WORKING_DIR
+
 # Defining Data folder
 DATA=../test_data
 # Running quality control
@@ -23,10 +25,3 @@ for filename_input in ${SRA_REF[*]}; do
 done
 
 echo "== END OF HEAD SCRIPT=="
-
-
-INPUT_VAR="Fuck u want bitch"
-
-for INPUT_VAR in a b c; do
-source scripts/echo_uwot.sh &
-done
