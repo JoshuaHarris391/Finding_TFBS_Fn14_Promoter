@@ -13,13 +13,20 @@ DATA=../test_data
 # Running quality control
 for filename_input in ${SRA_REF[*]}; do
   echo "== Running QC on $filename_input =="
-  bash scripts/quality_control.sh
+  source scripts/quality_control.sh &
 done
 
 # Running alignment
 for filename_input in ${SRA_REF[*]}; do
   echo "== Running alignment on $filename_input =="
-  bash scripts/bwa_variant_calling.sh
+  source scripts/bwa_variant_calling.sh &
 done
 
 echo "== END OF HEAD SCRIPT=="
+
+
+INPUT_VAR="Fuck u want bitch"
+
+for INPUT_VAR in a b c; do
+source scripts/echo_uwot.sh &
+done
