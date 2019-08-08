@@ -7,9 +7,7 @@
 #SBATCH --mail-user=harjo391@student.otago.ac.nz
 
 # Set wd
-# WORKING_DIR=/home/STUDENT/harjo391/JRA/JRA_5_TFBS_Fn14_Promoter
-WORKING_DIR=/Users/joshua_harris/Dropbox/Research/JRA_Cunliffe_Lab_2019/Experiments/JRA_5/JRA_5_TFBS_Fn14_Promoter
-cd $WORKING_DIR
+cd /home/STUDENT/harjo391/JRA/JRA_5_TFBS_Fn14_Promoter
 # Download files
 mkdir -p ../test_data
 # Defining SRA references to Download
@@ -17,11 +15,7 @@ declare -a SRA_REF_LIST=("SRR8652107" "SRR8652105" "SRR8670674")
 
 for SRA_REF_VAR in ${SRA_REF_LIST[@]}; do
 
-# DSMC fastq-dump
-dsmc_fastq_dump=~/tools/bin/fastq-dump
-local_fastq_dump=../tools/sratoolkit.2.9.6-1-mac64/bin/fastq-dump
-
-eval $local_fastq_dump --outdir ../test_data/ \
+~/tools/bin/fastq-dump --outdir ../test_data/ \
  --gzip \
  --skip-technical \
 	--read-filter pass \
