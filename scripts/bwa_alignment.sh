@@ -71,4 +71,8 @@ echo "[UPDATE] indexing bam files"
 samtools index outputs/alignments/bam/${SRA_REF}.aligned.sorted.bam
 echo "[UPDATE] indexed ${SRA_REF}.aligned.sorted.bam"
 
+# Subsetting Chromosome 16 from bam files.
+mkdir -p outputs/alignments/bam/chr16
+samtools view -b outputs/alignments/bam/${SRA_REF}.aligned.sorted.bam chr16 >  outputs/alignments/bam/chr16/${SRA_REF}.chr16.aligned.sorted.bam
+
 echo "[UPDATE] end of script"
