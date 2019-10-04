@@ -1,3 +1,5 @@
+# Stop script if there is an error
+set -e
 # Setting WD
 cd /home/STUDENT/harjo391/JRA/JRA_5_TFBS_Fn14_Promoter
 # Removing slurm outputs
