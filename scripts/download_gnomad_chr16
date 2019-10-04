@@ -6,5 +6,6 @@
 
 # Setting wd
 set -e
+mkdir -p /home/STUDENT/harjo391/JRA/data/gnomad_chr16
 cd /home/STUDENT/harjo391/JRA/data/gnomad_chr16
 wget https://storage.googleapis.com/gnomad-public/release/2.1.1/liftover_grch38/vcf/genomes/gnomad.genomes.r2.1.1.sites.16.liftover_grch38.vcf.bgz
