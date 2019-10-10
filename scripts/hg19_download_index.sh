@@ -1,3 +1,9 @@
+#!/bin/bash
+#SBATCH --job-name=index_hg19 # job name (shows up in the queue)
+#SBATCH --time=24:00:00 #Walltime (HH:MM:SS)
+#SBATCH --mem=6000 # Memory in MB
+#SBATCH --cpus-per-task=4
+
 # Setting modules
 module purge
 module load "SAMtools/1.9-foss-2018a"
