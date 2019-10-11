@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --job-name=index_hg19 # job name (shows up in the queue)
 #SBATCH --time=24:00:00 #Walltime (HH:MM:SS)
-#SBATCH --mem=4000 # Memory in MB
+#SBATCH --mem=8000 # Memory in MB
 #SBATCH --cpus-per-task=2
 
 # Setting modules
