@@ -8,6 +8,7 @@
 module purge
 module load "SAMtools/1.9-foss-2018a"
 module load "BWA/0.7.17-foss-2018b"
+module load "picard/2.18.11-Java-1.8.0_162"
 # Setting WD
 WORKING_DIR=/home/STUDENT/harjo391/JRA/JRA_5_TFBS_Fn14_Promoter
 cd $WORKING_DIR
@@ -21,7 +22,10 @@ cd $WORKING_DIR
 
 # Indexing hg19 reference with BWA
 echo "Indexing hg19 reference"
-# bwa index ../data/hg19/hg19.fa
+bwa index -a bwtsw ../data/hg19/hg19.fa
 
 # Indexing with SAMtools
 samtools faidx ../data/hg19/hg19.fa
+
+# Creating Fasta sequence directory file
+java -jar $EBROOTPICARD/picard.jar CreateSequenceDictionary R=../data/hg19/hg19.fa O=../data/hg19/hg19.dict
