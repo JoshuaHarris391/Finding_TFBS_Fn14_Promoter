@@ -35,9 +35,10 @@ module load Java/1.10.0_1
 #  --germline_resource ../data/gnomad_chr16/gnomad.genomes.r2.1.1.sites.16.liftover_grch38.vcf.bgz \
 #  -O outputs/variant_calls/vcf/$SRA_REF.ch16.vcf.gz
 
-# Defiing GATK tool path
-# GATK_PATH=/home/STUDENT/harjo391/tools/GATK/gatk-4.1.3.0/gatk
+
+# Defining GATK GATK_PATH
 GATK_PATH=/home/STUDENT/harjo391/tools/GATK/gatk-4.1.3.0/gatk-package-4.1.3.0-local.jar
+# Running Mutect2
 java -jar $GATK_PATH Mutect2 -R ../data/hg19/hg19.fa -I outputs/alignments/bam/chr16/${SRA_REF}_pass.chr16.aligned.sorted.bam --germline-resource ../data/gnomad_chr16/gnomad.genomes.r2.1.1.sites.16.liftover_grch38.vcf.gz -O outputs/variant_calls/vcf/$SRA_REF.ch16.vcf.gz
 
 # java -jar $EBROOTGATK/GenomeAnalysisTK.jar Mutect2 -R ../data/hg19/hg19.fa -I outputs/alignments/bam/chr16/$SRA_REF.chr16.aligned.sorted.bam --germline-resource ../data/gnomad_chr16/gnomad.genomes.r2.1.1.sites.16.liftover_grch38.vcf.bgz -O outputs/variant_calls/vcf/$SRA_REF.ch16.vcf.gz
