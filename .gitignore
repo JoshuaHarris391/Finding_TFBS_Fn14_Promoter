@@ -10,3 +10,4 @@ hg19
 */*.out
 bam
 outputs_full
+.DS_Store
