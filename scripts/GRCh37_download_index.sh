@@ -15,17 +15,17 @@ cd $WORKING_DIR
 # Downloading hg19 human reference genome
 mkdir -p ../data/GRCh37
 cd ../data/GRCh37
-wget ftp://gsapubftp-anonymous@ftp.broadinstitute.org/bundle/b37/human_g1k_v37_decoy.fasta.gz
+# wget ftp://gsapubftp-anonymous@ftp.broadinstitute.org/bundle/b37/human_g1k_v37_decoy.fasta.gz
 chmod -w *.gz
-# gunzip hg19.fa.gz
+gunzip human_g1k_v37_decoy.fasta.gz
 cd $WORKING_DIR
 
 # Indexing hg19 reference with BWA
 echo "Indexing GRCh37 reference"
-bwa index -a bwtsw ../data/GRCh37/human_g1k_v37_decoy.fasta.gz
+bwa index -a bwtsw ../data/GRCh37/human_g1k_v37_decoy.fasta
 
 # Indexing with SAMtools
-samtools faidx ../data/GRCh37/human_g1k_v37_decoy.fasta.gz
+samtools faidx ../data/GRCh37/human_g1k_v37_decoy.fasta
 
 # Creating Fasta sequence directory file
-java -jar $EBROOTPICARD/picard.jar CreateSequenceDictionary R=../data/GRCh37/human_g1k_v37_decoy.fasta.gz O=../data/GRCh37/human_g1k_v37_decoy.dict
+java -jar $EBROOTPICARD/picard.jar CreateSequenceDictionary R=../data/GRCh37/human_g1k_v37_decoy.fasta O=../data/GRCh37/human_g1k_v37_decoy.dict

@@ -31,11 +31,11 @@ module load "BWA/0.7.17-foss-2018b"
 # # Indexing hg19 reference
 # echo "Indexing hg19 reference"
 # module load "BWA/0.7.17-foss-2018b"
-# bwa index GRCh37/human_g1k_v37_decoy.fasta.gz
+# bwa index GRCh37/human_g1k_v37_decoy.fasta
 
 echo "[UPDATE] Running BWA mem aligner"
 
-bwa mem -t 4 -P ../data/GRCh37/human_g1k_v37_decoy.fasta.gz \
+bwa mem -t 4 -P ../data/GRCh37/human_g1k_v37_decoy.fasta \
         outputs/fastq_trimmed/$SRA_REF/${SRA_REF}_1.trimmed.fastq.gz \
         outputs/fastq_trimmed/$SRA_REF/${SRA_REF}_2.trimmed.fastq.gz > \
         outputs/alignments/sam/${SRA_REF}.aligned.sam
