@@ -15,13 +15,13 @@ cd $WORKING_DIR
 # Downloading hg19 human reference genome
 mkdir -p ../data/GRCh37
 cd ../data/GRCh37
-# wget http://hgdownload.cse.ucsc.edu/goldenPath/hg19/bigZips/hg19.fa.gz
-# chmod -w *.gz
+wget ftp://gsapubftp-anonymous@ftp.broadinstitute.org/bundle/b37/human_g1k_v37_decoy.fasta.gz
+chmod -w *.gz
 # gunzip hg19.fa.gz
 cd $WORKING_DIR
 
 # Indexing hg19 reference with BWA
-echo "Indexing hg19 reference"
+echo "Indexing GRCh37 reference"
 bwa index -a bwtsw ../data/GRCh37/human_g1k_v37_decoy.fasta.gz
 
 # Indexing with SAMtools
