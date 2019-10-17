@@ -3,6 +3,7 @@ set -e
 # Setting WD
 cd /home/STUDENT/harjo391/JRA/JRA_5_TFBS_Fn14_Promoter
 # Removing slurm outputs
+touch tmp.out
 rm *.out
 # Removing current outputs folder
 rm -R outputs
