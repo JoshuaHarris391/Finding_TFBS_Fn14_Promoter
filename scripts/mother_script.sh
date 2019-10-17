@@ -12,7 +12,7 @@ rm *.out
 rm -R outputs
 
 # # Downloading and indexing GRCh37
-# JOB_0=$(sbatch --parsable scripts/GRCh37_download_index.sh)
+JOB_0=$(sbatch --parsable scripts/GRCh37_download_index.sh)
 
 # Getting filenames
 filenames=$(ls ../test_data/*_1.fastq.gz)
@@ -25,8 +25,8 @@ DATA=../test_data
 for filename_input in ${SRA_REF[*]}; do
   echo "== Running QC on $filename_input =="
 	# Use dependancy if running GRCh37 download
-  # JOB_1=$(sbatch --dependency=afterany:$JOB_0 --export=SRA_REF=$filename_input,DATA=$DATA --parsable scripts/quality_control.sh)
-	JOB_1=$(sbatch --export=SRA_REF=$filename_input,DATA=$DATA --parsable scripts/quality_control.sh)
+  JOB_1=$(sbatch --dependency=afterany:$JOB_0 --export=SRA_REF=$filename_input,DATA=$DATA --parsable scripts/quality_control.sh)
+	# JOB_1=$(sbatch --export=SRA_REF=$filename_input,DATA=$DATA --parsable scripts/quality_control.sh)
 done
 
 # Running alignment

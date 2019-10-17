@@ -15,7 +15,7 @@ cd $WORKING_DIR
 # Downloading hg19 human reference genome
 mkdir -p ../data/GRCh37
 cd ../data/GRCh37
-# wget ftp://gsapubftp-anonymous@ftp.broadinstitute.org/bundle/b37/human_g1k_v37_decoy.fasta.gz
+wget ftp://gsapubftp-anonymous@ftp.broadinstitute.org/bundle/b37/human_g1k_v37_decoy.fasta.gz
 chmod -w *.gz
 gunzip human_g1k_v37_decoy.fasta.gz
 cd $WORKING_DIR
