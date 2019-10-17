@@ -24,7 +24,9 @@ DATA=../test_data
 # Running quality control
 for filename_input in ${SRA_REF[*]}; do
   echo "== Running QC on $filename_input =="
-  JOB_1=$(sbatch --dependency=afterany:$JOB_0 --export=SRA_REF=$filename_input,DATA=$DATA --parsable scripts/quality_control.sh)
+	# Use dependancy if running GRCh37 download
+  # JOB_1=$(sbatch --dependency=afterany:$JOB_0 --export=SRA_REF=$filename_input,DATA=$DATA --parsable scripts/quality_control.sh)
+	JOB_1=$(sbatch --export=SRA_REF=$filename_input,DATA=$DATA --parsable scripts/quality_control.sh)
 done
 
 # Running alignment
