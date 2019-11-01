@@ -10,3 +10,4 @@ java -jar $GATK_PATH Mutect2 -R /resource/bundles/broad_bundle_b37_v2.5/human_g1
 # Run scripts on /scratch
 # Store data on HCS, transfer to scratch, run scripts, transfer output back to HCS, delete scratch
 # Transfer all samples first
+# If using GATK3 module, you need -T before MuTect2 
