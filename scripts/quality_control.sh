@@ -52,7 +52,7 @@ java -jar ~/tools/Trimmomatic-0.39/trimmomatic-0.39.jar PE -threads 4 \
               outputs/fastq_trimmed/$SRA_REF/${SRA_REF}_1.untrimmed.fastq.gz \
               outputs/fastq_trimmed/$SRA_REF/${SRA_REF}_2.trimmed.fastq.gz \
               outputs/fastq_trimmed/$SRA_REF/${SRA_REF}_2.untrimmed.fastq.gz \
-              SLIDINGWINDOW:4:20
+              SLIDINGWINDOW:4:30
 
 ####################################
 # Re-running fastqc on trimmed reads
