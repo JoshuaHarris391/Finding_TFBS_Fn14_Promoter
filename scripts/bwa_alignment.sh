@@ -3,6 +3,7 @@
 #SBATCH --time=24:00:00 #Walltime (HH:MM:SS)
 #SBATCH --mem=6000 # Memory in MB
 #SBATCH --cpus-per-task=4
+#SBATCH --output='BWA_Align'
 
 # Set wd
 set -e
@@ -14,14 +15,6 @@ mkdir -p  outputs/alignments/sam \
           outputs/alignments/bam \
           outputs/variant_calls/vcf \
           outputs/variant_calls/bcf
-
-# Downloading hg19 human reference genome
-# mkdir -p ../data/hg19
-# cd ../data/hg19
-# wget http://hgdownload.cse.ucsc.edu/goldenPath/hg19/bigZips/hg19.fa.gz
-# chmod -w *.gz
-# gunzip hg19.fa.gz
-# cd /home/STUDENT/harjo391/JRA/JRA_5_TFBS_Fn14_Promoter
 
 #################################
 # Alignment BWA
@@ -35,7 +28,7 @@ module load "BWA/0.7.17-foss-2018b"
 
 echo "[UPDATE] Running BWA mem aligner"
 
-bwa mem -t 4 -P ../data/GRCh37/human_g1k_v37_decoy.fasta \
+bwa mem -t 4 -P /resource/bundles/broad_bundle_b37_v2.5/human_g1k_v37_decoy.fasta \
         outputs/fastq_trimmed/$SRA_REF/${SRA_REF}_1.trimmed.fastq.gz \
         outputs/fastq_trimmed/$SRA_REF/${SRA_REF}_2.trimmed.fastq.gz > \
         outputs/alignments/sam/${SRA_REF}.aligned.sam
@@ -71,8 +64,12 @@ echo "[UPDATE] indexing bam files"
 samtools index outputs/alignments/bam/${SRA_REF}.aligned.sorted.bam
 echo "[UPDATE] indexed ${SRA_REF}.aligned.sorted.bam"
 
-# Subsetting Chromosome 16 from bam files.
-mkdir -p outputs/alignments/bam/chr16
-samtools view -b outputs/alignments/bam/${SRA_REF}.aligned.sorted.bam > outputs/alignments/bam/chr16/${SRA_REF}.chr16.aligned.sorted.bam
+# Marking duplicates
+module load picard
+java -jar $EBROOTPICARD/picard.jar MarkDuplicates I=outputs/alignments/bam/${SRA_REF}_pass.aligned.sorted.bam O=outputs/alignments/bam/${SRA_REF}_pass.aligned.sorted.bam M=${SRA_REF}_MarkDuplicates.txt
+
+# Defining Read groups
+java -jar $EBROOTPICARD/picard.jar AddOrReplaceReadGroups I=outputs/alignments/bam/${SRA_REF}_pass.aligned.sorted.bam O=outputs/alignments/bam/${SRA_REF}_pass.aligned.sorted.bam PU=BARCODE PL=ILLUMINA LB=GROUP RGSM=RGSM
+
 
 echo "[UPDATE] end of script"
