@@ -32,8 +32,8 @@ done
 # Running alignment
 for filename_input in ${SRA_REF[*]}; do
   echo "== Running alignment on $filename_input =="
-  # JOB_2=$(sbatch --dependency=afterany:$JOB_1 --export=SRA_REF=$filename_input,DATA=$DATA --parsable scripts/bwa_alignment.sh)
-	JOB_2=$(sbatch --export=SRA_REF=$filename_input,DATA=$DATA --parsable scripts/bwa_alignment.sh)
+  JOB_2=$(sbatch --dependency=afterany:$JOB_1 --export=SRA_REF=$filename_input,DATA=$DATA --parsable scripts/bwa_alignment.sh)
+	# JOB_2=$(sbatch --export=SRA_REF=$filename_input,DATA=$DATA --parsable scripts/bwa_alignment.sh)
 done
 
 # Running Mutect2
