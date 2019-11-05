@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --job-name=BWA_Align # job name (shows up in the queue)
 #SBATCH --time=24:00:00 #Walltime (HH:MM:SS)
-#SBATCH --mem=10000 # Memory in MB
+#SBATCH --mem=2000 # Memory in MB
 #SBATCH --cpus-per-task=4
 #SBATCH --output=slurm_%x_%j.out
 
