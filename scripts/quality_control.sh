@@ -3,9 +3,9 @@
 #SBATCH --time=05:00:00 #Walltime (HH:MM:SS)
 #SBATCH --mem=8000 # Memory in MB
 #SBATCH --cpus-per-task=1
-#SBATCH --output=${SRA_REF}_QC_Trim.out
+#SBATCH --output=slurm_%x_%j.out
 
-
+z
 # Setting working directory
 set -e
 cd /home/STUDENT/harjo391/JRA/JRA_5_TFBS_Fn14_Promoter

@@ -3,7 +3,7 @@
 #SBATCH --time=24:00:00 #Walltime (HH:MM:SS)
 #SBATCH --mem=10000 # Memory in MB
 #SBATCH --cpus-per-task=8
-#SBATCH --output=${SRA_REF}_BWA_Align.out
+#SBATCH --output=slurm_%x_%j.out
 
 # Set wd
 set -e
