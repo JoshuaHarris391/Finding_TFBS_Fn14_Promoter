@@ -2,7 +2,7 @@
 #SBATCH --job-name=BWA_Align # job name (shows up in the queue)
 #SBATCH --time=24:00:00 #Walltime (HH:MM:SS)
 #SBATCH --mem=10000 # Memory in MB
-#SBATCH --cpus-per-task=8
+#SBATCH --cpus-per-task=4
 #SBATCH --output=slurm_%x_%j.out
 
 # Set wd
@@ -28,7 +28,7 @@ module load "BWA/0.7.17-foss-2018b"
 
 echo "[UPDATE] Running BWA mem aligner"
 
-bwa mem -t 8 -P /resource/bundles/broad_bundle_b37_v2.5/human_g1k_v37_decoy.fasta \
+bwa mem -t 4 -P /resource/bundles/broad_bundle_b37_v2.5/human_g1k_v37_decoy.fasta \
         outputs/fastq_trimmed/$SRA_REF/${SRA_REF}_1.trimmed.fastq.gz \
         outputs/fastq_trimmed/$SRA_REF/${SRA_REF}_2.trimmed.fastq.gz > \
         outputs/alignments/sam/${SRA_REF}.aligned.sam
@@ -66,10 +66,10 @@ echo "[UPDATE] indexed ${SRA_REF}.aligned.sorted.bam"
 
 # Marking duplicates
 module load picard
-java -jar $EBROOTPICARD/picard.jar MarkDuplicates I=outputs/alignments/bam/${SRA_REF}_pass.aligned.sorted.bam O=outputs/alignments/bam/${SRA_REF}_pass.aligned.sorted.bam M=${SRA_REF}_MarkDuplicates.txt
+java -jar $EBROOTPICARD/picard.jar MarkDuplicates I=outputs/alignments/bam/${SRA_REF}.aligned.sorted.bam O=outputs/alignments/bam/${SRA_REF}.aligned.sorted.bam M=${SRA_REF}_MarkDuplicates.txt
 
 # Defining Read groups
-java -jar $EBROOTPICARD/picard.jar AddOrReplaceReadGroups I=outputs/alignments/bam/${SRA_REF}_pass.aligned.sorted.bam O=outputs/alignments/bam/${SRA_REF}_pass.aligned.sorted.bam PU=BARCODE PL=ILLUMINA LB=GROUP RGSM=RGSM
+java -jar $EBROOTPICARD/picard.jar AddOrReplaceReadGroups I=outputs/alignments/bam/${SRA_REF}.aligned.sorted.bam O=outputs/alignments/bam/${SRA_REF}.aligned.sorted.bam PU=BARCODE PL=ILLUMINA LB=GROUP RGSM=RGSM
 
 
 echo "[UPDATE] end of script"
