@@ -66,10 +66,10 @@ echo "[UPDATE] indexed ${SRA_REF}.aligned.sorted.bam"
 
 # Marking duplicates
 module load picard
-java -jar $EBROOTPICARD/picard.jar MarkDuplicates I=outputs/alignments/bam/${SRA_REF}.aligned.sorted.bam O=outputs/alignments/bam/${SRA_REF}.aligned.sorted.bam M=${SRA_REF}_MarkDuplicates.txt
+java -jar $EBROOTPICARD/picard.jar MarkDuplicates I=outputs/alignments/bam/${SRA_REF}.aligned.sorted.bam O=outputs/alignments/bam/${SRA_REF}.dedup.aligned.sorted.bam M=outputs/alignments/bam/${SRA_REF}_MarkDuplicates.txt
 
 # Defining Read groups
-java -jar $EBROOTPICARD/picard.jar AddOrReplaceReadGroups I=outputs/alignments/bam/${SRA_REF}.aligned.sorted.bam O=outputs/alignments/bam/${SRA_REF}.aligned.sorted.bam PU=BARCODE PL=ILLUMINA LB=GROUP RGSM=RGSM
+java -jar $EBROOTPICARD/picard.jar AddOrReplaceReadGroups I=outputs/alignments/bam/${SRA_REF}.dedup.aligned.sorted.bam O=outputs/alignments/bam/${SRA_REF}.dedup.aligned.sorted.bam PU=BARCODE PL=ILLUMINA LB=GROUP RGSM=RGSM
 
 
 echo "[UPDATE] end of script"
