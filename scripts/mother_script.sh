@@ -37,9 +37,9 @@ for filename_input in ${SRA_REF[*]}; do
 done
 
 # Running Mutect2
-# for filename_input in ${SRA_REF[*]}; do
-#   echo "== Mutect2 on $filename_input =="
-#   JOB_3=$(sbatch --dependency=afterany:$JOB_2 --export=SRA_REF=$filename_input,DATA=$DATA --parsable scripts/Variant_Calling.sh)
-# done
+for filename_input in ${SRA_REF[*]}; do
+  echo "== Mutect2 on $filename_input =="
+  JOB_3=$(sbatch --dependency=afterany:$JOB_2 --export=SRA_REF=$filename_input,DATA=$DATA --parsable scripts/Variant_Calling.sh)
+done
 
 echo "== END OF HEAD SCRIPT=="

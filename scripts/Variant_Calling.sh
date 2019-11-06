@@ -8,8 +8,8 @@
 set -e
 cd /home/STUDENT/harjo391/JRA/JRA_5_TFBS_Fn14_Promoter
 
-# Defining SRA ref temp
-SRA_REF='SRR8652105'
+# # Defining SRA ref temp
+# SRA_REF='SRR8652105'
 
 # Loading GATK module
 module purge
@@ -40,7 +40,7 @@ module load Java/1.10.0_1
 GATK_PATH=/home/STUDENT/harjo391/tools/GATK/gatk-4.1.3.0/gatk-package-4.1.3.0-local.jar
 # Running Mutect2
 # java -jar $GATK_PATH Mutect2 -R ../data/GRCh37/human_g1k_v37_decoy.fasta -I outputs/alignments/bam/${SRA_REF_TMP}_pass.aligned.sorted.bam --germline-resource ../data/gnomad_chr16/gnomad.genomes.r2.1.1.sites.16.vcf.gz -O outputs/variant_calls/vcf/$SRA_REF_TMP.ch16.vcf.gz
-java -jar $GATK_PATH Mutect2 -R /resource/bundles/broad_bundle_b37_v2.5/human_g1k_v37_decoy.fasta -I outputs/alignments/bam/${SRA_REF}_pass.aligned.sorted.bam --germline-resource /resource/bundles/gnomAD/vcf/genomes/gnomad.genomes.r2.0.2.sites.vcf.bgz -O outputs/variant_calls/vcf/$SRA_REF.vcf.gz --disable-sequence-dictionary-validation true
+java -jar $GATK_PATH Mutect2 -R /resource/bundles/broad_bundle_b37_v2.5/human_g1k_v37_decoy.fasta -I outputs/alignments/bam/${SRA_REF}.aligned.sorted.bam --germline-resource /resource/bundles/gnomAD/vcf/genomes/gnomad.genomes.r2.0.2.sites.vcf.bgz -O outputs/variant_calls/vcf/$SRA_REF.vcf.gz --disable-sequence-dictionary-validation true
 # java -jar $EBROOTGATK/GenomeAnalysisTK.jar Mutect2 -R ../data/GRCh37/human_g1k_v37_decoy.fasta -I outputs/alignments/bam/chr16/$SRA_REF.chr16.aligned.sorted.bam --germline-resource ../data/gnomad_chr16/gnomad.genomes.r2.1.1.sites.16.liftover_grch38.vcf.bgz -O outputs/variant_calls/vcf/$SRA_REF.ch16.vcf.gz
 
 
