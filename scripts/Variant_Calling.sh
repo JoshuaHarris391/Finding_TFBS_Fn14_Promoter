@@ -3,6 +3,7 @@
 #SBATCH --time=24:00:00 #Walltime (HH:MM:SS)
 #SBATCH --mem=6000 # Memory in MB
 #SBATCH --cpus-per-task=4
+#SBATCH --output=slurm_%x_%j.out
 
 # Setting WD
 set -e
