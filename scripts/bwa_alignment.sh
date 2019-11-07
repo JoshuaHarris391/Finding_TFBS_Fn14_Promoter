@@ -28,7 +28,9 @@ module load "BWA/0.7.17-foss-2018b"
 
 echo "[UPDATE] Running BWA mem aligner"
 
-bwa mem -t 4 -P /resource/bundles/broad_bundle_b37_v2.5/human_g1k_v37_decoy.fasta \
+bwa mem -t 4 \
+				-R '@RG\tID:group1\tSM:sample1\tPL:illumina\tLB:lib1\tPU:unit1' \
+				-P /resource/bundles/broad_bundle_b37_v2.5/human_g1k_v37_decoy.fasta \
         outputs/fastq_trimmed/$SRA_REF/${SRA_REF}_1.trimmed.fastq.gz \
         outputs/fastq_trimmed/$SRA_REF/${SRA_REF}_2.trimmed.fastq.gz > \
         outputs/alignments/sam/${SRA_REF}.aligned.sam
@@ -38,7 +40,7 @@ echo "[UPDATE] completed ${SRA_REF} alignment"
 # Convert to Bam
 #################################
 echo "[UPDATE] converting to bam file"
-module load "SAMtools/1.9-foss-2018a"
+module load 'SAMtools'
 # Converting to bam
 samtools view -S -b outputs/alignments/sam/${SRA_REF}.aligned.sam > \
                     outputs/alignments/bam/${SRA_REF}.aligned.bam
@@ -59,17 +61,17 @@ echo "[UPDATE] created flagstat summary for ${SRA_REF}"
 # Merging into summary document
 cat outputs/alignments/bam/metrics/*.txt > outputs/alignments/bam/summary.txt
 
-# Indexing bam files
-echo "[UPDATE] indexing bam files"
-samtools index outputs/alignments/bam/${SRA_REF}.aligned.sorted.bam
-echo "[UPDATE] indexed ${SRA_REF}.aligned.sorted.bam"
-
 # Marking duplicates
 module load picard
 java -jar $EBROOTPICARD/picard.jar MarkDuplicates I=outputs/alignments/bam/${SRA_REF}.aligned.sorted.bam O=outputs/alignments/bam/${SRA_REF}.dedup.aligned.sorted.bam M=outputs/alignments/bam/${SRA_REF}_MarkDuplicates.txt
 
-# Defining Read groups
-java -jar $EBROOTPICARD/picard.jar AddOrReplaceReadGroups I=outputs/alignments/bam/${SRA_REF}.dedup.aligned.sorted.bam O=outputs/alignments/bam/${SRA_REF}.dedup.aligned.sorted.bam PU=BARCODE PL=ILLUMINA LB=GROUP RGSM=RGSM
+# Indexing bam files
+echo "[UPDATE] indexing bam files"
+samtools index outputs/alignments/bam/${SRA_REF}.dedup.aligned.sorted.bam
+echo "[UPDATE] indexed ${SRA_REF}.aligned.sorted.bam"
+
+# # Defining Read groups (Depreciated with bwa mem -R)
+# java -jar $EBROOTPICARD/picard.jar AddOrReplaceReadGroups I=outputs/alignments/bam/${SRA_REF}.dedup.aligned.sorted.bam O=outputs/alignments/bam/${SRA_REF}.dedup.aligned.sorted.bam PU=BARCODE PL=ILLUMINA LB=GROUP RGSM=RGSM
 
 
 echo "[UPDATE] end of script"

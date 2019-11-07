@@ -10,7 +10,7 @@ set -e
 cd /home/STUDENT/harjo391/JRA/JRA_5_TFBS_Fn14_Promoter
 
 # # Defining SRA ref temp
-# SRA_REF='SRR8652105'
+# SRA_REF='SRR8652105_pass'
 
 # Loading GATK module
 module purge
