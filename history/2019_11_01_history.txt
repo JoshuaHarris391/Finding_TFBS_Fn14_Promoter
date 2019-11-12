@@ -1,0 +1,1000 @@
+   77  clear
+   78  ls scripts/
+   79  bash scripts/mother_script.sh 
+   80  man sbatch
+   81  ls
+   82  ls -l
+   83  ls outputs/
+   84  ls outputs/alignments/bam/
+   85  ls -lh  outputs/alignments/bam/
+   86  du -h
+   87  clear
+   88  ls
+   89  mv scripts/bwa_variant_calling.sh scripts/bwa_alignment.sh
+   90  git status
+   91  git add .
+   92  git add --all .
+   93  git status
+   94  git commit -m "changed script name to reflect alignment"
+   95  git push origin master
+   96  ls
+   97  ech $SRA_REF
+   98  echo $SRA_REF
+   99  filenames=$(ls ../test_data/*_1.fastq.gz)
+  100  SRA_REF=$(basename -s _1.fastq.gz $filenames)
+  101  echo $SRA_REF
+  102  echo $SRA_REF[1]
+  103  echo $(SRA_REF[1])
+  104  echo ${SRA_REF[1]}
+  105  echo $SRA_REF | awk ${print $1;}
+  106  echo $SRA_REF | awk '${print $1;}'
+  107  echo $SRA_REF | awk "${print $1;}"
+  108  clear
+  109  ls
+  110  cd JRA/JRA_5_TFBS_Fn14_Promoter/
+  111  ls
+  112  ls scripts/
+  113  git status
+  114  clear
+  115  git status
+  116  git pull origin master
+  117  clear
+  118  ls scripts/
+  119  bash scripts/mother_script.sh 
+  120  man sbatch
+  121  ls
+  122  ls -l
+  123  ls outputs/
+  124  ls outputs/alignments/bam/
+  125  ls -lh  outputs/alignments/bam/
+  126  du -h
+  127  clear
+  128  ls
+  129  mv scripts/bwa_variant_calling.sh scripts/bwa_alignment.sh
+  130  git status
+  131  git add .
+  132  git add --all .
+  133  git status
+  134  git commit -m "changed script name to reflect alignment"
+  135  git push origin master
+  136  ls
+  137  ech $SRA_REF
+  138  echo $SRA_REF
+  139  filenames=$(ls ../test_data/*_1.fastq.gz)
+  140  SRA_REF=$(basename -s _1.fastq.gz $filenames)
+  141  echo $SRA_REF
+  142  echo $SRA_REF[1]
+  143  echo $(SRA_REF[1])
+  144  echo ${SRA_REF[1]}
+  145  echo $SRA_REF | awk ${print $1;}
+  146  echo $SRA_REF | awk '${print $1;}'
+  147  echo $SRA_REF | awk "${print $1;}"
+  148  echo $SRA_REF | head -n1
+  149  echo $SRA_REF | head -n1 | awk "${print $1;}"
+  150  clear
+  151  ls
+  152  cd JRA/JRA_5_TFBS_Fn14_Promoter/
+  153  ls
+  154  ls scripts/
+  155  git status
+  156  clear
+  157  git status
+  158  git pull origin master
+  159  clear
+  160  ls scripts/
+  161  bash scripts/mother_script.sh 
+  162  man sbatch
+  163  ls
+  164  ls -l
+  165  ls outputs/
+  166  ls outputs/alignments/bam/
+  167  ls -lh  outputs/alignments/bam/
+  168  du -h
+  169  clear
+  170  ls
+  171  mv scripts/bwa_variant_calling.sh scripts/bwa_alignment.sh
+  172  git status
+  173  git add .
+  174  git add --all .
+  175  git status
+  176  git commit -m "changed script name to reflect alignment"
+  177  git push origin master
+  178  ls
+  179  ech $SRA_REF
+  180  echo $SRA_REF
+  181  filenames=$(ls ../test_data/*_1.fastq.gz)
+  182  SRA_REF=$(basename -s _1.fastq.gz $filenames)
+  183  echo $SRA_REF
+  184  echo $SRA_REF[1]
+  185  echo $(SRA_REF[1])
+  186  echo ${SRA_REF[1]}
+  187  echo $SRA_REF | awk ${print $1;}
+  188  echo $SRA_REF | awk '${print $1;}'
+  189  echo $SRA_REF | awk "${print $1;}"
+  190  echo $SRA_REF | head -n1
+  191  echo $SRA_REF | head -n1 | awk "${print $1;}"
+  192  echo $SRA_REF | head -n1 | awk '{print $1;}'
+  193  echo $SRA_REF | awk '{print $1;}'
+  194  SRA_REF=$(echo $SRA_REF | awk '{print $1;}')
+  195  echo $SRA_REF 
+  196  mkdir -p outputs/alignments/bam/chr16
+  197  samtools view -b outputs/alignments/bam/${SRA_REF}.aligned.sorted.bam chr16 >  outputs/alignments/bam/chr16/${SRA_REF}.chr16.aligned.sorted.bam
+  198  module load "SAMtools/1.9-foss-2018a"
+  199  samtools view -b outputs/alignments/bam/${SRA_REF}.aligned.sorted.bam chr16 >  outputs/alignments/bam/chr16/${SRA_REF}.chr16.aligned.sorted.bam
+  200  ls -lh outputs/alignments/bam/chr16/
+  201  ls -lh outputs/alignments/bam/
+  202  git status
+  203  git pull origin master
+  204  bash scripts/mother_script.sh 
+  205  git pull origin master
+  206  bash scripts/mother_script.sh 
+  207  git pull origin master
+  208  git push origin master
+  209  git pull origin master
+  210  bash scripts/mother_script.sh 
+  211  module spider mutect
+  212  module spider mutect2
+  213  module spider gatk
+  214  clear
+  215  module purge
+  216  module load GATK/3.8-1-Java-1.8.0_172
+  217  java -jar $EBROOTGATK/GenomeAnalysisTK.jar mutect2 --version
+  218  ls ../
+  219  ls ../data/
+  220  ls ../data/hg19/
+  221  ls ../data/hg19/hg19.fa
+  222  ls outputs/alignments/bam/chr16/
+  223  echo $SRA_REF
+  224  ls ..
+  225  ls ../../
+  226  ls ../../ls/
+  227  ls ../../ls/google-cloud-sdk/
+  228  cd ~
+  229  ls
+  230  rm -R ls/
+  231  ls
+  232  ls slurm
+  233  ls slurm_scripts/
+  234  ls tools/
+  235  ls -lh
+  236  rm -R google_sdk/
+  237  ls WGS_Data/
+  238  ls WGS_Data/Pop_Varients/
+  239  cd JRA/JRA_5_TFBS_Fn14_Promoter/
+  240  ls
+  241  cd ..
+  242  ls
+  243  mkdir data/gnomad_chr16
+  244  cd data/gnomad_chr16/
+  245  wget https://storage.googleapis.com/gnomad-public/release/2.1.1/liftover_grch38/vcf/genomes/gnomad.genomes.r2.1.1.sites.16.liftover_grch38.vcf.bgz
+  246  ls
+  247  ls *
+  248  rm *
+  249  ls
+  250  man wget
+  251  pwg
+  252  pwd
+  253  cd /home/STUDENT/harjo391/JRA/JRA_5_TFBS_Fn14_Promoter
+  254  git pull origin master
+  255  sbatch scripts/download_gnomad_chr16 
+  256  ls -lh ../data/gnomad_chr16/
+  257  clear
+  258  du -sh
+  259  du -sh ..
+  260  ls -lh ../data/gnomad_chr16/
+  261  ls outputs/alignments/
+  262  ls outputs/
+  263  ls outputs/variant_calls/
+  264  ls outputs/variant_calls/vcf/
+  265  ls outputs/alignments/bam/chr16/
+  266  java -jar $EBROOTGATK/GenomeAnalysisTK.jar Mutect2 -R ../data/hg19/hg19.fa -I outputs/alignments/bam/chr16/$SRA_REF.chr16.aligned.sorted.bam --germline-resource ../data/gnomad_chr16/gnomad.genomes.r2.1.1.sites.16.liftover_grch38.vcf.bgz -O outputs/variant_calls/vcf/$SRA_REF.ch16.vcf.gz
+  267  java -jar $EBROOTGATK/GenomeAnalysisTK.jar Mutect2 -R ../data/hg19/hg19.fa -I outputs/alignments/bam/chr16/$SRA_REF.chr16.aligned.sorted.bam --germline-resource ../data/gnomad_chr16/gnomad.genomes.r2.1.1.sites.16.liftover_grch38.vcf.bgz -O outputs/variant_calls/vcf/$SRA_REF.ch16.vcf.gz
+  268  java -jar $EBROOTGATK/GenomeAnalysisTK.jar
+  269  module purge
+  270  module load GATK/3.8-1-Java-1.8.0_172
+  271  java -jar $EBROOTGATK/GenomeAnalysisTK.jar
+  272  java -jar $EBROOTGATK/GenomeAnalysisTK.jar --help
+  273  java -jar $EBROOTGATK/GenomeAnalysisTK.jar m2 -R ../data/hg19/hg19.fa -I outputs/alignments/bam/chr16/$SRA_REF.chr16.aligned.sorted.bam --germline-resource ../data/gnomad_chr16/gnomad.genomes.r2.1.1.sites.16.liftover_grch38.vcf.bgz -O outputs/variant_calls/vcf/$SRA_REF.ch16.vcf.gz
+  274  java -jar $EBROOTGATK/GenomeAnalysisTK.jar MuTect2 -R ../data/hg19/hg19.fa -I outputs/alignments/bam/chr16/$SRA_REF.chr16.aligned.sorted.bam --germline-resource ../data/gnomad_chr16/gnomad.genomes.r2.1.1.sites.16.liftover_grch38.vcf.bgz -O outputs/variant_calls/vcf/$SRA_REF.ch16.vcf.gz
+  275  java -jar $EBROOTGATK/GenomeAnalysisTK.jar Mutect2 -R "../data/hg19/hg19.fa" -I "outputs/alignments/bam/chr16/$SRA_REF.chr16.aligned.sorted.bam" --germline-resource "../data/gnomad_chr16/gnomad.genomes.r2.1.1.sites.16.liftover_grch38.vcf.bgz" -O "outputs/variant_calls/vcf/$SRA_REF.ch16.vcf.gz"
+  276  java -jar $EBROOTGATK/GenomeAnalysisTK.jar Mutect2
+  277  module purge
+  278  clear
+  279  cd ~
+  280  ls
+  281  cd tools/
+  282  ls
+  283  mkdir GATK
+  284  cd GATK/
+  285  ls
+  286  wget https://github.com/broadinstitute/gatk/releases/download/4.1.3.0/gatk-4.1.3.0.zip
+  287  ls
+  288  unzip gatk-4.1.3.0.zip 
+  289  ls
+  290  ls gatk-4.1.3.0
+  291  pwd
+  292  cd gatk-4.1.3.0/
+  293  pwd
+  294  export PATH=$PATH:/home/STUDENT/harjo391/tools/GATK/gatk-4.1.3.0/gatk
+  295  gatk --help
+  296  ./gatk --help
+  297  q
+  298  clear
+  299  cd ~/JRA/JRA_5_TFBS_Fn14_Promoter/
+  300  ls
+  301  ./gatk --help
+  302  export PATH=$PATH:/home/STUDENT/harjo391/tools/GATK/gatk-4.1.3.0/gatk
+  303  ./gatk --help
+  304  gatk --help
+  305  GATK_PATH=/home/STUDENT/harjo391/tools/GATK/gatk-4.1.3.0/gatk
+  306  echo $GATK_PATH 
+  307  $GATK_PATH --help
+  308  $GATK_PATH Mutect2
+  309  $GATK_PATH Mutect2 -R "../data/hg19/hg19.fa" -I "outputs/alignments/bam/chr16/$SRA_REF.chr16.aligned.sorted.bam" --germline-resource "../data/gnomad_chr16/gnomad.genomes.r2.1.1.sites.16.liftover_grch38.vcf.bgz" -O "outputs/variant_calls/vcf/$SRA_REF.ch16.vcf.gz"
+  310  cd /home/STUDENT/harjo391/JRA/JRA_5_TFBS_Fn14_Promoter
+  311  $GATK_PATH Mutect2 -R ../data/hg19/hg19.fa -I outputs/alignments/bam/chr16/$SRA_REF.chr16.aligned.sorted.bam --germline-resource ../data/gnomad_chr16/gnomad.genomes.r2.1.1.sites.16.liftover_grch38.vcf.bgz -O outputs/variant_calls/vcf/$SRA_REF.ch16.vcf.gz
+  312  ls outputs/variant_calls/vcf/
+  313  ls ../data/gnomad_chr16/gnomad.genomes.r2.1.1.sites.16.liftover_grch38.vcf.bgz
+  314  ls ../data/gnomad_chr16/
+  315  ls outputs/alignments/bam/chr16/
+  316  ls ../data/hg19/hg19.fa
+  317  module spider java
+  318  java --version
+  319  java
+  320  java -jar
+  321  java -jar $GATK_PATH Mutect2 -R ../data/hg19/hg19.fa -I outputs/alignments/bam/chr16/$SRA_REF.chr16.aligned.sorted.bam --germline-resource ../data/gnomad_chr16/gnomad.genomes.r2.1.1.sites.16.liftover_grch38.vcf.bgz -O outputs/variant_calls/vcf/$SRA_REF.ch16.vcf.gz
+  322  module install java
+  323  module load java
+  324  exit
+  325  java --version
+  326  java -version
+  327  module spider java
+  328  clear
+  329  exit
+  330  java -version
+  331  java
+  332  ls
+  333  less slurm-1416946.out 
+  334  ls ou
+  335  cd JRA/JRA_5_TFBS_Fn14_Promoter/
+  336  ls outputs/
+  337  ls outputs/fastq_trimmed/
+  338  ls -lh outputs/fastq_trimmed/
+  339  ls -lh outputs/fastq_trimmed/SRR8670674_pass/
+  340  bash scripts/mother_script.sh 
+  341  ls ou
+  342  ls
+  343  java -version
+  344  java -jar
+  345  clear
+  346  ls
+  347  cd JRA/JRA_5_TFBS_Fn14_Promoter/
+  348  ls
+  349  ls -lh
+  350  ls -lh outputs/
+  351  ls outputs/variant_calls/
+  352  ls outputs/variant_calls/bcf/
+  353  ls outputs/variant_calls/vcf/
+  354  ls -lh  outputs/variant_calls/
+  355  du -lh  outputs/variant_calls/
+  356  du outputs/variant_calls/
+  357  du -sh outputs/
+  358  du -h outputs/
+  359  ls
+  360  clear
+  361  ls /mnt/hcs/
+  362  ls /mnt/hcs/micro/
+  363  ls /mnt/hcs/micro/shared/
+  364  ls /mnt/hcs/micro/home/
+  365  ls /mnt/hcs/micro/
+  366  ls -lh /mnt/hcs/micro/
+  367  ls -lh /mnt/
+  368  clear
+  369  ls
+  370  cd /home/STUDENT/harjo391/JRA/JRA_5_TFBS_Fn14_Promoter
+  371  ls
+  372  module av Java/
+  373  module purge
+  374  module load Java/1.10.0_1 
+  375  java -jar $GATK_PATH Mutect2 -R ../data/hg19/hg19.fa -I outputs/alignments/bam/chr16/$SRA_REF.chr16.aligned.sorted.bam --germline-resource ../data/gnomad_chr16/gnomad.genomes.r2.1.1.sites.16.liftover_grch38.vcf.bgz -O outputs/variant_calls/vcf/$SRA_REF.ch16.vcf.gz
+  376  java -jar $GATK_PATH
+  377  ls GATK_PATH=/home/STUDENT/harjo391/tools/GATK/gatk-4.1.3.0/gatk
+  378  java -jar $GATK_PATH Mutect2 -R ../data/hg19/hg19.fa -I outputs/alignments/bam/chr16/$SRA_REF.chr16.aligned.sorted.bam --germline-resource ../data/gnomad_chr16/gnomad.genomes.r2.1.1.sites.16.liftover_grch38.vcf.bgz -O outputs/variant_calls/vcf/$SRA_REF.ch16.vcf.gz
+  379  ls $GATK_PATH
+  380  echo $GATK_PATH
+  381  GATK_PATH=/home/STUDENT/harjo391/tools/GATK/gatk-4.1.3.0/gatk
+  382  echo $GATK_PATH
+  383  ls $GATK_PATH
+  384  ls /home/STUDENT/harjo391/tools/GATK/gatk-4.1.3.0
+  385  ls /home/STUDENT/harjo391/tools/GATK/gatk-4.1.3.0/scripts/
+  386  ls /home/STUDENT/harjo391/tools/GATK/gatk-4.1.3.0/scripts/mutect2_wdl/
+  387  module purge
+  388  module load GATK/3.8-1-Java-1.8.0_172
+  389  java -jar $EBROOTGATK/GenomeAnalysisTK.jar Mutect2 -R ../data/hg19/hg19.fa -I outputs/alignments/bam/chr16/$SRA_REF.chr16.aligned.sorted.bam --germline-resource ../data/gnomad_chr16/gnomad.genomes.r2.1.1.sites.16.liftover_grch38.vcf.bgz -O outputs/variant_calls/vcf/$SRA_REF.ch16.vcf.gz
+  390  module spider gatk
+  391  purge
+  392  module load GATK/3.8-0-Java-1.8.0_144
+  393  module purge
+  394  module load GATK/3.8-0-Java-1.8.0_144
+  395  java -jar $EBROOTGATK/GenomeAnalysisTK.jar Mutect2 -R ../data/hg19/hg19.fa -I outputs/alignments/bam/chr16/$SRA_REF.chr16.aligned.sorted.bam --germline-resource ../data/gnomad_chr16/gnomad.genomes.r2.1.1.sites.16.liftover_grch38.vcf.bgz -O outputs/variant_calls/vcf/$SRA_REF.ch16.vcf.gz
+  396  java -jar $EBROOTGATK/GenomeAnalysisTK.jar Mutect2 -R "../data/hg19/hg19.fa" -I "outputs/alignments/bam/chr16/$SRA_REF.chr16.aligned.sorted.bam" --germline-resource "../data/gnomad_chr16/gnomad.genomes.r2.1.1.sites.16.liftover_grch38.vcf.bgz" -O "outputs/variant_calls/vcf/$SRA_REF.ch16.vcf.gz"
+  397  -O "outputs/variant_calls/vcf/$SRA_REF.ch16.vcf.gz"
+  398  module purge
+  399  module load Java/1.10.0_1 
+  400  GATK_PATH=/home/STUDENT/harjo391/tools/GATK/gatk-4.1.3.0/gatk
+  401  java -jar $GATK_PATH Mutect2 -R ../data/hg19/hg19.fa -I outputs/alignments/bam/chr16/$SRA_REF.chr16.aligned.sorted.bam --germline-resource ../data/gnomad_chr16/gnomad.genomes.r2.1.1.sites.16.liftover_grch38.vcf.bgz -O outputs/variant_calls/vcf/$SRA_REF.ch16.vcf.gz
+  402  ls /home/STUDENT/harjo391/tools/GATK/gatk-4.1.3.0
+  403  ls /home/STUDENT/harjo391/tools/GATK/gatk-4.1.3.0/gatk-package-4.1.3.0-local.jar GATK_PATH=/home/STUDENT/harjo391/tools/GATK/gatk-4.1.3.0/gatk-package-4.1.3.0-local.jar
+  404  java -jar $GATK_PATH Mutect2 -R ../data/hg19/hg19.fa -I outputs/alignments/bam/chr16/$SRA_REF.chr16.aligned.sorted.bam --germline-resource ../data/gnomad_chr16/gnomad.genomes.r2.1.1.sites.16.liftover_grch38.vcf.bgz -O outputs/variant_calls/vcf/$SRA_REF.ch16.vcf.gz
+  405  GATK_PATH=/home/STUDENT/harjo391/tools/GATK/gatk-4.1.3.0/gatk-package-4.1.3.0-local.jar
+  406  echo $GATK_PATH 
+  407  java -jar $GATK_PATH Mutect2 -R ../data/hg19/hg19.fa -I outputs/alignments/bam/chr16/$SRA_REF.chr16.aligned.sorted.bam --germline-resource ../data/gnomad_chr16/gnomad.genomes.r2.1.1.sites.16.liftover_grch38.vcf.bgz -O outputs/variant_calls/vcf/$SRA_REF.ch16.vcf.gz
+  408  clear
+  409  module spider GATK4
+  410  ule purge
+  411  module load GATK4/4.1.0.0-foss-2018b-Python-3.6.6
+  412  GATK -h
+  413  GATK4 -h
+  414  Mutect2 -h
+  415  echo $SRA_REF
+  416  filenames=$(ls ../test_data/*_1.fastq.gz)
+  417  SRA_REF=$(basename -s _1.fastq.gz $filenames)
+  418  echo $SRA_REF
+  419  SRA_REF=$(SRR8652105)
+  420  SRA_REF=$SRR8652105
+  421  echo $SRA_REF
+  422  SRA_REF='SRR8652105'
+  423  echo $SRA_REF
+  424  gatk-launch --javaOptions "-Xmx4g" Mutect2  -R ../data/hg19/hg19.fa  -I outputs/alignments/bam/chr16/$SRA_REF.chr16.aligned.sorted.bam  -tumor $SRA_REF  --germline_resource ../data/gnomad_chr16/gnomad.genomes.r2.1.1.sites.16.liftover_grch38.vcf.bgz  -O outputs/variant_calls/vcf/$SRA_REF.ch16.vcf.gz
+  425  module purge
+  426  module load GATK4/4.1.0.0-foss-2018b-Python-3.6.6
+  427  gatk-launch --javaOptions "-Xmx4g" Mutect2  -R ../data/hg19/hg19.fa  -I outputs/alignments/bam/chr16/$SRA_REF.chr16.aligned.sorted.bam  -tumor $SRA_REF  --germline_resource ../data/gnomad_chr16/gnomad.genomes.r2.1.1.sites.16.liftover_grch38.vcf.bgz  -O outputs/variant_calls/vcf/$SRA_REF.ch16.vcf.gz
+  428  module purge
+  429  module load Java/1.10.0_1
+  430  GATK_PATH=/home/STUDENT/harjo391/tools/GATK/gatk-4.1.3.0/gatk-package-4.1.3.0-local.jar
+  431  java -jar $GATK_PATH Mutect2 -R ../data/hg19/hg19.fa -I outputs/alignments/bam/chr16/$SRA_REF.chr16.aligned.sorted.bam --germline-resource ../data/gnomad_chr16/gnomad.genomes.r2.1.1.sites.16.liftover_grch38.vcf.bgz -O outputs/variant_calls/vcf/$SRA_REF.ch16.vcf.gz
+  432  ls ../data/hg19/
+  433  module load "SAMtools/1.9-foss-2018a"
+  434  git pull origin master
+  435  sbatch scripts/hg19_download_index.sh 
+  436  ls
+  437  ls outputs/
+  438  ls outputs/variant_calls/
+  439  ls outputs/variant_calls/vcf/
+  440  ls -la outputs/variant_calls/vcf/
+  441  clear
+  442  ls
+  443  cd /home/STUDENT/harjo391/JRA/JRA_5_TFBS_Fn14_Promoter
+  444  ls
+  445  ls ../data/hg19/
+  446  cat slurm* | less
+  447  WORKING_DIR=/Users/joshua_harris/Dropbox/Research/JRA_Cunliffe_Lab_2019/Experiments/JRA_5/JRA_5_TFBS_Fn14_Promoter
+  448  module purge
+  449  module load "SAMtools/1.9-foss-2018a"
+  450  module load "BWA/0.7.17-foss-2018b"
+  451  # Setting WD
+  452  WORKING_DIR=/Users/joshua_harris/Dropbox/Research/JRA_Cunliffe_Lab_2019/Experiments/JRA_5/JRA_5_TFBS_Fn14_Promoter
+  453  cd $WORKING_DIR
+  454  # Downloading hg19 human reference genome
+  455  mkdir -p ../data/hg19
+  456  cd ../data/hg19
+  457  # wget http://hgdownload.cse.ucsc.edu/goldenPath/hg19/bigZips/hg19.fa.gz
+  458  # chmod -w *.gz
+  459  # gunzip hg19.fa.gz
+  460  cd $WORKING_DIR
+  461  # Indexing hg19 reference with BWA
+  462  echo "Indexing hg19 reference"
+  463  # bwa index ../data/hg19/hg19.fa
+  464  # Indexing with SAMtools
+  465  samtools faidx ../data/hg19/hg19.fa
+  466  ls
+  467  ls -l
+  468  ls -lh
+  469  ls
+  470  module purge
+  471  module load "SAMtools/1.9-foss-2018a"
+  472  module load "BWA/0.7.17-foss-2018b"
+  473  # Setting WD
+  474  WORKING_DIR=/Users/joshua_harris/Dropbox/Research/JRA_Cunliffe_Lab_2019/Experiments/JRA_5/JRA_5_TFBS_Fn14_Promoter
+  475  cd $WORKING_DIR
+  476  pwd
+  477  cd ../
+  478  ls
+  479  cd ../
+  480  ls
+  481  cd JRA_5_TFBS_Fn14_Promoter/
+  482  pwd
+  483  WORKING_DIR=/home/STUDENT/harjo391/JRA/JRA_5_TFBS_Fn14_Promoter
+  484  cd $WORKING_DIR
+  485  # Downloading hg19 human reference genome
+  486  mkdir -p ../data/hg19
+  487  cd ../data/hg19
+  488  # wget http://hgdownload.cse.ucsc.edu/goldenPath/hg19/bigZips/hg19.fa.gz
+  489  # chmod -w *.gz
+  490  # gunzip hg19.fa.gz
+  491  cd $WORKING_DIR
+  492  echo "Indexing hg19 reference"
+  493  samtools faidx ../data/hg19/hg19.fa
+  494  git pull origin master
+  495  sbatch scripts/hg19_download_index.sh 
+  496  scancel 1567375
+  497  surn scripts/hg19_download_index.sh 
+  498  srun scripts/hg19_download_index.sh 
+  499  module purge
+  500  module load "SAMtools/1.9-foss-2018a"
+  501  module load "BWA/0.7.17-foss-2018b"
+  502  samtools faidx ../data/hg19/hg19.fa
+  503  ls ../data/hg19/
+  504  cd /home/STUDENT/harjo391/JRA/JRA_5_TFBS_Fn14_Promoter
+  505  module purge
+  506  module load Java/1.10.0_1
+  507  GATK_PATH=/home/STUDENT/harjo391/tools/GATK/gatk-4.1.3.0/gatk-package-4.1.3.0-local.jar
+  508  filenames=$(ls ../test_data/*_1.fastq.gz)
+  509  SRA_REF=$(basename -s _1.fastq.gz $filenames)
+  510  echo $SRA_REF
+  511  SRA_REF='SRR8652105'
+  512  echo $SRA_REF
+  513  GATK_PATH=/home/STUDENT/harjo391/tools/GATK/gatk-4.1.3.0/gatk-package-4.1.3.0-local.jar
+  514  java -jar $GATK_PATH Mutect2 -R ../data/hg19/hg19.fa.fai -I outputs/alignments/bam/chr16/$SRA_REF.chr16.aligned.sorted.bam --germline-resource ../data/gnomad_chr16/gnomad.genomes.r2.1.1.sites.16.liftover_grch38.vcf.bgz -O outputs/variant_calls/vcf/$SRA_REF.ch16.vcf.gz
+  515  ls -lh outputs/
+  516  ls -lh outputs/variant_calls//vcf/
+  517  ls -lh outputs/variant_calls/vcf/
+  518  ls -lh outputs/variant_calls/bcf/
+  519  ls
+  520  clear
+  521  git pull origin master
+  522  sbatch scripts/Variant_Calling.sh 
+  523  ls
+  524  less slurm-1567402.out 
+  525  mv ../data/hg19/hg19.fa ../data/hg19/hg19.fasta
+  526  java -jar $GATK_PATH Mutect2 -R ../data/hg19/hg19.fasta -I outputs/alignments/bam/chr16/$SRA_REF.chr16.aligned.sorted.bam --germline-resource ../data/gnomad_chr16/gnomad.genomes.r2.1.1.sites.16.liftover_grch38.vcf.bgz -O outputs/variant_calls/vcf/$SRA_REF.ch16.vcf.gz
+  527  git pull origin master
+  528  sbatch scripts/Variant_Calling.sh 
+  529  ls
+  530  less slurm-1567404.out 
+  531  ls /home/STUDENT/harjo391/tools/GATK/gatk-4.1.3.0/
+  532  ls /home/STUDENT/harjo391/tools/GATK/gatk-4.1.3.0/scripts/
+  533  ls /home/STUDENT/harjo391/tools/GATK/gatk-4.1.3.0/scripts/sv/
+  534  ls /home/STUDENT/harjo391/tools/GATK/gatk-4.1.3.0/scripts/cnq
+  535  ls /home/STUDENT/harjo391/tools/GATK/gatk-4.1.3.0/scripts/cnv_wdl/
+  536  ls /home/STUDENT/harjo391/tools/GATK/gatk-4.1.3.0/scripts/mutect2_wdl/
+  537  module spider Picard
+  538  module load "picard/2.18.11-Java-1.8.0_162"
+  539  # Creating Fasta sequence directory file
+  540  java -jar CreateSequenceDictionary.jar
+  541  java -jar $EBROOTPICARD/picard.jar
+  542  clear
+  543  module load "picard/2.18.11-Java-1.8.0_162"
+  544  java -jar $EBROOTPICARD/picard.jar CreateSequenceDictionary
+  545  mv ../data/hg19/hg19.fasta ../data/hg19/hg19.fa
+  546  ls ../data/hg19/
+  547  git pull origin master
+  548  sbatch scripts/hg19_download_index.sh 
+  549  scancel 1567414
+  550  nano scripts/hg19_download_index.sh 
+  551  sbatch scripts/hg19_download_index.sh 
+  552  git status
+  553  git add .
+  554  git commit -m "updated mem alloc"
+  555  git push origin master
+  556  WORKING_DIR=/home/STUDENT/harjo391/JRA/JRA_5_TFBS_Fn14_Promoter
+  557  cd $WORKING_DIR
+  558  less slurm-1567415.out
+  559  ls ../data/hg19/
+  560  nano scripts/Variant_Calling.sh 
+  561  sbatch scripts/Variant_Calling.sh 
+  562  clear
+  563  ls
+  564  cd JRA/JRA_5_TFBS_Fn14_Promoter/
+  565  ls
+  566  ls -l
+  567  less slurm-1567530.out 
+  568  ls
+  569  ls outputs/alignments/
+  570  ls outputs/alignments/bam/
+  571  ls outputs/alignments/bam/chr16/
+  572  git pull origin master
+  573  git status
+  574  git add .
+  575  git status
+  576  git commit -m "updated somthing"
+  577  git push origin master
+  578  git pull origin master
+  579  git status
+  580  nano scripts/Variant_Calling.sh 
+  581  clear
+  582  cd JRA/JRA_5_TFBS_Fn14_Promoter/
+  583  ls
+  584  rm *.out
+  585  ls
+  586  rm scripts/Variant_Calling.sh
+  587  git status
+  588  git pull origin master
+  589  ls
+  590  nano scripts/Variant_Calling.sh
+  591  vim scripts/Variant_Calling.sh
+  592  ls scripts/Variant_Calling.sh
+  593  git status
+  594  git add .
+  595  git status
+  596  vim scripts/Variant_Calling.sh
+  597  git status
+  598  less scripts/Variant_Calling.sh.save 
+  599  less scripts/Variant_Calling.sh
+  600  rm scripts/Variant_Calling.sh.save 
+  601  git status
+  602  git add .
+  603  git status
+  604  git rm scripts/Variant_Calling.sh.save
+  605  git status
+  606  git add .
+  607  git status
+  608  git commit -m "trying to fix versioning"
+  609  git status
+  610  git push origin master
+  611  git status
+  612  clear
+  613  git status
+  614  sbatch scripts/Variant_Calling.sh 
+  615  ls
+  616  less slurm-1570999.out 
+  617  nano scripts/Variant_Calling.sh 
+  618  rm *.out
+  619  ls
+  620  sbatch scripts/Variant_Calling.sh 
+  621  git status
+  622  git add .
+  623  git commit -m "updated fasta extension"
+  624  git push origin master
+  625  A_REF.chr16.aligned.sorted.bam" \
+  626  # --germline-resource "../data/gnomad_chr16/gnomad.genomes.r2.1.1.sites.16.liftover_grch38.vcf.bgz" \
+  627  # -O "outputs/variant_calls/vcf/$SRA_REF.ch16.vcf.gz"
+  628  # gatk-launch --javaOptions "-Xmx4g" Mutect2 \
+  629  #  -R ../data/hg19/hg19.fa \
+  630  #  -I outputs/alignments/bam/chr16/$SRA_REF.chr16.aligned.sorted.bam \
+  631  #  -tumor $SRA_REF \
+  632  #  --germline_resource ../data/gnomad_chr16/gnomad.genomes.r2.1.1.sites.16.liftover_grch38.vcf.bgz \
+  633  #  -O outputs/variant_calls/vcf/$SRA_REF.ch16.vcf.gz
+  634  # Defiing GATK tool path
+  635  # GATK_PATH=/home/STUDENT/harjo391/tools/GATK/gatk-4.1.3.0/gatk
+  636  GATK_PATH=/home/STUDENT/harjo391/tools/GATK/gatk-4.1.3.0/gatk-package-4.1.3.0-local.jar
+  637  java -jar $GATK_PATH Mutect2 -R ../data/hg19/hg19.fasta -I outputs/alignments/bam/chr16/${SRA_REF}_pass.chr16.aligned.sorted.bam --germline-resource ../data/gnomad_chr16/gnomad.genomes.r2.1.1.sites.16.liftover_grch38.vcf.bgz -O outputs/variant_calls/vcf/$SRA_REF.ch16.vcf.gz
+  638  # java -jar $EBROOTGATK/GenomeAnalysisTK.jar Mutect2 -R ../data/hg19/hg19.fa -I outputs/alignments/bam/chr16/$SRA_REF.chr16.aligned.sorted.bam --germline-resource ../data/gnomad_chr16/gnomad.genomes.r2.1.1.sites.16.liftover_grch38.vcf.bgz -O outputs/variant_calls/vcf/$SRA_REF.ch16.vcf.gz
+  639  # Concluding notes, This should work, but java seems to not be working
+  640  git push origin master
+  641  clear
+  642  cd JRA/JRA_5_TFBS_Fn14_Promoter/
+  643  ls
+  644  less slurm-1571404.out 
+  645  clear
+  646  cd JRA/JRA_5_TFBS_Fn14_Promoter/
+  647  ls
+  648  less slurm-1571404.out 
+  649  ls ../data/
+  650  ls ../data/gnomad_chr16/
+  651  ls -lh  ../data/gnomad_chr16/
+  652  cd ../data/gnomad_chr16/
+  653  ls
+  654  mv gnomad.genomes.r2.1.1.sites.16.liftover_grch38.vcf.bgz gnomad.genomes.r2.1.1.sites.16.liftover_grch38.vcf.gz
+  655  ls
+  656  cd /home/STUDENT/harjo391/JRA/JRA_5_TFBS_Fn14_Promoter
+  657  ls
+  658  git pull origin master
+  659  clear
+  660  ls
+  661  rm *.out
+  662  sbatch scripts/Variant_Calling.sh 
+  663  less slurm-1574966.out 
+  664  git pull origin master
+  665  clear
+  666  sbatch scripts/Variant_Calling.sh 
+  667  less slurm-1574967.out 
+  668  cd ..
+  669  ls
+  670  ls data/gnomad_chr16/gnomad.genomes.r2.1.1.sites.16.liftover_grch38.vcf.gz 
+  671  cd /home/STUDENT/harjo391/JRA/
+  672  java -jar $GATK_PATH IndexFeatureFile -F ./data/gnomad_chr16/gnomad.genomes.r2.1.1.sites.16.liftover_grch38.vcf.gz
+  673  GATK_PATH=/home/STUDENT/harjo391/tools/GATK/gatk-4.1.3.0/gatk-package-4.1.3.0-local.jar
+  674  java -jar $GATK_PATH Mutect2
+  675  module load Java/1.10.0_1
+  676  java -jar $GATK_PATH Mutect2
+  677  cd /home/STUDENT/harjo391/JRA/
+  678  module load Java/1.10.0_1
+  679  java -jar $GATK_PATH IndexFeatureFile -F ./data/gnomad_chr16/gnomad.genomes.r2.1.1.sites.16.liftover_grch38.vcf.gz
+  680  c;ear
+  681  clear
+  682  cd JRA_5_TFBS_Fn14_Promoter/
+  683  ls
+  684  rm *.out
+  685  git pull origin master
+  686  sbatch scripts/index_germline_vcf.sh 
+  687  less slurm-1574968.out 
+  688  ls ../data/gnomad_chr16/
+  689  less slurm-1574968.out 
+  690  ls ../data/gnomad_chr16/
+  691  sbatch scripts/Variant_Calling.sh 
+  692  clear
+  693  cd JRA/JRA_5_TFBS_Fn14_Promoter/
+  694  ls
+  695  less slurm-1575016.out 
+  696  wget https://storage.googleapis.com/gnomad-public/release/2.1.1/vcf/genomes/gnomad.genomes.r2.1.1.sites.16.vcf.bgz
+  697  ls
+  698  clear
+  699  ls
+  700  rm gnomad.genomes.r2.1.1.sites.16.vcf.bgz 
+  701  ls
+  702  rm *.out
+  703  ls
+  704  git pull origin master
+  705  JOB_1=$(sbatch scripts/download_gnomad_chr16)
+  706  JOB_2=$(sbatch --dependency=afterany:$JOB_1 scripts/index_germline_vcf.sh)
+  707  scancel 1575171
+  708  git pull origin master
+  709  sbatch scripts/download_gnomad_chr16.sh 
+  710  ls ../data/gnomad_chr16/
+  711  ls
+  712  less slurm-1575173.out 
+  713  ls ../data/gnomad_chr16/
+  714  ls -lh ../data/gnomad_chr16/
+  715  cd ../data/gnomad_chr16/
+  716  ls
+  717  rm gnomad.genomes.r2.1.1.sites.16.vcf.bgz.1 
+  718  ls
+  719  ls -lh
+  720  rm gnomad.genomes.r2.1.1.sites.16.vcf.gz 
+  721  ls
+  722  ls -lh
+  723  cd /home/STUDENT/harjo391/JRA/JRA_5_TFBS_Fn14_Promoter
+  724  sbatch scripts/download_gnomad_chr16.sh 
+  725  clear
+  726  ls
+  727  tail -15 slurm-1575267.out 
+  728  clear
+  729  tail -15 slurm-1575267.out 
+  730  tail -30 slurm-1575267.out 
+  731  ls ../data/gnomad_chr16/
+  732  git pull origin master
+  733  sbatch scripts/Variant_Calling.sh 
+  734  ls
+  735  ls -lh
+  736  less slurm-1575320.out
+  737  clear
+  738  cd JRA/JRA_5_TFBS_Fn14_Promoter/
+  739  ls
+  740  ls -lh
+  741  less slurm-1575320.out
+  742  cd ../data/hg19/
+  743  ls -lh
+  744  less hg19.fa
+  745  cd ../gnomad_chr16/
+  746  ls
+  747  less gnomad.genomes.r2.1.1.sites.16.vcf.gz
+  748  ls
+  749  cd ../
+  750  ls
+  751  cd GRCh37/
+  752  ls
+  753  ls -lh
+  754  cd ../
+  755  ls
+  756  sbatch echo "hello"
+  757  srun echo "hello"
+  758  TEST=$(echo hello)
+  759  srun --dependency=afterany:$TEST echo yo
+  760  nano dep_test.sh
+  761  bash dep_test.sh 
+  762  nano dep_test.sh
+  763  bash dep_test.sh 
+  764  ls
+  765  rm dep_test.sh 
+  766  ls
+  767  clear
+  768  cd ../JRA_5_TFBS_Fn14_Promoter/
+  769  ls
+  770  cat *.out | less
+  771  clear
+  772  cd JRA/JRA_5_TFBS_Fn14_Promoter/
+  773  ls
+  774  rm *.out
+  775  ls
+  776  bash scripts/mother_script.sh 
+  777  ls
+  778  bash scripts/mother_script.sh 
+  779  touch test.out
+  780  bash scripts/mother_script.sh 
+  781  scancel 1583091
+  782  scancel 1583092
+  783  scancel 1583093
+  784  scancel 1583089
+  785  scancel 1583090
+  786  git status
+  787  git pull origin master
+  788  git status
+  789  clear
+  790  bash scripts/mother_script.sh 
+  791  git pull origin master
+  792  bash scripts/mother_script.sh 
+  793  ls
+  794  clear
+  795  cd /home/STUDENT/harjo391/JRA/JRA_5_TFBS_Fn14_Promoter
+  796  # Defining SRA ref temp
+  797  SRA_REF='SRR8652105'
+  798  # Loading GATK module
+  799  module purge
+  800  # module load GATK/3.8-1-Java-1.8.0_172
+  801  # module load GATK/3.8-0-Java-1.8.0_144
+  802  # module load GATK4/4.1.0.0-foss-2018b-Python-3.6.6
+  803  module load Java/1.10.0_1
+  804  # Note: This is the command to run GATK
+  805  # java -jar $EBROOTGATK/GenomeAnalysisTK.jar
+  806  GATK_PATH=/home/STUDENT/harjo391/tools/GATK/gatk-4.1.3.0/gatk-package-4.1.3.0-local.jar
+  807  clear
+  808  java -jar $GATK_PATH Mutect2 -R ../data/GRCh37/human_g1k_v37_decoy.fasta -I outputs/alignments/bam/chr16/${SRA_REF}_pass.chr16.aligned.sorted.bam --germline-resource ../data/gnomad_chr16/gnomad.genomes.r2.1.1.sites.16.vcf.gz -O outputs/variant_calls/vcf/$SRA_REF.ch16.vcf.gz
+  809  sbatch scripts/Variant_Calling.sh 
+  810  clear
+  811  cd JRA/JRA_5_TFBS_Fn14_Promoter/
+  812  ls
+  813  cat *.out | tail -l 100 | less
+  814  man tail
+  815  cat *.out | tail -n 100 | less
+  816  cd outputs/
+  817  ls
+  818  ls -lh
+  819  variant_calls/
+  820  cd variant_calls/
+  821  ls
+  822  cd vcf/
+  823  ls
+  824  cat *.out | grep error | less
+  825  cd ../../
+  826  cd ../
+  827  ls
+  828  clear
+  829  cat *.out | grep error | less
+  830  cat *.out | grep ERROR | less
+  831  cat *.out | tail -n 300 | less
+  832  clear
+  833  ls
+  834  cd JRA/JRA_5_TFBS_Fn14_Promoter/
+  835  ls -lh
+  836  less slurm-1583791.out
+  837  ls
+  838  ls outputs/alignments/
+  839  ls outputs/alignments/bam/
+  840  ls outputs/alignments/bam/chr16/
+  841  ls ../data/GRCh37/
+  842  ls -lh ../data/GRCh37/
+  843  less slurm-1583791.out
+  844  ls -lh
+  845  less slurm-1585034.out
+  846  clear
+  847  ls
+  848  cd JRA/JRA_5_TFBS_Fn14_Promoter/
+  849  ls
+  850  ls outputs/alignments/bam/
+  851  ls outputs/alignments/bam/chr16/
+  852  cd /home/STUDENT/harjo391/JRA/JRA_5_TFBS_Fn14_Promoter
+  853  # Loading GATK module
+  854  module purge
+  855  module load Java/1.10.0_1
+  856  # Defining GATK GATK_PATH
+  857  GATK_PATH=/home/STUDENT/harjo391/tools/GATK/gatk-4.1.3.0/gatk-package-4.1.3.0-local.jar
+  858  # Running Mutect2
+  859  java -jar $GATK_PATH ValidateSamFile I=outputs/alignments/bam/SRR8652105_pass.chr16.aligned.sorted.bam MODE=SUMMARY
+  860  java -jar $GATK_PATH ValidateSamFile -I outputs/alignments/bam/SRR8652105_pass.chr16.aligned.sorted.bam -MODE SUMMARY
+  861  clear
+  862  git pull orign master
+  863  git pull origin master
+  864  sbatch scripts/validate_bam.sh 
+  865  ls outputs/alignments/bam/chr16/
+  866  git pull origin master
+  867  sbatch scripts/validate_bam.sh 
+  868  clear
+  869  ls
+  870  ls -lh
+  871  less slurm-1585038.out
+  872  less outputs/alignments/bam/chr16/SRR8652105_pass.chr16.aligned.sorted.bam
+  873  java -jar $GATK_PATH ValidateSamFile -I outputs/alignments/bam/chr16/SRR8652105_pass.chr16.aligned.sorted.bam -MODE VERBOSE
+  874  git pull origin master
+  875  sbatch scripts/validate_bam.sh 
+  876  clear
+  877  ls
+  878  ls -lh
+  879  less slurm-1585276.out
+  880  ls outputs/alignments/sam/
+  881  less outputs/alignments/sam/SRR8652105_pass.aligned.sam 
+  882  ls outputs/alignments/bam/chr16/
+  883  ls -lh outputs/alignments/bam/chr16/
+  884  ls
+  885  rm *.out
+  886  ls
+  887  git pull origin master
+  888  ls
+  889  sbatch scripts/mother_script.sh 
+  890  bash scripts/mother_script.sh 
+  891  git pull origin master
+  892  bash scripts/mother_script.sh 
+  893  scancel 1585277
+  894  ls ../data/GRCh37/
+  895  ls -lh ../data/GRCh37/a
+  896  ls -lh ../data/GRCh37/
+  897  scancel -u harjo391
+  898  squeue 
+  899  scancel -u STUDENT+harjo391
+  900  squeue 
+  901  clear
+  902  git pull origin master
+  903  bash scripts/mother_script.sh 
+  904  git pull origin master
+  905  bash scripts/mother_script.sh 
+  906  mkdir outputs
+  907  bash scripts/mother_script.sh 
+  908  ls
+  909  less slurm-1585296.out
+  910  ls outputs/alignments/
+  911  ls outputs/alignments/bam/
+  912  cat *.out | less
+  913  clear
+  914  ls
+  915  rm *.out
+  916  cd JRA/
+  917  ls
+  918  cd data/
+  919  ls
+  920  rm -R GRCh37/
+  921  ls
+  922  cd ../JRA_5_TFBS_Fn14_Promoter/
+  923  ls
+  924  git pull origin master
+  925  bash scripts/mother_script.sh 
+  926  clear
+  927  ls
+  928  cd JRA/JRA_5_TFBS_Fn14_Promoter/
+  929  ls
+  930  cat *.out | less
+  931  tail -l 50 slurm-1586431.out | less
+  932  tail -n 50 slurm-1586431.out | less
+  933  tail -n 50 slurm-1586430.out | less
+  934  ls ../data/
+  935  ls ../data/GRCh37/
+  936  ls -lh ../data/GRCh37/
+  937  ls outputs/
+  938  ls outputs/fastq_trimmed/
+  939  ls outputs/fastq_trimmed/SRR8652105_pass/
+  940  ls -lh outputs/fastq_trimmed/SRR8652105_pass/
+  941  ls outputs/alignments/
+  942  ls outputs/alignments/bam/
+  943  ls -lh outputs/alignments/bam/
+  944  ls -lh outputs/alignments/bam/chr16/
+  945  ls -lh outputs/variant_calls/
+  946  ls -lh outputs/variant_calls/vcf/
+  947  ls
+  948  less slurm-1586439.out
+  949  ls /scratch/
+  950  ls /home/
+  951  ls /
+  952  ls /mnt/
+  953  ls /mnt/hcs/
+  954  ls /mnt/hcs/dsm-molecularoncology/
+  955  clear
+  956  cd JRA/JRA_5_TFBS_Fn14_Promoter/
+  957  ls
+  958  ls outputs/alignments/bam/
+  959  ls -lh  outputs/alignments/bam/
+  960  git pull origin master
+  961  sbatch scripts/Variant_Calling.sh 
+  962  clear
+  963  cd JRA/JRA_5_TFBS_Fn14_Promoter/
+  964  ls
+  965  ls outputs/variant_calls/vcf/
+  966  less slurm-1586439.out
+  967  lsR
+  968  cd JRA/JRA_5_TFBS_Fn14_Promoter/
+  969  ls
+  970  less slurm-1587665.out
+  971  clear
+  972  ls
+  973  ls outputs/
+  974  ls outputs/variant_calls/
+  975  ls outputs/variant_calls/vcf/
+  976  less slurm-1586438.out
+  977  cd /home/STUDENT/harjo391/JRA/JRA_5_TFBS_Fn14_Promoter
+  978  module purge
+  979  module load Java/1.10.0_1
+  980  # Defining GATK GATK_PATH
+  981  GATK_PATH=/home/STUDENT/harjo391/tools/GATK/gatk-4.1.3.0/gatk-package-4.1.3.0-local.jar
+  982  # Running Validate Sam File
+  983  java -jar $GATK_PATH ValidateSamFile -I outputs/alignments/bam/chr16/SRR8652105_pass.chr16.aligned.sorted.bam -MODE VERBOSE
+  984  ls outputs/alignments/bam/
+  985  ls -lh outputs/alignments/bam/
+  986  git status
+  987  git pull origin master
+  988  ls
+  989  bash scripts/validate_bam.sh 
+  990  sbatch scripts/validate_bam.sh 
+  991  ls -lh *.out
+  992  less slurm-1607171.out
+  993  ls
+  994  ls outputs/alignments/bam/chr16/
+  995  cd /home/STUDENT/harjo391/JRA/JRA_5_TFBS_Fn14_Promoter
+  996  ls
+  997  clear
+  998  cd ../test_data/
+  999  ls
+ 1000  zcat SRR8652105_pass_1.fastq.gz | wc -l
+ 1001  zcat SRR8652105_pass_2.fastq.gz | wc -l
+ 1002  ls /resource/bundles/
+ 1003  ls /resource/bundles/broad_bundle_b37_v2.5/
+ 1004  cd ../JRA_5_TFBS_Fn14_Promoter/outputs/alignments/
+ 1005  ls
+ 1006  cd bam/
+ 1007  ls
+ 1008  ls -lhtr 
+ 1009  module load SAMtools
+ 1010  samtools view -c SRR8652105_pass.aligned.bam 
+ 1011  samtools flagstat  SRR8652105_pass.aligned.bam 
+ 1012  module load GATK/3.8-0-Java-1.8.0_144
+ 1013  java -jar $EBROOTGATK/GenomeAnalysisTK.jar -h
+ 1014  java -jar $EBROOTGATK/GenomeAnalysisTK.jar MuTect2 -h
+ 1015  java -jar $EBROOTGATK/GenomeAnalysisTK.jar -h
+ 1016  java -jar $EBROOTGATK/GenomeAnalysisTK.jar m2
+ 1017  java -jar $EBROOTGATK/GenomeAnalysisTK.jar UnifiedGenotyper
+ 1018  java -jar $EBROOTGATK/GenomeAnalysisTK.jar UnifiedGenotyper -h
+ 1019  java -jar $EBROOTGATK/GenomeAnalysisTK.jar -T MuTect2
+ 1020  module purge
+ 1021  GATK_PATH=/home/STUDENT/harjo391/tools/GATK/gatk-4.1.3.0/gatk-package-4.1.3.0-local.jar
+ 1022  module load Java/1.10.0_1
+ 1023  java -jar $GATK_PATH Mutect2 -h
+ 1024  cd /home/STUDENT/harjo391/JRA/JRA_5_TFBS_Fn14_Promoter
+ 1025  SRA_REF_TMP='SRR8652105'
+ 1026  java -jar $GATK_PATH Mutect2 -R ../data/GRCh37/human_g1k_v37_decoy.fasta -I outputs/alignments/bam/${SRA_REF_TMP}_pass.aligned.sorted.bam --germline-resource ../data/gnomad_chr16/gnomad.genomes.r2.1.1.sites.16.vcf.gz -O outputs/variant_calls/vcf/$SRA_REF_TMP.ch16.vcf.gz
+ 1027  ls
+ 1028  ls -l
+ 1029  less slurm-1587665.out
+ 1030  module load BWA
+ 1031  bwa -h
+ 1032  bwa mem
+ 1033  ls /resource/
+ 1034  ls /resource/bundles/
+ 1035  ls /resource/bundles/gnomAD/
+ 1036  ls /resource/bundles/gnomAD/vcf/
+ 1037  ls /resource/bundles/gnomAD/vcf/genomes/
+ 1038  ls /resource/bundles/broad_bundle_b37_v2.5/
+ 1039  module load Picard
+ 1040  module purge
+ 1041  module load Picard
+ 1042  module av picard
+ 1043  module load picard
+ 1044  java -jar $EBROOTPICARD/picard.jar 
+ 1045  java -jar $EBROOTPICARD/picard.jar AddOrReplaceReadGroups -h
+ 1046  ls
+ 1047  ls outputs/alignments/bam/
+ 1048  ls -l outputs/alignments/bam/
+ 1049  ls SRR8652105_pass.aligned.sorted.bam
+ 1050  cd outputs/alignments/bam/
+ 1051  java -jar $EBROOTPICARD/picard.jar AddOrReplaceReadGroups I=SRR8652105_pass.aligned.sorted.bam O=test.bam PU=BARCODE PL=ILLUMINA LB=GROUP
+ 1052  java -jar $EBROOTPICARD/picard.jar AddOrReplaceReadGroups I=SRR8652105_pass.aligned.sorted.bam O=test.bam PU=BARCODE PL=ILLUMINA LB=GROUP RGSM=RGSM
+ 1053  ls -lhtr
+ 1054  java -jar $GATK_PATH Mutect2 -R ../data/GRCh37/human_g1k_v37_decoy.fasta -I outputs/alignments/bam/${SRA_REF_TMP}_pass.aligned.sorted.bam --germline-resource ../data/gnomad_chr16/gnomad.genomes.r2.1.1.sites.16.vcf.gz -O outputs/variant_calls/vcf/$SRA_REF_TMP.ch16.vcf.gzmodule load Java/1.10.0_1
+ 1055* module load Java/1.10.0_1 
+ 1056  java -jar $GATK_PATH Mutect2 -R /resource/bundles/broad_bundle_b37_v2.5/human_g1k_v37_decoy.fasta -I test.bam --germline-resource /resource/bundles/gnomAD/vcf/genomes/gnomad.genomes.r2.0.2.sites.vcf.bgz -O out.vcf.gz
+ 1057  squeue
+ 1058  malloc
+ 1059  pwd
+ 1060  salloc
+ 1061  ls
+ 1062  less out.vcf.gz
+ 1063  cat less out.vcf.gz | wc -l
+ 1064  clear
+ 1065  history
+ 1066  clear
+ 1067  cd ...
+ 1068  cd ../
+ 1069  ls
+ 1070  cd ../
+ 1071  ls
+ 1072  cd ../
+ 1073  .s
+ 1074  ls
+ 1075  mkdir history
+ 1076  history > history/2019_11_01_history.txt
