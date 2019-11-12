@@ -42,4 +42,10 @@ for filename_input in ${SRA_REF[*]}; do
   JOB_3=$(sbatch --dependency=afterany:$JOB_2 --export=SRA_REF=$filename_input,DATA=$DATA --parsable scripts/Variant_Calling.sh)
 done
 
+# Moving summary files to folder
+cd /home/STUDENT/harjo391/JRA/JRA_5_TFBS_Fn14_Promoter
+mkdir -p job_reports
+mv *.out job_reports
+mv ./*.txt job_reports
+
 echo "== END OF HEAD SCRIPT=="
