@@ -29,17 +29,18 @@ DATA=../test_data
 # 	JOB_1=$(sbatch --export=SRA_REF=$filename_input,DATA=$DATA --parsable scripts/quality_control.sh)
 # done
 
-# Running alignment
-for filename_input in ${SRA_REF[*]}; do
-  echo "== Running alignment on $filename_input =="
-  # JOB_2=$(sbatch --dependency=afterany:$JOB_1 --export=SRA_REF=$filename_input,DATA=$DATA --parsable scripts/bwa_alignment.sh)
-	JOB_2=$(sbatch --export=SRA_REF=$filename_input,DATA=$DATA --parsable scripts/bwa_alignment.sh)
-done
+# # Running alignment
+# for filename_input in ${SRA_REF[*]}; do
+#   echo "== Running alignment on $filename_input =="
+#   # JOB_2=$(sbatch --dependency=afterany:$JOB_1 --export=SRA_REF=$filename_input,DATA=$DATA --parsable scripts/bwa_alignment.sh)
+# 	JOB_2=$(sbatch --export=SRA_REF=$filename_input,DATA=$DATA --parsable scripts/bwa_alignment.sh)
+# done
 
 # Running Mutect2
 for filename_input in ${SRA_REF[*]}; do
   echo "== Mutect2 on $filename_input =="
-  JOB_3=$(sbatch --dependency=afterany:$JOB_2 --export=SRA_REF=$filename_input,DATA=$DATA --parsable scripts/Variant_Calling.sh)
+  # JOB_3=$(sbatch --dependency=afterany:$JOB_2 --export=SRA_REF=$filename_input,DATA=$DATA --parsable scripts/Variant_Calling.sh)
+	JOB_3=$(sbatch --export=SRA_REF=$filename_input,DATA=$DATA --parsable scripts/Variant_Calling.sh)
 done
 
 # Moving summary files to folder
