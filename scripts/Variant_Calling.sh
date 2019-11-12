@@ -9,6 +9,10 @@
 set -e
 cd /home/STUDENT/harjo391/JRA/JRA_5_TFBS_Fn14_Promoter
 
+# Creating directories
+mkdir -p  outputs/variant_calls/vcf \
+          outputs/variant_calls/bcf
+
 # # Defining SRA ref temp
 # SRA_REF='SRR8652105_pass'
 
