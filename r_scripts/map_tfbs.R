@@ -47,7 +47,7 @@ pwmList <- PFMatrixList %>% toPWM()
 library(Biostrings)
 library(seqinr)
 # Loading Reference sequence
-Fn14_pro_refseq <- readDNAStringSet("Sequences/Reference/Fn14_2kb_up_5utr.fa")
+Fn14_pro_refseq <- readDNAStringSet("sequences/Fn14_3kb_up_5utr_hg19_ucsc.fasta")
 Fn14_pro_refseq <- Fn14_pro_refseq %>% paste()
 Fn14_pro_refseq <- DNAString(Fn14_pro_refseq)
 
@@ -56,3 +56,10 @@ output_df_ref <- searchSeq(pwmList, Fn14_pro_refseq, seqname="Hg19_Fn14_2kb_upst
                            min.score="60%", strand="*") %>% 
                                             writeGFF3() %>% 
                                             data.frame()
+# Updating chromosmal position details
+output_df_ref$chromosome <- 16
+output_df_ref$start <- output_df_ref$start + 3067313
+output_df_ref$end <- output_df_ref$end + 3067313
+
+# Exporting dataframe 
+write.table(output_df_ref, file = 'tfbs_table/Fn14_3kb_up_tfbs_df.txt', sep = '\t')
