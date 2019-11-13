@@ -6,4 +6,4 @@
 #SBATCH --output=slurm_%x_%j.out
 
 # transfering from /scratch to hcs
-scp -r STUDENT+harjo391@dsmc0.otago.ac.nz:/scratch/STUDENT+harjo391/JRA_5 STUDENT+harjo391@dsmc0.otago.ac.nz:/mnt/hcs/dsm-molecularoncology/Josh_Harris_Bioinformatics/
+rsync -vr --dry-run /scratch/STUDENT+harjo391/JRA_5 /mnt/hcs/dsm-molecularoncology/Josh_Harris_Bioinformatics/
