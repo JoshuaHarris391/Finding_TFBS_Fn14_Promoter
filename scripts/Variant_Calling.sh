@@ -26,10 +26,5 @@ GATK_PATH=/home/STUDENT/harjo391/tools/GATK/gatk-4.1.3.0/gatk-package-4.1.3.0-lo
 # Running Mutect2
 java -jar $GATK_PATH Mutect2 -R /resource/bundles/broad_bundle_b37_v2.5/human_g1k_v37_decoy.fasta -I outputs/alignments/bam/${SRA_REF}.dedup.aligned.sorted.bam --germline-resource /resource/bundles/gnomAD/vcf/genomes/gnomad.genomes.r2.0.2.sites.vcf.bgz -O outputs/variant_calls/vcf/$SRA_REF.vcf.gz --disable-sequence-dictionary-validation true
 
-# # Decompressing .gz files
-# gunzip outputs/variant_calls/vcf/*.gz
-# cp outputs/variant_calls/vcf/SRR8652105_pass.vcf.gz.tbi outputs/variant_calls/vcf/SRR8652105_pass.vcf.tbi.gz
-# gunzip outputs/variant_calls/vcf/SRR8652105_pass.vcf.tbi.gz
-#
-# # Filtering VCFs for chr16:3067313-3070398
-# rtg vcffilter --input=outputs/variant_calls/vcf/$SRA_REF.vcf --region=sample1:chr16:3067313-chr16:3070398 --output=outputs/variant_calls/vcf/$SRA_REF.filtered.vcf
+# Filtering VCFs for chr16:3067313-3070398
+rtg vcffilter --input=outputs/variant_calls/vcf/$SRA_REF.vcf.gz --region=1:83829-725000 --output=outputs/variant_calls/vcf/$SRA_REF.filtered.vcf.gz
