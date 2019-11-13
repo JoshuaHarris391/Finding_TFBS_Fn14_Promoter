@@ -6,4 +6,4 @@
 #SBATCH --output=slurm_%x_%j.out
 
 # transfering from /scratch to hcs
-rsync -vr --dry-run /scratch/STUDENT+harjo391/JRA_5 /mnt/hcs/dsm-molecularoncology/Josh_Harris_Bioinformatics/
+rsync -vr /scratch/STUDENT+harjo391/JRA_5 /mnt/hcs/dsm-molecularoncology/Josh_Harris_Bioinformatics/
