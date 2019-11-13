@@ -2,7 +2,7 @@
 #SBATCH --job-name=Fastqc_Trim # job name (shows up in the queue)
 #SBATCH --time=24:00:00 #Walltime (HH:MM:SS)
 #SBATCH --mem=12000 # Memory in MB
-#SBATCH --cpus-per-task=4
+#SBATCH --cpus-per-task=2
 #SBATCH --output=slurm_%x_%j.out
 
 
@@ -46,7 +46,7 @@ grep FAIL $dir_fastqc_untrimmed/fastqc_summary/fastqc_summaries.txt > $dir_fastq
 mkdir -p outputs/fastq_trimmed/$SRA_REF
 echo "Running Trimmomatic"
 # Running trimmomatic
-java -jar ~/tools/Trimmomatic-0.39/trimmomatic-0.39.jar PE -threads 4 \
+java -jar ~/tools/Trimmomatic-0.39/trimmomatic-0.39.jar PE -threads 2 \
               $DATA/${SRA_REF}_1.fastq.gz \
               $DATA/${SRA_REF}_2.fastq.gz \
               outputs/fastq_trimmed/$SRA_REF/${SRA_REF}_1.trimmed.fastq.gz \

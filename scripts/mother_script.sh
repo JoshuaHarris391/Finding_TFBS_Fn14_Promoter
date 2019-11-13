@@ -9,7 +9,7 @@ touch tmp.out
 rm *.out
 
 # Removing current outputs folder
-# rm -R outputs
+rm -R outputs
 
 # # Downloading and indexing GRCh37
 # JOB_0=$(sbatch --parsable scripts/GRCh37_download_index.sh)
