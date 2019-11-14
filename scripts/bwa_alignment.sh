@@ -5,9 +5,13 @@
 #SBATCH --cpus-per-task=4
 #SBATCH --output=slurm_%x_%j.out
 
+# Setting Directory variables
+SCRIPT_REF=/home/STUDENT/harjo391/JRA/JRA_5_TFBS_Fn14_Promoter/scripts
+OUTPUT_DATA=/scratch/STUDENT+harjo391/JRA_5/JRA_5_TFBS_Fn14_Promoter
+
 # Set wd
 set -e
-cd /home/STUDENT/harjo391/JRA/JRA_5_TFBS_Fn14_Promoter
+cd $OUTPUT_DATA
 module purge
 
 # Creating directories
