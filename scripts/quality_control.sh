@@ -23,7 +23,7 @@ module load FastQC/0.11.5-Java-1.8.0_74
 # Running fastqc on all fastq files
 mkdir -p outputs/fastqc_untrimmed/$SRA_REF
 echo "Running FastQC on untrimmed reads"
-fastqc $DATA/*.fastq.gz --outdir=outputs/fastqc_untrimmed/$SRA_REF/
+fastqc -t 4 $DATA/*.fastq.gz --outdir=outputs/fastqc_untrimmed/$SRA_REF/
 # Unziping fastqc files
 echo "Unzipping FastQC files"
 for FILENAME in outputs/fastqc_untrimmed/$SRA_REF/*.zip ; do
@@ -62,7 +62,7 @@ java -jar ~/tools/Trimmomatic-0.39/trimmomatic-0.39.jar PE -threads 4 \
 mkdir -p outputs/fastqc_trimmed/$SRA_REF
 # Re-running fastqc
 echo "Running FastQC on trimmed reads"
-fastqc outputs/fastq_trimmed/$SRA_REF/*.trimmed.fastq.gz --outdir=outputs/fastqc_trimmed/$SRA_REF/
+fastqc -t 4 outputs/fastq_trimmed/$SRA_REF/*.trimmed.fastq.gz --outdir=outputs/fastqc_trimmed/$SRA_REF/
 # Unziping fastqc files
 echo "Unzipping FastQC files"
 for FILENAME in outputs/fastqc_trimmed/$SRA_REF/*.zip ; do
