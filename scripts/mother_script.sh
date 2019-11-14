@@ -13,7 +13,7 @@ cd $OUTPUT_DATA
 touch tmp.out
 rm *.out
 
-Removing current outputs folder
+# Removing current outputs folder
 rm -R outputs
 
 # # Downloading and indexing GRCh37
