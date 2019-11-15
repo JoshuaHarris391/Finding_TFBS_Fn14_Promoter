@@ -2,11 +2,11 @@
 #SBATCH --job-name=base_recalibration # job name (shows up in the queue)
 #SBATCH --time=24:00:00 #Walltime (HH:MM:SS)
 #SBATCH --mem=8000 # Memory in MB
-#SBATCH --cpus-per-task=4
+#SBATCH --cpus-per-task=2
 #SBATCH --output=slurm_%x_%j.out
 
 # # Defining SRA ref temp
-SRA_REF='SRR8652105_pass'
+# SRA_REF='SRR8652105_pass'
 
 # Setting Directory variables
 SCRIPT_REF=/home/STUDENT/harjo391/JRA/JRA_5_TFBS_Fn14_Promoter/scripts
@@ -36,16 +36,16 @@ java -jar $GATK_PATH ApplyBQSR 	-R /resource/bundles/broad_bundle_b37_v2.5/human
 																-O outputs/alignments/bam/${SRA_REF}.dedup.aligned.sorted.recal.bam
 
 
-# Creating second recalibration table
-java -jar $GATK_PATH BaseRecalibrator -R /resource/bundles/broad_bundle_b37_v2.5/human_g1k_v37_decoy.fasta \
-																						--input outputs/alignments/bam/${SRA_REF}.dedup.aligned.sorted.bam \
-																						--known-sites /resource/bundles/broad_bundle_b37_v2.5/1000G_phase1.indels.b37.vcf \
-																						--known-sites /resource/bundles/broad_bundle_b37_v2.5/dbsnp_137.b37.vcf \
-																						-bqsr outputs/alignments/bam/${SRA_REF}_recal_1.table \
-																						--output outputs/alignments/bam/${SRA_REF}_recal_2.table
+# # Creating second recalibration table
+# java -jar $GATK_PATH BaseRecalibrator -R /resource/bundles/broad_bundle_b37_v2.5/human_g1k_v37_decoy.fasta \
+# 																						--input outputs/alignments/bam/${SRA_REF}.dedup.aligned.sorted.bam \
+# 																						--known-sites /resource/bundles/broad_bundle_b37_v2.5/1000G_phase1.indels.b37.vcf \
+# 																						--known-sites /resource/bundles/broad_bundle_b37_v2.5/dbsnp_137.b37.vcf \
+# 																						-bqsr outputs/alignments/bam/${SRA_REF}_recal_1.table \
+# 																						--output outputs/alignments/bam/${SRA_REF}_recal_2.table
 
-# Creating report
-java -jar $GATK_PATH AnalyzeCovariates \
-		-before outputs/alignments/bam/${SRA_REF}_recal_1.table \
-		-after outputs/alignments/bam/${SRA_REF}_recal_2.table \
-		-plots ${SRA_REF}_AnalyzeCovariates.pdf
+# # Creating report
+# java -jar $GATK_PATH AnalyzeCovariates \
+# 		-before outputs/alignments/bam/${SRA_REF}_recal_1.table \
+# 		-after outputs/alignments/bam/${SRA_REF}_recal_2.table \
+# 		-plots ${SRA_REF}_AnalyzeCovariates.pdf
