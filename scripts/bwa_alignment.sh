@@ -41,15 +41,8 @@ bwa mem -t 4 \
 				samtools view -S -b > outputs/alignments/bam/${SRA_REF}.aligned.bam
 echo "[UPDATE] completed ${SRA_REF} alignment"
 
-# #################################
-# # Convert to Bam
-# #################################
-# echo "[UPDATE] converting to bam file"
-# module load 'SAMtools'
-# # Converting to bam
-# samtools view -S -b outputs/alignments/sam/${SRA_REF}.aligned.sam > \
-#                     outputs/alignments/bam/${SRA_REF}.aligned.bam
-# echo "[UPDATE] converted ${SRA_REF} to bam"
+# Removing trimmed fastq files
+rm -r outputs/fastq_trimmed
 
 # Sorting bam files
 echo "[UPDATE] Sorting BAM files"
@@ -70,13 +63,12 @@ cat outputs/alignments/bam/metrics/*.txt > outputs/alignments/bam/summary.txt
 module load picard
 java -jar $EBROOTPICARD/picard.jar MarkDuplicates I=outputs/alignments/bam/${SRA_REF}.aligned.sorted.bam O=outputs/alignments/bam/${SRA_REF}.dedup.aligned.sorted.bam M=outputs/alignments/bam/${SRA_REF}_MarkDuplicates.txt
 
+# Removing Sorted bam file
+rm outputs/alignments/bam/${SRA_REF}.aligned.sorted.bam
+
 # Indexing bam files
 echo "[UPDATE] indexing bam files"
 samtools index outputs/alignments/bam/${SRA_REF}.dedup.aligned.sorted.bam
 echo "[UPDATE] indexed ${SRA_REF}.aligned.sorted.bam"
-
-# # Defining Read groups (Depreciated with bwa mem -R)
-# java -jar $EBROOTPICARD/picard.jar AddOrReplaceReadGroups I=outputs/alignments/bam/${SRA_REF}.dedup.aligned.sorted.bam O=outputs/alignments/bam/${SRA_REF}.dedup.aligned.sorted.bam PU=BARCODE PL=ILLUMINA LB=GROUP RGSM=RGSM
-
 
 echo "[UPDATE] end of script"

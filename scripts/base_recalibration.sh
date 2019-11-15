@@ -35,17 +35,5 @@ java -jar $GATK_PATH ApplyBQSR 	-R /resource/bundles/broad_bundle_b37_v2.5/human
 																--bqsr-recal-file outputs/alignments/bam/${SRA_REF}_recal_1.table \
 																-O outputs/alignments/bam/${SRA_REF}.dedup.aligned.sorted.recal.bam
 
-
-# # Creating second recalibration table
-# java -jar $GATK_PATH BaseRecalibrator -R /resource/bundles/broad_bundle_b37_v2.5/human_g1k_v37_decoy.fasta \
-# 																						--input outputs/alignments/bam/${SRA_REF}.dedup.aligned.sorted.bam \
-# 																						--known-sites /resource/bundles/broad_bundle_b37_v2.5/1000G_phase1.indels.b37.vcf \
-# 																						--known-sites /resource/bundles/broad_bundle_b37_v2.5/dbsnp_137.b37.vcf \
-# 																						-bqsr outputs/alignments/bam/${SRA_REF}_recal_1.table \
-# 																						--output outputs/alignments/bam/${SRA_REF}_recal_2.table
-
-# # Creating report
-# java -jar $GATK_PATH AnalyzeCovariates \
-# 		-before outputs/alignments/bam/${SRA_REF}_recal_1.table \
-# 		-after outputs/alignments/bam/${SRA_REF}_recal_2.table \
-# 		-plots ${SRA_REF}_AnalyzeCovariates.pdf
+# Deleting previous bam
+rm outputs/alignments/bam/${SRA_REF}.dedup.aligned.sorted.bam
