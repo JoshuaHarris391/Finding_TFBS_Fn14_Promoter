@@ -25,30 +25,31 @@ mkdir -p  outputs/alignments/sam \
 #################################
 echo "[UPDATE] Begining BWA Alignment"
 module load "BWA/0.7.17-foss-2018b"
+module load 'SAMtools'
 # # Indexing hg19 reference
 # echo "Indexing hg19 reference"
 # module load "BWA/0.7.17-foss-2018b"
 # bwa index GRCh37/human_g1k_v37_decoy.fasta
 
 echo "[UPDATE] Running BWA mem aligner"
-
+# Running bwa mem aligner
 bwa mem -t 4 \
 				-R '@RG\tID:group1\tSM:sample1\tPL:illumina\tLB:lib1\tPU:unit1' \
 				-P /resource/bundles/broad_bundle_b37_v2.5/human_g1k_v37_decoy.fasta \
         outputs/fastq_trimmed/$SRA_REF/${SRA_REF}_1.trimmed.fastq.gz \
-        outputs/fastq_trimmed/$SRA_REF/${SRA_REF}_2.trimmed.fastq.gz > \
-        outputs/alignments/sam/${SRA_REF}.aligned.sam
+        outputs/fastq_trimmed/$SRA_REF/${SRA_REF}_2.trimmed.fastq.gz | \
+				samtools view -S -b > outputs/alignments/bam/${SRA_REF}.aligned.bam
 echo "[UPDATE] completed ${SRA_REF} alignment"
 
-#################################
-# Convert to Bam
-#################################
-echo "[UPDATE] converting to bam file"
-module load 'SAMtools'
-# Converting to bam
-samtools view -S -b outputs/alignments/sam/${SRA_REF}.aligned.sam > \
-                    outputs/alignments/bam/${SRA_REF}.aligned.bam
-echo "[UPDATE] converted ${SRA_REF} to bam"
+# #################################
+# # Convert to Bam
+# #################################
+# echo "[UPDATE] converting to bam file"
+# module load 'SAMtools'
+# # Converting to bam
+# samtools view -S -b outputs/alignments/sam/${SRA_REF}.aligned.sam > \
+#                     outputs/alignments/bam/${SRA_REF}.aligned.bam
+# echo "[UPDATE] converted ${SRA_REF} to bam"
 
 # Sorting bam files
 echo "[UPDATE] Sorting BAM files"
