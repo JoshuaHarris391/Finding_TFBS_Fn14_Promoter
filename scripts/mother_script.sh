@@ -41,11 +41,18 @@ for filename_input in ${SRA_REF[*]}; do
 	# JOB_2=$(sbatch --export=SRA_REF=$filename_input,DATA=$DATA --parsable $SCRIPT_REF/bwa_alignment.sh)
 done
 
+# Running base recalibration
+for filename_input in ${SRA_REF[*]}; do
+  echo "== Running alignment on $filename_input =="
+  JOB_3=$(sbatch --dependency=afterany:$JOB_2 --export=SRA_REF=$filename_input,DATA=$DATA --parsable $SCRIPT_REF/base_recalibration.sh)
+	# JOB_3=$(sbatch --export=SRA_REF=$filename_input,DATA=$DATA --parsable $SCRIPT_REF/bwa_alignment.sh)
+done
+
 # Running Mutect2
 for filename_input in ${SRA_REF[*]}; do
   echo "== Mutect2 on $filename_input =="
-  # JOB_3=$(sbatch --dependency=afterany:$JOB_2 --export=SRA_REF=$filename_input,DATA=$DATA --parsable $SCRIPT_REF/Variant_Calling.sh)
-	JOB_3=$(sbatch --export=SRA_REF=$filename_input,DATA=$DATA --parsable $SCRIPT_REF/Variant_Calling.sh)
+  # JOB_4=$(sbatch --dependency=afterany:$JOB_3 --export=SRA_REF=$filename_input,DATA=$DATA --parsable $SCRIPT_REF/Variant_Calling.sh)
+	JOB_4=$(sbatch --export=SRA_REF=$filename_input,DATA=$DATA --parsable $SCRIPT_REF/Variant_Calling.sh)
 done
 
 
