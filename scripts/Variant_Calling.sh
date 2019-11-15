@@ -18,7 +18,7 @@ mkdir -p  outputs/variant_calls/vcf \
           outputs/variant_calls/bcf
 
 # # Defining SRA ref temp
-# SRA_REF='SRR8652105_pass'
+SRA_REF='SRR8652105_pass'
 
 # Loading modules
 module purge
@@ -29,7 +29,7 @@ module load rtg-core
 GATK_PATH=/home/STUDENT/harjo391/tools/GATK/gatk-4.1.3.0/gatk-package-4.1.3.0-local.jar
 # Running Mutect2
 java -jar $GATK_PATH Mutect2 	-R /resource/bundles/broad_bundle_b37_v2.5/human_g1k_v37_decoy.fasta \
-															-I ${SRA_REF}.dedup.aligned.sorted.recal.bam \
+															-I outputs/alignments/bam/${SRA_REF}.dedup.aligned.sorted.recal.bam \
 															--germline-resource /resource/bundles/gnomAD/vcf/genomes/gnomad.genomes.r2.0.2.sites.vcf.bgz \
 															-O outputs/variant_calls/vcf/$SRA_REF.vcf.gz \
 															--disable-sequence-dictionary-validation true
