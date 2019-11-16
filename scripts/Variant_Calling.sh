@@ -18,7 +18,7 @@ mkdir -p  outputs/variant_calls/vcf \
           outputs/variant_calls/bcf
 
 # # Defining SRA ref temp
-SRA_REF='SRR8652105_pass'
+# SRA_REF='SRR8652105_pass'
 
 # Loading modules
 module purge
