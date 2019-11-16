@@ -51,8 +51,8 @@ done
 # Running Mutect2
 for filename_input in ${SRA_REF[*]}; do
   echo "== Mutect2 on $filename_input =="
-  # JOB_4=$(sbatch --dependency=afterany:$JOB_3 --export=SRA_REF=$filename_input,DATA=$DATA --parsable $SCRIPT_REF/Variant_Calling.sh)
-	JOB_4=$(sbatch --export=SRA_REF=$filename_input,DATA=$DATA --parsable $SCRIPT_REF/Variant_Calling.sh)
+  JOB_4=$(sbatch --dependency=afterany:$JOB_3 --export=SRA_REF=$filename_input,DATA=$DATA --parsable $SCRIPT_REF/Variant_Calling.sh)
+	# JOB_4=$(sbatch --export=SRA_REF=$filename_input,DATA=$DATA --parsable $SCRIPT_REF/Variant_Calling.sh)
 done
 
 
