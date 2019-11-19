@@ -4,7 +4,7 @@
 #SBATCH --mem=1000 # Memory in MB
 #SBATCH --cpus-per-task=1
 #SBATCH --output=array_%A_%a.out
-#SBATCH --array=SRR8652107,SRR8652105,SRR8670674,SRR1974202
+#SBATCH --array=1-4
 
 # Defining file with SRA refs
 SRA_REF_NAMES_FILE=/home/STUDENT/harjo391/JRA/JRA_5_TFBS_Fn14_Promoter/SRA_Ref_Names.txt
