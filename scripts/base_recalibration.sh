@@ -1,8 +1,8 @@
 #!/bin/bash
 #SBATCH --job-name=base_recalibration # job name (shows up in the queue)
-#SBATCH --time=24:00:00 #Walltime (HH:MM:SS)
-#SBATCH --mem=8000 # Memory in MB
-#SBATCH --cpus-per-task=2
+#SBATCH --time=48:00:00 #Walltime (HH:MM:SS)
+#SBATCH --mem=20000 # Memory in MB
+#SBATCH --cpus-per-task=4
 #SBATCH --output=slurm_%x_%j.out
 
 # # Defining SRA ref temp
