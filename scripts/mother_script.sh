@@ -20,7 +20,7 @@ rm -R outputs
 # JOB_0=$(sbatch --parsable scripts/GRCh37_download_index.sh)
 
 # Defining Data folder
-DATA=../test_data/
+DATA=../test_full_data/
 
 # Getting filenames
 filenames=$(ls $DATA/*_1.fastq.gz)
