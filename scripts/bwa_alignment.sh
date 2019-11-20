@@ -1,8 +1,8 @@
 #!/bin/bash
 #SBATCH --job-name=BWA_Align # job name (shows up in the queue)
-#SBATCH --time=48:00:00 #Walltime (HH:MM:SS)
+#SBATCH --time=72:00:00 #Walltime (HH:MM:SS)
 #SBATCH --mem=20000 # Memory in MB
-#SBATCH --cpus-per-task=4
+#SBATCH --cpus-per-task=8
 #SBATCH --output=slurm_%x_%j.out
 
 # Setting Directory variables
@@ -33,7 +33,7 @@ module load 'SAMtools'
 
 echo "[UPDATE] Running BWA mem aligner"
 # Running bwa mem aligner
-bwa mem -t 4 \
+bwa mem -t 8 \
 				-R '@RG\tID:group1\tSM:sample1\tPL:illumina\tLB:lib1\tPU:unit1' \
 				-P /resource/bundles/broad_bundle_b37_v2.5/human_g1k_v37_decoy.fasta \
         outputs/fastq_trimmed/$SRA_REF/${SRA_REF}_1.trimmed.fastq.gz \
