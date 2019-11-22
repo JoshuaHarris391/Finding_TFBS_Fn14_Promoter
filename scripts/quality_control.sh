@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --job-name=Fastqc_Trim # job name (shows up in the queue)
 #SBATCH --time=10:00:00 #Walltime (HH:MM:SS)
-#SBATCH --mem=16000 # Memory in MB
+#SBATCH --mem=12000 # Memory in MB
 #SBATCH --cpus-per-task=4
 #SBATCH --output=slurm_%x_%j.out
 
@@ -27,7 +27,7 @@ module load FastQC/0.11.5-Java-1.8.0_74
 # Running fastqc on all fastq files
 mkdir -p outputs/fastqc_untrimmed/$SRA_REF
 echo "Running FastQC on untrimmed reads"
-fastqc -t 4 $DATA/*.fastq.gz --outdir=outputs/fastqc_untrimmed/$SRA_REF/
+fastqc -t 8 $DATA/*.fastq.gz --outdir=outputs/fastqc_untrimmed/$SRA_REF/
 # Unziping fastqc files
 echo "Unzipping FastQC files"
 for FILENAME in outputs/fastqc_untrimmed/$SRA_REF/*.zip ; do
@@ -50,7 +50,7 @@ grep FAIL $dir_fastqc_untrimmed/fastqc_summary/fastqc_summaries.txt > $dir_fastq
 mkdir -p outputs/fastq_trimmed/$SRA_REF
 echo "Running Trimmomatic"
 # Running trimmomatic
-java -jar ~/tools/Trimmomatic-0.39/trimmomatic-0.39.jar PE -threads 4 \
+java -jar ~/tools/Trimmomatic-0.39/trimmomatic-0.39.jar PE -threads 8 \
               $DATA/${SRA_REF}_1.fastq.gz \
               $DATA/${SRA_REF}_2.fastq.gz \
               outputs/fastq_trimmed/$SRA_REF/${SRA_REF}_1.trimmed.fastq.gz \
@@ -66,7 +66,7 @@ java -jar ~/tools/Trimmomatic-0.39/trimmomatic-0.39.jar PE -threads 4 \
 mkdir -p outputs/fastqc_trimmed/$SRA_REF
 # Re-running fastqc
 echo "Running FastQC on trimmed reads"
-fastqc -t 4 outputs/fastq_trimmed/$SRA_REF/*.trimmed.fastq.gz --outdir=outputs/fastqc_trimmed/$SRA_REF/
+fastqc -t 8 outputs/fastq_trimmed/$SRA_REF/*.trimmed.fastq.gz --outdir=outputs/fastqc_trimmed/$SRA_REF/
 # Unziping fastqc files
 echo "Unzipping FastQC files"
 for FILENAME in outputs/fastqc_trimmed/$SRA_REF/*.zip ; do

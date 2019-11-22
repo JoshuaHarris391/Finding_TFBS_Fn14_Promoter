@@ -9,8 +9,8 @@
 SCRIPT_REF=/home/STUDENT/harjo391/JRA/JRA_5_TFBS_Fn14_Promoter/scripts
 OUTPUT_DATA=/scratch/STUDENT+harjo391/JRA_5/JRA_5_TFBS_Fn14_Promoter
 
-# Defining SRA ref temp
-SRA_REF='SRR8652105'
+# # Defining SRA ref temp
+# SRA_REF='SRR8652105'
 
 # Set wd
 set -e
@@ -49,13 +49,13 @@ module load 'SAMtools'
 
 # Sorting bam files
 echo "[UPDATE] Sorting BAM files"
-samtools sort --threads 8 -o outputs/alignments/bam/${SRA_REF}.aligned.sorted.bam \
+samtools sort --threads 16 -o outputs/alignments/bam/${SRA_REF}.aligned.sorted.bam \
                  outputs/alignments/bam/${SRA_REF}.aligned.bam
 
 
 # Creating summary report for sorted bams
 mkdir -p outputs/alignments/bam/metrics
-samtools flagstat --threads 8 outputs/alignments/bam/${SRA_REF}.aligned.sorted.bam > \
+samtools flagstat --threads 16 outputs/alignments/bam/${SRA_REF}.aligned.sorted.bam > \
                   outputs/alignments/bam/metrics/${SRA_REF}_bam_summary.txt
 echo "[UPDATE] created flagstat summary for ${SRA_REF}"
 
@@ -71,7 +71,7 @@ rm outputs/alignments/bam/${SRA_REF}.aligned.sorted.bam
 
 # Indexing bam files
 echo "[UPDATE] indexing bam files"
-samtools index --threads 8 outputs/alignments/bam/${SRA_REF}.dedup.aligned.sorted.bam
+samtools index --threads 16 outputs/alignments/bam/${SRA_REF}.dedup.aligned.sorted.bam
 echo "[UPDATE] indexed ${SRA_REF}.aligned.sorted.bam"
 
 echo "[UPDATE] end of script"
