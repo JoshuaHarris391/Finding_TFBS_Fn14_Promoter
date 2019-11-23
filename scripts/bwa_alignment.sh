@@ -34,18 +34,18 @@ module load 'SAMtools'
 # module load "BWA/0.7.17-foss-2018b"
 # bwa index GRCh37/human_g1k_v37_decoy.fasta
 
-# echo "[UPDATE] Running BWA mem aligner"
-# # Running bwa mem aligner
-# bwa mem -t 8 \
-# 				-R '@RG\tID:group1\tSM:sample1\tPL:illumina\tLB:lib1\tPU:unit1' \
-# 				-P /resource/bundles/broad_bundle_b37_v2.5/human_g1k_v37_decoy.fasta \
-#         outputs/fastq_trimmed/$SRA_REF/${SRA_REF}_1.trimmed.fastq.gz \
-#         outputs/fastq_trimmed/$SRA_REF/${SRA_REF}_2.trimmed.fastq.gz | \
-# 				samtools view -S -b > outputs/alignments/bam/${SRA_REF}.aligned.bam
-# echo "[UPDATE] completed ${SRA_REF} alignment"
-#
-# # Removing trimmed fastq files
-# rm -r outputs/fastq_trimmed
+echo "[UPDATE] Running BWA mem aligner"
+# Running bwa mem aligner
+bwa mem -t 8 \
+				-R '@RG\tID:group1\tSM:sample1\tPL:illumina\tLB:lib1\tPU:unit1' \
+				-P /resource/bundles/broad_bundle_b37_v2.5/human_g1k_v37_decoy.fasta \
+        outputs/fastq_trimmed/$SRA_REF/${SRA_REF}_1.trimmed.fastq.gz \
+        outputs/fastq_trimmed/$SRA_REF/${SRA_REF}_2.trimmed.fastq.gz | \
+				samtools view -S -b > outputs/alignments/bam/${SRA_REF}.aligned.bam
+echo "[UPDATE] completed ${SRA_REF} alignment"
+
+# Removing trimmed fastq files
+rm -r outputs/fastq_trimmed
 
 # Sorting bam files
 echo "[UPDATE] Sorting BAM files"
