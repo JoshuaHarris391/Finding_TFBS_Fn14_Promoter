@@ -1,8 +1,8 @@
 #!/bin/bash
 #SBATCH --job-name=Mark_Duplicates # job name (shows up in the queue)
 #SBATCH --time=72:00:00 #Walltime (HH:MM:SS)
-#SBATCH --mem=16000 # Memory in MB
-#SBATCH --cpus-per-task=4
+#SBATCH --mem=20000 # Memory in MB
+#SBATCH --cpus-per-task=3
 #SBATCH --output=slurm_%x_%j.out
 
 # Setting Directory variables
