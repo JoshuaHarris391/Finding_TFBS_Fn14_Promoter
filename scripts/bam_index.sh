@@ -20,5 +20,5 @@ module load 'SAMtools'
 
 # Indexing bam files
 echo "[UPDATE] indexing bam files"
-samtools index --threads 8 outputs/alignments/bam/${SRA_REF}.dedup.aligned.sorted.bam
+samtools index -@ 8 outputs/alignments/bam/${SRA_REF}.dedup.aligned.sorted.bam
 echo "[UPDATE] indexed ${SRA_REF}.aligned.sorted.bam"
