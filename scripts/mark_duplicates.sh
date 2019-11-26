@@ -20,8 +20,3 @@ module purge
 # Marking duplicates
 module load picard
 java -jar $EBROOTPICARD/picard.jar MarkDuplicates I=outputs/alignments/bam/${SRA_REF}.aligned.sorted.bam O=outputs/alignments/bam/${SRA_REF}.dedup.aligned.sorted.bam M=outputs/alignments/bam/${SRA_REF}_MarkDuplicates.txt
-
-# # Using GATK
-# module load Java/1.10.0_1
-# GATK_PATH=/home/STUDENT/harjo391/tools/GATK/gatk-4.1.3.0/gatk-package-4.1.3.0-local.jar
-# java -jar $GATK_PATH MarkDuplicates --INPUT outputs/alignments/bam/${SRA_REF}.aligned.sorted.bam --OUTPUT outputs/alignments/bam/${SRA_REF}.dedup.aligned.sorted.bam --METRICS_FILE outputs/alignments/bam/${SRA_REF}_MarkDuplicates.txt

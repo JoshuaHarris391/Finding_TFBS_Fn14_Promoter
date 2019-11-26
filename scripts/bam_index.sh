@@ -18,6 +18,9 @@ cd $OUTPUT_DATA
 module purge
 module load 'SAMtools'
 
+# Removing Sorted bam file
+rm outputs/alignments/bam/${SRA_REF}.aligned.sorted.bam
+
 # Indexing bam files
 echo "[UPDATE] indexing bam files"
 samtools index -@ 8 outputs/alignments/bam/${SRA_REF}.dedup.aligned.sorted.bam

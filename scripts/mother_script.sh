@@ -27,29 +27,43 @@ SRA_REF=$(basename -s _1.fastq.gz $filenames)
 for filename_input in ${SRA_REF[*]}; do
   echo "== Running QC on $filename_input =="
 	# Use dependancy if running GRCh37 download
-  # JOB_1=$(sbatch --dependency=afterany:$JOB_0 --export=SRA_REF=$filename_input,DATA=$DATA --parsable $SCRIPT_REF/quality_control.sh)
-	JOB_1=$(sbatch --export=SRA_REF=$filename_input,DATA=$DATA --parsable $SCRIPT_REF/quality_control.sh)
+  # JOB_QC=$(sbatch --dependency=afterany:$JOB_0 --export=SRA_REF=$filename_input,DATA=$DATA --parsable $SCRIPT_REF/quality_control.sh)
+	JOB_QC=$(sbatch --export=SRA_REF=$filename_input,DATA=$DATA --parsable $SCRIPT_REF/quality_control.sh)
 done
 
 # Running alignment
 for filename_input in ${SRA_REF[*]}; do
   echo "== Running alignment on $filename_input =="
-  JOB_2=$(sbatch --dependency=afterany:$JOB_1 --export=SRA_REF=$filename_input,DATA=$DATA --parsable $SCRIPT_REF/bwa_alignment.sh)
-	# JOB_2=$(sbatch --export=SRA_REF=$filename_input,DATA=$DATA --parsable $SCRIPT_REF/bwa_alignment.sh)
+  JOB_BWA=$(sbatch --dependency=afterany:$JOB_QC --export=SRA_REF=$filename_input,DATA=$DATA --parsable $SCRIPT_REF/bwa_alignment.sh)
+	# JOB_BWA=$(sbatch --export=SRA_REF=$filename_input,DATA=$DATA --parsable $SCRIPT_REF/bwa_alignment.sh)
+done
+
+# Running markduplicates
+for filename_input in ${SRA_REF[*]}; do
+  echo "== Running MarkDuplicates on $filename_input =="
+  JOB_MD=$(sbatch --dependency=afterany:$JOB_BWA --export=SRA_REF=$filename_input,DATA=$DATA --parsable $SCRIPT_REF/mark_duplicates.sh)
+	# JOB_MD=$(sbatch --export=SRA_REF=$filename_input,DATA=$DATA --parsable $SCRIPT_REF/mark_duplicates.sh)
+done
+
+# Running index bam files
+for filename_input in ${SRA_REF[*]}; do
+  echo "== Running alignment on $filename_input =="
+  JOB_BAM_I=$(sbatch --dependency=afterany:$JOB_MD --export=SRA_REF=$filename_input,DATA=$DATA --parsable $SCRIPT_REF/bam_index.sh)
+	# JOB_BAM_I=$(sbatch --export=SRA_REF=$filename_input,DATA=$DATA --parsable $SCRIPT_REF/bam_index.sh)
 done
 
 # Running base recalibration
 for filename_input in ${SRA_REF[*]}; do
   echo "== Running alignment on $filename_input =="
-  JOB_3=$(sbatch --dependency=afterany:$JOB_2 --export=SRA_REF=$filename_input,DATA=$DATA --parsable $SCRIPT_REF/base_recalibration.sh)
-	# JOB_3=$(sbatch --export=SRA_REF=$filename_input,DATA=$DATA --parsable $SCRIPT_REF/bwa_alignment.sh)
+  JOB_RECAL=$(sbatch --dependency=afterany:$JOB_BAM_I --export=SRA_REF=$filename_input,DATA=$DATA --parsable $SCRIPT_REF/base_recalibration.sh)
+	# JOB_RECAL=$(sbatch --export=SRA_REF=$filename_input,DATA=$DATA --parsable $SCRIPT_REF/base_recalibration.sh)
 done
 
 # Running Mutect2
 for filename_input in ${SRA_REF[*]}; do
   echo "== Mutect2 on $filename_input =="
-  JOB_4=$(sbatch --dependency=afterany:$JOB_3 --export=SRA_REF=$filename_input,DATA=$DATA --parsable $SCRIPT_REF/Variant_Calling.sh)
-	# JOB_4=$(sbatch --export=SRA_REF=$filename_input,DATA=$DATA --parsable $SCRIPT_REF/Variant_Calling.sh)
+  JOB_MUT=$(sbatch --dependency=afterany:$JOB_RECAL --export=SRA_REF=$filename_input,DATA=$DATA --parsable $SCRIPT_REF/Variant_Calling.sh)
+	# JOB_MUT=$(sbatch --export=SRA_REF=$filename_input,DATA=$DATA --parsable $SCRIPT_REF/Variant_Calling.sh)
 done
 
 # moving slurm outputs to Directory

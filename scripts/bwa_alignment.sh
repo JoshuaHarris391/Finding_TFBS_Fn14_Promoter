@@ -61,17 +61,6 @@ echo "[UPDATE] created flagstat summary for ${SRA_REF}"
 
 # Merging into summary document
 cat outputs/alignments/bam/metrics/*.txt > outputs/alignments/bam/summary.txt
-
-# Marking duplicates
-module load picard
-java -jar $EBROOTPICARD/picard.jar MarkDuplicates I=outputs/alignments/bam/${SRA_REF}.aligned.sorted.bam O=outputs/alignments/bam/${SRA_REF}.dedup.aligned.sorted.bam M=outputs/alignments/bam/${SRA_REF}_MarkDuplicates.txt
-
-# Removing Sorted bam file
-rm outputs/alignments/bam/${SRA_REF}.aligned.sorted.bam
-
-# Indexing bam files
-echo "[UPDATE] indexing bam files"
-samtools index --threads 16 outputs/alignments/bam/${SRA_REF}.dedup.aligned.sorted.bam
-echo "[UPDATE] indexed ${SRA_REF}.aligned.sorted.bam"
+echo "[UPDATE] created summary document"
 
 echo "[UPDATE] end of script"
