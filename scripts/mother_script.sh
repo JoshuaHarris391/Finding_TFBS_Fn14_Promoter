@@ -9,9 +9,6 @@ OUTPUT_DATA=/scratch/STUDENT+harjo391/JRA_5/JRA_5_TFBS_Fn14_Promoter
 mkdir -p $OUTPUT_DATA
 cd $OUTPUT_DATA
 
-# Removing slurm outputs
-touch tmp.out
-rm *.out
 
 # Removing current outputs folder
 rm -R outputs
@@ -55,5 +52,7 @@ for filename_input in ${SRA_REF[*]}; do
 	# JOB_4=$(sbatch --export=SRA_REF=$filename_input,DATA=$DATA --parsable $SCRIPT_REF/Variant_Calling.sh)
 done
 
+# moving slurm outputs to Directory
+mv *.out slurm_outputs/
 
 echo "== END OF HEAD SCRIPT=="
