@@ -67,6 +67,7 @@ for filename_input in ${SRA_REF[*]}; do
 done
 
 # moving slurm outputs to Directory
+mkdir -p slurm_outputs
 mv *.out slurm_outputs/
 
 echo "== END OF HEAD SCRIPT=="
