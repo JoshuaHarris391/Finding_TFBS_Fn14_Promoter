@@ -1,12 +1,12 @@
 #!/bin/bash
 #SBATCH --job-name=base_recalibration # job name (shows up in the queue)
-#SBATCH --time=48:00:00 #Walltime (HH:MM:SS)
-#SBATCH --mem=20000 # Memory in MB
+#SBATCH --time=72:00:00 #Walltime (HH:MM:SS)
+#SBATCH --mem=40000 # Memory in MB
 #SBATCH --cpus-per-task=4
 #SBATCH --output=slurm_%x_%j.out
 
 # # Defining SRA ref temp
-# SRA_REF='SRR8652105_pass'
+SRA_REF='SRR8652105'
 
 # Setting Directory variables
 SCRIPT_REF=/home/STUDENT/harjo391/JRA/JRA_5_TFBS_Fn14_Promoter/scripts
@@ -36,4 +36,4 @@ java -jar $GATK_PATH ApplyBQSR 	-R /resource/bundles/broad_bundle_b37_v2.5/human
 																-O outputs/alignments/bam/${SRA_REF}.dedup.aligned.sorted.recal.bam
 
 # Deleting previous bam
-rm outputs/alignments/bam/${SRA_REF}.dedup.aligned.sorted.bam
+# rm outputs/alignments/bam/${SRA_REF}.dedup.aligned.sorted.bam
