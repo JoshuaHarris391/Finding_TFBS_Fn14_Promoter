@@ -28,21 +28,24 @@
 #   install.packages("BiocManager")
 # 
 # BiocManager::install("JASPAR2018")
+
 library('TFBSTools')
 library('JASPAR2018')
-library('tidyverse')
+library('tidyverse', warn.conflicts = F)
 
 #' ## Creating JASPAR Library
 suppressMessages(library(JASPAR2018))
 opts <- list()
 opts[["species"]] <- 9606
+opts[["collection"]] <- "CORE"
+# opts[["type"]] <- "ChIP-seq"
 PFMatrixList <- getMatrixSet(JASPAR2018, opts)
 PFMatrixList %>% summary() 
 #' - PFMatrixList contains PFMatrix files for each TF, these will need to be converted to PWM
 
 #' ## Converting PFM files to PWM
 pwmList <- PFMatrixList %>% toPWM()
-
+icmList <- PFMatrixList %>% toPWM()
 #' # Scanning Sequences for PWM pattern
 library(Biostrings)
 library(seqinr)
@@ -52,14 +55,37 @@ Fn14_pro_refseq <- Fn14_pro_refseq %>% paste()
 Fn14_pro_refseq <- DNAString(Fn14_pro_refseq)
 
 # Checking TFBS in reference sequence
+output_ref <- searchSeq(pwmList, Fn14_pro_refseq, seqname="Hg19_Fn14_2kb_upstrem_promoter",
+                        min.score="80%", strand="*")
 output_df_ref <- searchSeq(pwmList, Fn14_pro_refseq, seqname="Hg19_Fn14_2kb_upstrem_promoter",
-                           min.score="60%", strand="*") %>% 
-                                            writeGFF3() %>% 
-                                            data.frame()
+                           min.score="80%", strand="*") %>% as( "data.frame")
+
+# Making table of IDs
+tfbs_ID_table <- table(output_df_ref$ID)
+tfbs_ID_table <- tfbs_ID_table[unique(output_df_ref$ID)]
+
+input_id <- names(tfbs_ID_table[1])
+t<-PFMatrixList[[input_id]]
+as.list(t)
+PFMatrixList$MA0025.1 %>% as.character()
+attr(PFMatrixList[[1]], "$species")
+
+PFMatrixList@listData
+slot(PFMatrixList[[1]], "species")
+getSlots(PFMatrixList)
+
+# Adding in relative scores
+score_df <- unlist(relScore(output_ref)) %>% as.data.frame()
+output_df_ref$relative_score <- score_df[, 1]
+# Adding in emperical pvalues
+pval_df <- unlist(pvalues(head(output_ref), type = "TFMPvalue")) %>% as.data.frame()
+output_df_ref$pval_emperical <- pval_df[, 1]
+
+
 # Updating chromosmal position details
 output_df_ref$chromosome <- 16
 output_df_ref$start <- output_df_ref$start + 3067313
 output_df_ref$end <- output_df_ref$end + 3067313
 
 # Exporting dataframe 
-write.table(output_df_ref, file = 'tfbs_table/Fn14_3kb_up_tfbs_df.txt', sep = '\t')
+write.table(output_df_ref, file = 'tfbs_table/Fn14_3kb_up_core_tfbs_df.txt', sep = '\t')
