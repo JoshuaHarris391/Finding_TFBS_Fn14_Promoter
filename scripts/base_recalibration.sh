@@ -1,12 +1,12 @@
 #!/bin/bash
 #SBATCH --job-name=base_recalibration # job name (shows up in the queue)
-#SBATCH --time=72:00:00 #Walltime (HH:MM:SS)
-#SBATCH --mem=40000 # Memory in MB
+#SBATCH --time=20:00:00 #Walltime (HH:MM:SS)
+#SBATCH --mem=3000 # Memory in MB
 #SBATCH --cpus-per-task=2
 #SBATCH --output=slurm_%x_%j.out
 
 # # Defining SRA ref temp
-SRA_REF='SRR8652105'
+# SRA_REF='SRR8652105'
 
 # Setting Directory variables
 SCRIPT_REF=/home/STUDENT/harjo391/JRA/JRA_5_TFBS_Fn14_Promoter/scripts
