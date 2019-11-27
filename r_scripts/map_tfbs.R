@@ -27,7 +27,7 @@
 #' install.packages('tidyverse', lib = './R_libs')
 
 # Defining library location
-setwd("/home/STUDENT/harjo391/JRA/JRA_5_TFBS_Fn14_Promoter/")
+setwd("/resource/domains/STUDENT/harjo391/JRA/JRA_5_TFBS_Fn14_Promoter")
 Lib_loc <- "./R_libs"
 
 library('TFBSTools', lib.loc = Lib_loc)
