@@ -32,10 +32,10 @@ setwd("/home/STUDENT/harjo391/JRA/JRA_5_TFBS_Fn14_Promoter/")
 # # Defining library location
 # Lib_loc <- "./R_libs"
 
-library('TFBSTools')
-library('BiocGenerics')
-library('JASPAR2018')
-library('tidyverse', warn.conflicts = F)
+library('TFBSTools', lib.loc = "/resource/domains/STUDENT/harjo391/R/lib")
+library('BiocGenerics', lib.loc = "/resource/domains/STUDENT/harjo391/R/lib")
+library('JASPAR2018', lib.loc = "/resource/domains/STUDENT/harjo391/R/lib")
+library('tidyverse', warn.conflicts = F, lib.loc = "/resource/domains/STUDENT/harjo391/R/lib")
 
 #' ## Creating JASPAR Library
 suppressMessages(library(JASPAR2018))
@@ -58,8 +58,8 @@ pwmList <- PFMatrixList %>% toPWM()
 icmList <- PFMatrixList %>% toPWM()
 
 #' # Scanning Sequences for PWM pattern
-library('Biostrings')
-library('seqinr')
+library('Biostrings', lib.loc = "/resource/domains/STUDENT/harjo391/R/lib")
+library('seqinr', lib.loc = "/resource/domains/STUDENT/harjo391/R/lib")
 
 # Loading Reference sequence
 Fn14_pro_refseq <- readDNAStringSet("sequences/Fn14_3kb_up_5utr_hg19_ucsc.fasta")
