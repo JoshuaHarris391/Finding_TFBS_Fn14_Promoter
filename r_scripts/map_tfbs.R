@@ -40,7 +40,16 @@ library('magrittr', warn.conflicts = F, lib.loc = "/resource/domains/STUDENT/har
 library('S4Vectors', warn.conflicts = F, lib.loc = "/resource/domains/STUDENT/harjo391/R/lib")
 library('IRanges', warn.conflicts = F, lib.loc = "/resource/domains/STUDENT/harjo391/R/lib")
 library('XVector', warn.conflicts = F, lib.loc = "/resource/domains/STUDENT/harjo391/R/lib")
+library('Biostrings', lib.loc = "/resource/domains/STUDENT/harjo391/R/lib")
+library('seqinr', lib.loc = "/resource/domains/STUDENT/harjo391/R/lib")
 
+# Run Local
+library('TFBSTools')
+library('BiocGenerics')
+library('JASPAR2018')
+library('tidyverse')
+library('Biostrings')
+library('seqinr')
 
 #' ## Creating JASPAR Library
 suppressMessages(library(JASPAR2018))
@@ -63,9 +72,6 @@ pwmList <- PFMatrixList %>% toPWM()
 icmList <- PFMatrixList %>% toPWM()
 
 #' # Scanning Sequences for PWM pattern
-library('Biostrings', lib.loc = "/resource/domains/STUDENT/harjo391/R/lib")
-library('seqinr')
-
 # Loading Reference sequence
 Fn14_pro_refseq <- readDNAStringSet("sequences/Fn14_3kb_up_5utr_hg19_ucsc.fasta")
 Fn14_pro_refseq <- Fn14_pro_refseq %>% paste()
@@ -146,6 +152,9 @@ colnames(export_df)[colnames(export_df) == 'SITESEQS'] <- "SITE_SEQS"
 # Adding in emperical pvalues
 pval_df <- unlist(pvalues(output_ref, type = "TFMPvalue")) %>% as.data.frame()
 export_df$PVAL_EMPERICAL <- pval_df[, 1]
+
+
+
 
 # Adding in adjusted pvalue
 export_df$ADJUST_PVAL <- p.adjust(export_df$PVAL_EMPERICAL, method = "BH", n = length(export_df$PVAL_EMPERICAL))
