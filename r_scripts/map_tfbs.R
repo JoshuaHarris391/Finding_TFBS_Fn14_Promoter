@@ -35,6 +35,7 @@ setwd("/home/STUDENT/harjo391/JRA/JRA_5_TFBS_Fn14_Promoter/")
 library('TFBSTools', lib.loc = "/resource/domains/STUDENT/harjo391/R/lib")
 library('BiocGenerics', lib.loc = "/resource/domains/STUDENT/harjo391/R/lib")
 library('JASPAR2018', lib.loc = "/resource/domains/STUDENT/harjo391/R/lib")
+library('dplyr', warn.conflicts = F, lib.loc = "/resource/domains/STUDENT/harjo391/R/lib")
 library('tidyverse', warn.conflicts = F, lib.loc = "/resource/domains/STUDENT/harjo391/R/lib")
 
 #' ## Creating JASPAR Library
@@ -59,7 +60,7 @@ icmList <- PFMatrixList %>% toPWM()
 
 #' # Scanning Sequences for PWM pattern
 library('Biostrings', lib.loc = "/resource/domains/STUDENT/harjo391/R/lib")
-library('seqinr', lib.loc = "/resource/domains/STUDENT/harjo391/R/lib")
+library('seqinr')
 
 # Loading Reference sequence
 Fn14_pro_refseq <- readDNAStringSet("sequences/Fn14_3kb_up_5utr_hg19_ucsc.fasta")
