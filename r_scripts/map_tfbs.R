@@ -22,7 +22,7 @@
 #' if (!requireNamespace("BiocManager", quietly = TRUE)){
 #'   install.packages("BiocManager", lib = './R_libs')
 #' }
-#' BiocManager::install(c("TFBSTools", 'JASPAR2018', 'Biostrings', 'seqinr'), lib = './R_libs')
+#' BiocManager::install(c("TFBSTools", 'JASPAR2018', 'Biostrings', 'seqinr', 'BiocGenerics'), lib = './R_libs')
 #' # Installing tidyverse
 #' install.packages('tidyverse', lib = './R_libs')
 
@@ -31,6 +31,7 @@ setwd("/home/STUDENT/harjo391/JRA/JRA_5_TFBS_Fn14_Promoter/")
 Lib_loc <- "./R_libs"
 
 library('TFBSTools', lib.loc = Lib_loc)
+library('BiocGenerics', lib.loc = Lib_loc)
 library('JASPAR2018', lib.loc = Lib_loc)
 library('tidyverse', warn.conflicts = F, lib.loc = Lib_loc)
 
