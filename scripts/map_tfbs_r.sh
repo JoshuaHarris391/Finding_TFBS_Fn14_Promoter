@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --job-name=map_tfbs_R # job name (shows up in the queue)
 #SBATCH --time=24:00:00 #Walltime (HH:MM:SS)
-#SBATCH --mem=3000 # Memory in MB
+#SBATCH --mem=16000 # Memory in MB
 #SBATCH --cpus-per-task=1
 #SBATCH --output=slurm_%x_%j.out
 
