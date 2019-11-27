@@ -34,5 +34,8 @@ java -jar $GATK_PATH Mutect2 	-R /resource/bundles/broad_bundle_b37_v2.5/human_g
 															-O outputs/variant_calls/vcf/$SRA_REF.vcf.gz \
 															--disable-sequence-dictionary-validation true
 
-# Filtering VCFs for chr16:3067313-3070398
-rtg vcffilter --input=outputs/variant_calls/vcf/$SRA_REF.vcf.gz --region=16:3067313-3070398 --output=outputs/variant_calls/vcf/$SRA_REF.filtered.vcf.gz
+# Filtering VCFs for chr16:3017312-3020397
+rtg vcffilter --input=outputs/variant_calls/vcf/$SRA_REF.vcf.gz --region=16:3017312-3020397 --output=outputs/variant_calls/vcf/$SRA_REF.filtered.vcf.gz
+
+# Filtering for Chromosome 16 only
+rtg vcffilter --input=outputs/variant_calls/vcf/$SRA_REF.vcf.gz --region=16:1-90338345 --output=outputs/variant_calls/vcf/$SRA_REF.filtered.chr16.vcf.gz
