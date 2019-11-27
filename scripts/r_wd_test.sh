@@ -14,4 +14,4 @@ module purge
 module load 'R/3.6.0-foss-2019a'
 
 # Running sync
-Rscript r_scripts/r_wd_test.R
+Rscript scripts/r_wd_test.R
