@@ -1,0 +1,41 @@
+IUPAC2Matrix            IUPAC2Matrix
+MA0004.1                Some example PFM matrices.
+MotifSet                Class '"MotifSet"'
+PFMSimilarity-methods   PFMSimilarity method
+PWMSimilarity-methods   PWMSimilarity method
+SitePairSet             Class '"SitePairSet"'
+SitePairSetList-class   Class '"SitePairSetList"'
+SiteSet                 Class '"SiteSet"'
+SiteSetList             Class '"SiteSetList"'
+TFBSTools               TFBS software package.
+TFFM                    The TFFM class
+XMatrix                 '"XMatrix"' objects
+XMatrixList             Class '"XMatrixList"'
+calConservation-methods
+                        calConservation method
+deleteMatrixHavingID    JASPAR database operations
+dmmEM-methods           dmmEM method
+getEmissionProb         Get the emission distribution parameters.
+getMatrixByID           Basic JASPAR database search functionis
+                        'getMatrixByID', 'getMatrixByName'
+getMatrixSet            Advanced JASPAR database search functions
+                        'get_MatrixSet'
+getPosProb              Get the emission probabilities of nucleotides
+makeFlatFileDir         Generate "FlatFileDir" directory
+parseMEMEOutput         parseMEMEOutput
+permuteMatrix-methods   permuteMatrix method
+rPWMDmm-methods         rPWMDmm method
+readJASPARMatrix        Read JASPAR format matrix
+readXMLTFFM             readXMLTFFM
+runMEME                 Wrapper function for MEME
+sampleRanges            sampleRanges
+searchAln               searchAln method
+searchPairBSgenome-methods
+                        searchPairBSgenome method
+searchSeq               searchSeq method
+seqLogo                 Plot a sequence logo
+shannon.entropy         Calculate the Shannon entropy
+toGRangesList-methods   toGRangesList function
+toICM                   toICM method
+toPWM                   toPWM method
+writeGFF3-methods       'writeGFF3', 'writeGFF2' functions
