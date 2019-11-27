@@ -31,12 +31,12 @@ setwd("/home/STUDENT/harjo391/JRA/JRA_5_TFBS_Fn14_Promoter/")
 
 # # Defining library location
 # Lib_loc <- "./R_libs"
-
+library('tidyverse', warn.conflicts = F, lib.loc = "/resource/domains/STUDENT/harjo391/R/lib")
 library('TFBSTools', lib.loc = "/resource/domains/STUDENT/harjo391/R/lib")
 library('BiocGenerics', lib.loc = "/resource/domains/STUDENT/harjo391/R/lib")
 library('JASPAR2018', lib.loc = "/resource/domains/STUDENT/harjo391/R/lib")
-library('dplyr', warn.conflicts = F, lib.loc = "/resource/domains/STUDENT/harjo391/R/lib")
-library('tidyverse', warn.conflicts = F, lib.loc = "/resource/domains/STUDENT/harjo391/R/lib")
+# library('dplyr', warn.conflicts = F, lib.loc = "/resource/domains/STUDENT/harjo391/R/lib")
+
 
 #' ## Creating JASPAR Library
 suppressMessages(library(JASPAR2018))
