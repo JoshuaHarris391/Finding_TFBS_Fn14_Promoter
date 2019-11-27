@@ -39,6 +39,8 @@ library('dplyr', warn.conflicts = F, lib.loc = "/resource/domains/STUDENT/harjo3
 library('magrittr', warn.conflicts = F, lib.loc = "/resource/domains/STUDENT/harjo391/R/lib")
 library('S4Vectors', warn.conflicts = F, lib.loc = "/resource/domains/STUDENT/harjo391/R/lib")
 library('IRanges', warn.conflicts = F, lib.loc = "/resource/domains/STUDENT/harjo391/R/lib")
+library('XVector', warn.conflicts = F, lib.loc = "/resource/domains/STUDENT/harjo391/R/lib")
+
 
 #' ## Creating JASPAR Library
 suppressMessages(library(JASPAR2018))
