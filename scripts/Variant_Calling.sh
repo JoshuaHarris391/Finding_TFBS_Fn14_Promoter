@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --job-name=Mutect_2 # job name (shows up in the queue)
-#SBATCH --time=90:00:00 #Walltime (HH:MM:SS)
-#SBATCH --mem=40000 # Memory in MB
+#SBATCH --time=24:00:00 #Walltime (HH:MM:SS)
+#SBATCH --mem=4000 # Memory in MB
 #SBATCH --cpus-per-task=4
 #SBATCH --output=slurm_%x_%j.out
 
@@ -18,7 +18,7 @@ mkdir -p  outputs/variant_calls/vcf \
           outputs/variant_calls/bcf
 
 # # Defining SRA ref temp
-SRA_REF='SRR8652105'
+# SRA_REF='SRR8652105'
 
 # Loading modules
 module purge
