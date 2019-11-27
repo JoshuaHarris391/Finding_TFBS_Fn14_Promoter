@@ -26,6 +26,8 @@
 #' # Installing tidyverse
 #' install.packages('tidyverse', lib = './R_libs')
 
+# Setting WD (only for cluster)
+setwd("/home/STUDENT/harjo391/JRA/JRA_5_TFBS_Fn14_Promoter/")
 
 # # Defining library location
 # Lib_loc <- "./R_libs"
