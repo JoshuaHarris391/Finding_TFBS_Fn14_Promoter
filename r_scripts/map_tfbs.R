@@ -26,10 +26,13 @@
 #' # Installing tidyverse
 #' install.packages('tidyverse', lib = './R_libs')
 
+# Defining library location
+setwd("/home/STUDENT/harjo391/JRA/JRA_5_TFBS_Fn14_Promoter/")
+Lib_loc <- "./R_libs"
 
-library('TFBSTools', lib.loc = './R_libs')
-library('JASPAR2018', lib.loc = './R_libs')
-library('tidyverse', warn.conflicts = F, lib.loc = './R_libs')
+library('TFBSTools', lib.loc = Lib_loc)
+library('JASPAR2018', lib.loc = Lib_loc)
+library('tidyverse', warn.conflicts = F, lib.loc = Lib_loc)
 
 #' ## Creating JASPAR Library
 suppressMessages(library(JASPAR2018))
@@ -52,8 +55,8 @@ pwmList <- PFMatrixList %>% toPWM()
 icmList <- PFMatrixList %>% toPWM()
 
 #' # Scanning Sequences for PWM pattern
-library('Biostrings', lib.loc = './R_libs')
-library('seqinr', lib.loc = './R_libs')
+library('Biostrings', lib.loc = Lib_loc)
+library('seqinr', lib.loc = Lib_loc)
 
 # Loading Reference sequence
 Fn14_pro_refseq <- readDNAStringSet("sequences/Fn14_3kb_up_5utr_hg19_ucsc.fasta")
