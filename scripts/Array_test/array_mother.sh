@@ -30,4 +30,4 @@ JOB_MD=$(eval $cmd | awk '{print $4}')
 cmd="sbatch --array=1-${ARRAY_N} --dependency=aftercorr:${JOB_MD} --export=DATA=$DATA $SCRIPT_REF/array_4.sh"
 JOB_INDEX=$(eval $cmd | awk '{print $4}')
 
-sbatch --array=1-${ARRAY_N} --dependency=afterok:${JOB_INDEX} --export=DATA=$DATA $SCRIPT_REF/Variant_Calling.sh
+sbatch --array=1-${ARRAY_N} --dependency=afterok:${JOB_INDEX} --export=DATA=$DATA $SCRIPT_REF/array_5.sh
