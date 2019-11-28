@@ -18,6 +18,7 @@ cd $OUTPUT_DATA
 
 
 # Removing current outputs folder
+mkdir -p outputs
 rm -R outputs
 
 # # Downloading and indexing GRCh37
