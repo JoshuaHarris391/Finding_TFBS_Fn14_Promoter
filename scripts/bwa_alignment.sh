@@ -48,7 +48,7 @@ bwa mem -t 8 \
 echo "[UPDATE] completed ${SRA_REF} alignment"
 
 # Removing trimmed fastq files
-rm -r outputs/fastq_trimmed
+rm -r outputs/fastq_trimmed/${SRA_REF}
 
 # Sorting bam files
 echo "[UPDATE] Sorting BAM files"

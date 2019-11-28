@@ -38,6 +38,7 @@ echo "Unzipping FastQC files"
 for FILENAME in outputs/fastqc_untrimmed/$SRA_REF/*.zip ; do
   unzip $FILENAME -d outputs/fastqc_untrimmed/$SRA_REF/
 done
+
 # Concatenating Fastqc results
 echo "Saving FastQC results"
 dir_fastqc_untrimmed=outputs/fastqc_untrimmed/$SRA_REF
@@ -77,6 +78,7 @@ echo "Unzipping FastQC files"
 for FILENAME in outputs/fastqc_trimmed/$SRA_REF/*.zip ; do
   unzip $FILENAME -d outputs/fastqc_trimmed/$SRA_REF/
 done
+
 # Concatenating Fastqc results
 echo "Saving FastQC results"
 mkdir -p outputs/fastqc_trimmed/$SRA_REF/fastqc_summary
