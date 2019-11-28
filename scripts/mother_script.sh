@@ -33,22 +33,22 @@ echo $ARRAY_N
 
 # Running Array and defining dependancies
 echo "== Running Array and defining dependancies =="
-cmd="sbatch --array=1-${ARRAY_N} --export=DATA=$DATA --parsable scripts/quality_control.sh"
+cmd="sbatch --array=1-${ARRAY_N} --export=DATA=$DATA --parsable $SCRIPT_REF/quality_control.sh"
 JOB_QC=$(eval $cmd | awk '{print $4}')
 
-cmd="sbatch --array=1-${ARRAY_N} --dependency=aftercorr:${JOB_QC} --export=DATA=$DATA --parsable scripts/bwa_alignment.sh"
+cmd="sbatch --array=1-${ARRAY_N} --dependency=aftercorr:${JOB_QC} --export=DATA=$DATA --parsable $SCRIPT_REF/bwa_alignment.sh"
 JOB_BWA=$(eval $cmd | awk '{print $4}')
 
-cmd="sbatch --array=1-${ARRAY_N} --dependency=aftercorr:${JOB_BWA} --export=DATA=$DATA --parsable scripts/mark_duplicates.sh"
+cmd="sbatch --array=1-${ARRAY_N} --dependency=aftercorr:${JOB_BWA} --export=DATA=$DATA --parsable $SCRIPT_REF/mark_duplicates.sh"
 JOB_MD=$(eval $cmd | awk '{print $4}')
 
-cmd="sbatch --array=1-${ARRAY_N} --dependency=aftercorr:${JOB_MD} --export=DATA=$DATA --parsable scripts/bam_index.sh"
+cmd="sbatch --array=1-${ARRAY_N} --dependency=aftercorr:${JOB_MD} --export=DATA=$DATA --parsable $SCRIPT_REF/bam_index.sh"
 JOB_INDEX=$(eval $cmd | awk '{print $4}')
 
-cmd="sbatch --array=1-${ARRAY_N} --dependency=aftercorr:${JOB_INDEX} --export=DATA=$DATA --parsable scripts/base_recalibration.sh"
+cmd="sbatch --array=1-${ARRAY_N} --dependency=aftercorr:${JOB_INDEX} --export=DATA=$DATA --parsable $SCRIPT_REF/base_recalibration.sh"
 JOB_RECAL=$(eval $cmd | awk '{print $4}')
 
-sbatch --array=1-${ARRAY_N} --dependency=afterok:${JOB_RECAL} --export=DATA=$DATA --parsable scripts/Variant_Calling.sh
+sbatch --array=1-${ARRAY_N} --dependency=afterok:${JOB_RECAL} --export=DATA=$DATA --parsable $SCRIPT_REF/Variant_Calling.sh
 
 # moving slurm outputs to Directory
 mkdir -p slurm_outputs
