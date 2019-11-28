@@ -6,13 +6,6 @@
 #SBATCH --output=array_%A_%a.out
 #SBATCH --array=1-4
 
-# Defining file with SRA refs
-SRA_REF_NAMES_FILE=/home/STUDENT/harjo391/JRA/JRA_5_TFBS_Fn14_Promoter/SRA_Ref_Names.txt
-# Pulling nth line from file and defining SRA variable
-SRA_REF=`sed "${SLURM_ARRAY_TASK_ID}q;d" $SRA_REF_NAMES_FILE`
-# Echoing SRA ref
-echo $SRA_REF
-
 
 job_echo="sbatch -J echo_sra scripts/array_test_slave_echo.sh"
 job_sen="sbatch -J sen_sra --dependency=aftercorr:$job_echo scripts/array_test_daughter.sh"
