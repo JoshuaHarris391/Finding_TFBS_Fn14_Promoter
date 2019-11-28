@@ -51,8 +51,4 @@ JOB_RECAL=$(eval $cmd | awk '{print $4}')
 
 sbatch --array=1-${ARRAY_N} --dependency=afterok:${JOB_RECAL} --export=DATA=$DATA $SCRIPT_REF/Variant_Calling.sh
 
-# moving slurm outputs to Directory
-mkdir -p slurm_outputs
-mv *.out slurm_outputs/
-
 echo "== END OF MOTHER SCRIPT=="
