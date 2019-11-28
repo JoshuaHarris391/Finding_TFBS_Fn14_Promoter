@@ -6,6 +6,6 @@
 #SBATCH --output=slurm_%x_%j.out
 
 # transfering from /scratch to hcs
-DEST=/mnt/hcs/dsm-molecularoncology/Josh_Harris_Bioinformatics/JRA_5/outputs/vcf/
+DEST=/mnt/hcs/dsm-molecularoncology/Josh_Harris_Bioinformatics/JRA_5/outputs/
 
 rsync -vr /scratch/STUDENT+harjo391/JRA_5/JRA_5_TFBS_Fn14_Promoter/outputs/variant_calls/vcf $DEST

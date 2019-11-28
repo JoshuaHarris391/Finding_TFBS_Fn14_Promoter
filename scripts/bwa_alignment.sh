@@ -18,10 +18,8 @@ cd $OUTPUT_DATA
 module purge
 
 # Creating directories
-mkdir -p  outputs/alignments/sam \
-          outputs/alignments/bam \
-          outputs/variant_calls/vcf \
-          outputs/variant_calls/bcf
+mkdir -p  outputs/alignments/bam/$SRA_REF \
+          outputs/variant_calls/vcf/$SRA_REF
 
 #################################
 # Alignment BWA
@@ -41,7 +39,7 @@ bwa mem -t 8 \
 				-P /resource/bundles/broad_bundle_b37_v2.5/human_g1k_v37_decoy.fasta \
         outputs/fastq_trimmed/$SRA_REF/${SRA_REF}_1.trimmed.fastq.gz \
         outputs/fastq_trimmed/$SRA_REF/${SRA_REF}_2.trimmed.fastq.gz | \
-				samtools view -S -b > outputs/alignments/bam/${SRA_REF}.aligned.bam
+				samtools view -S -b > outputs/alignments/bam/$SRA_REF/${SRA_REF}.aligned.bam
 echo "[UPDATE] completed ${SRA_REF} alignment"
 
 # Removing trimmed fastq files
@@ -49,18 +47,18 @@ rm -r outputs/fastq_trimmed
 
 # Sorting bam files
 echo "[UPDATE] Sorting BAM files"
-samtools sort --threads 16 -o outputs/alignments/bam/${SRA_REF}.aligned.sorted.bam \
-                 outputs/alignments/bam/${SRA_REF}.aligned.bam
+samtools sort --threads 16 -o outputs/alignments/bam/$SRA_REF/${SRA_REF}.aligned.sorted.bam \
+                 outputs/alignments/bam/$SRA_REF/${SRA_REF}.aligned.bam
 
 
 # Creating summary report for sorted bams
-mkdir -p outputs/alignments/bam/metrics
-samtools flagstat --threads 16 outputs/alignments/bam/${SRA_REF}.aligned.sorted.bam > \
-                  outputs/alignments/bam/metrics/${SRA_REF}_bam_summary.txt
+mkdir -p outputs/alignments/bam/$SRA_REF/metrics
+samtools flagstat --threads 16 outputs/alignments/bam/$SRA_REF/${SRA_REF}.aligned.sorted.bam > \
+                  outputs/alignments/bam/$SRA_REF/metrics/${SRA_REF}_bam_summary.txt
 echo "[UPDATE] created flagstat summary for ${SRA_REF}"
 
 # Merging into summary document
-cat outputs/alignments/bam/metrics/*.txt > outputs/alignments/bam/summary.txt
+cat outputs/alignments/bam/*/metrics/*.txt > outputs/alignments/summary.txt
 echo "[UPDATE] created summary document"
 
 echo "[UPDATE] end of script"

@@ -25,15 +25,15 @@ GATK_PATH=/home/STUDENT/harjo391/tools/GATK/gatk-4.1.3.0/gatk-package-4.1.3.0-lo
 
 # Creating recalibration table
 java -jar $GATK_PATH BaseRecalibrator -R /resource/bundles/broad_bundle_b37_v2.5/human_g1k_v37_decoy.fasta \
-																						--input outputs/alignments/bam/${SRA_REF}.dedup.aligned.sorted.bam \
+																						--input outputs/alignments/bam/$SRA_REF/${SRA_REF}.dedup.aligned.sorted.bam \
 																						--known-sites /resource/bundles/broad_bundle_b37_v2.5/1000G_phase1.indels.b37.vcf \
 																						--known-sites /resource/bundles/broad_bundle_b37_v2.5/dbsnp_137.b37.vcf \
-																						--output outputs/alignments/bam/${SRA_REF}_recal_1.table
+																						--output outputs/alignments/bam/$SRA_REF/${SRA_REF}_recal_1.table
 # Creating recalibrated bams
 java -jar $GATK_PATH ApplyBQSR 	-R /resource/bundles/broad_bundle_b37_v2.5/human_g1k_v37_decoy.fasta \
-																-I outputs/alignments/bam/${SRA_REF}.dedup.aligned.sorted.bam \
-																--bqsr-recal-file outputs/alignments/bam/${SRA_REF}_recal_1.table \
-																-O outputs/alignments/bam/${SRA_REF}.dedup.aligned.sorted.recal.bam
+																-I outputs/alignments/bam/$SRA_REF/${SRA_REF}.dedup.aligned.sorted.bam \
+																--bqsr-recal-file outputs/alignments/bam/$SRA_REF/${SRA_REF}_recal_1.table \
+																-O outputs/alignments/bam/$SRA_REF/${SRA_REF}.dedup.aligned.sorted.recal.bam
 
 # Deleting previous bam
-# rm outputs/alignments/bam/${SRA_REF}.dedup.aligned.sorted.bam
+rm outputs/alignments/bam/$SRA_REF/${SRA_REF}.dedup.aligned.sorted.bam

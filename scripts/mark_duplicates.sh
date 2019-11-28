@@ -19,4 +19,4 @@ module purge
 
 # Marking duplicates
 module load picard
-java -jar $EBROOTPICARD/picard.jar MarkDuplicates I=outputs/alignments/bam/${SRA_REF}.aligned.sorted.bam O=outputs/alignments/bam/${SRA_REF}.dedup.aligned.sorted.bam M=outputs/alignments/bam/${SRA_REF}_MarkDuplicates.txt
+java -jar $EBROOTPICARD/picard.jar MarkDuplicates I=outputs/alignments/bam/${SRA_REF}/${SRA_REF}.aligned.sorted.bam O=outputs/alignments/bam/${SRA_REF}/${SRA_REF}.dedup.aligned.sorted.bam M=outputs/alignments/bam/${SRA_REF}/${SRA_REF}_MarkDuplicates.txt

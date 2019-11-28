@@ -14,8 +14,7 @@ set -e
 cd $OUTPUT_DATA
 
 # Creating directories
-mkdir -p  outputs/variant_calls/vcf \
-          outputs/variant_calls/bcf
+mkdir -p  outputs/variant_calls/vcf/$SRA_REF
 
 # # Defining SRA ref temp
 # SRA_REF='SRR8652105'
@@ -29,13 +28,13 @@ module load rtg-core
 GATK_PATH=/home/STUDENT/harjo391/tools/GATK/gatk-4.1.3.0/gatk-package-4.1.3.0-local.jar
 # Running Mutect2
 java -jar $GATK_PATH Mutect2 	-R /resource/bundles/broad_bundle_b37_v2.5/human_g1k_v37_decoy.fasta \
-															-I outputs/alignments/bam/${SRA_REF}.dedup.aligned.sorted.recal.bam \
+															-I outputs/alignments/bam/$SRA_REF/${SRA_REF}.dedup.aligned.sorted.recal.bam \
 															--germline-resource /resource/bundles/gnomAD/vcf/genomes/gnomad.genomes.r2.0.2.sites.vcf.bgz \
-															-O outputs/variant_calls/vcf/$SRA_REF.vcf.gz \
+															-O outputs/variant_calls/vcf/$SRA_REF/${SRA_REF}.vcf.gz \
 															--disable-sequence-dictionary-validation true
 
 # Filtering VCFs for chr16:3017312-3020397
-rtg vcffilter --input=outputs/variant_calls/vcf/$SRA_REF.vcf.gz --region=16:3017312-3020397 --output=outputs/variant_calls/vcf/$SRA_REF.filtered.vcf.gz
+rtg vcffilter --input=outputs/variant_calls/vcf/$SRA_REF/${SRA_REF}.vcf.gz --region=16:3017312-3020397 --output=outputs/variant_calls/vcf/$SRA_REF/${SRA_REF}.filtered.vcf.gz
 
 # Filtering for Chromosome 16 only
-rtg vcffilter --input=outputs/variant_calls/vcf/$SRA_REF.vcf.gz --region=16:1-90338345 --output=outputs/variant_calls/vcf/$SRA_REF.filtered.chr16.vcf.gz
+rtg vcffilter --input=outputs/variant_calls/vcf/$SRA_REF/${SRA_REF}.vcf.gz --region=16:1-90338345 --output=outputs/variant_calls/vcf/$SRA_REF/${SRA_REF}.filtered.chr16.vcf.gz
