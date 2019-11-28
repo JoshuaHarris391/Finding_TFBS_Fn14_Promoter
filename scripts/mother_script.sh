@@ -25,7 +25,7 @@ rm -R outputs
 # JOB_0=$(sbatch --parsable scripts/GRCh37_download_index.sh)
 
 # Defining Data folder
-DATA=../test_data/
+DATA=../raw_data/
 
 # Defining array number
 echo "== Defining array number =="
