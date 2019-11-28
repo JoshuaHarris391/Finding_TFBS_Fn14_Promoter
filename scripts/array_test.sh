@@ -7,7 +7,8 @@
 #SBATCH --array=1-4
 
 
-echo running echo script
-job_echo=$(sbatch --array=1-4 scripts/array_test_slave_echo.sh)
-echo running sen script
-job_sen=$(sbatch --array=1-4 --dependency=aftercorr:$job_echo scripts/array_test_slave_sentence.sh)
+cmd="sbatch --array=1-4 scripts/array_test_slave_echo.sh"
+jobecho=$(eval $cmd | awk '{print $4}')
+cmd="sbatch --array=1-4 --dependency=aftercorr:${jobecho} scripts/array_test_slave_middle.sh"
+jobmiddle=$(eval $cmd | awk '{print $4}')
+sbatch --array=1-4 --dependency=afterok:${jobmiddle} scripts/array_test_slave_sentence.sh

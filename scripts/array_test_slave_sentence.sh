@@ -3,7 +3,7 @@
 #SBATCH --time=1:00:00 #Walltime (HH:MM:SS)
 #SBATCH --mem=1000 # Memory in MB
 #SBATCH --cpus-per-task=1
-#SBATCH --output=slurm_%x_%jarray_%A_%a.out
+#SBATCH --output=slurm_%x_%j_array_%A_%a.out
 
 # Defining file with SRA refs
 SRA_REF_NAMES_FILE=/home/STUDENT/harjo391/JRA/JRA_5_TFBS_Fn14_Promoter/SRA_Ref_Names.txt
