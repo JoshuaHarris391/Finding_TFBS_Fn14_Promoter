@@ -8,7 +8,7 @@
 # Stop script if there is an error
 set -e
 # Setting Directory variables
-SCRIPT_REF=/home/STUDENT/harjo391/JRA/JRA_5_TFBS_Fn14_Promoter/scripts
+SCRIPT_REF=/home/STUDENT/harjo391/JRA/JRA_5_TFBS_Fn14_Promoter/scripts/Array_test
 OUTPUT_DATA=/scratch/STUDENT+harjo391/JRA_5/JRA_5_TFBS_Fn14_Promoter
 DATA='You_wot_m8'
 ARRAY_N=4
