@@ -7,5 +7,5 @@
 #SBATCH --array=1-4
 
 
-job_echo="sbatch -J echo_sra scripts/array_test_slave_echo.sh"
-job_sen="sbatch -J sen_sra --dependency=aftercorr:$job_echo scripts/array_test_daughter.sh"
+job_echo=$(sbatch -J echo_sra scripts/array_test_slave_echo.sh)
+job_sen=$(sbatch -J sen_sra --dependency=aftercorr:$job_echo scripts/array_test_daughter.sh)
