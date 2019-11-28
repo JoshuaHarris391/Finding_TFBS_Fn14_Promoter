@@ -3,7 +3,7 @@
 #SBATCH --time=20:00:00 #Walltime (HH:MM:SS)
 #SBATCH --mem=3000 # Memory in MB
 #SBATCH --cpus-per-task=2
-#SBATCH --output=slurm_%x_%j.out
+#SBATCH --output=slurm_%x_%j_array_%a.out
 
 # # Defining SRA ref temp
 # SRA_REF='SRR8652105'

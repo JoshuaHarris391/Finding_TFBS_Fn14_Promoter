@@ -3,7 +3,7 @@
 #SBATCH --time=15:00:00 #Walltime (HH:MM:SS)
 #SBATCH --mem=30000 # Memory in MB
 #SBATCH --cpus-per-task=2
-#SBATCH --output=slurm_%x_%j.out
+#SBATCH --output=slurm_%x_%j_array_%a.out
 
 # Setting Directory variables
 SCRIPT_REF=/home/STUDENT/harjo391/JRA/JRA_5_TFBS_Fn14_Promoter/scripts
