@@ -26,22 +26,22 @@
 #' # Installing tidyverse
 #' install.packages('tidyverse', lib = './R_libs')
 
-# Setting WD (only for cluster)
-setwd("/home/STUDENT/harjo391/JRA/JRA_5_TFBS_Fn14_Promoter/")
+# # Setting WD (only for cluster)
+# setwd("/home/STUDENT/harjo391/JRA/JRA_5_TFBS_Fn14_Promoter/")
 
-# # Defining library location
-# Lib_loc <- "./R_libs"
-# library('tidyverse', warn.conflicts = F, lib.loc = "/resource/domains/STUDENT/harjo391/R/lib")
-library('TFBSTools', lib.loc = "/resource/domains/STUDENT/harjo391/R/lib")
-library('BiocGenerics', lib.loc = "/resource/domains/STUDENT/harjo391/R/lib")
-library('JASPAR2018', lib.loc = "/resource/domains/STUDENT/harjo391/R/lib")
-library('dplyr', warn.conflicts = F, lib.loc = "/resource/domains/STUDENT/harjo391/R/lib")
-library('magrittr', warn.conflicts = F, lib.loc = "/resource/domains/STUDENT/harjo391/R/lib")
-library('S4Vectors', warn.conflicts = F, lib.loc = "/resource/domains/STUDENT/harjo391/R/lib")
-library('IRanges', warn.conflicts = F, lib.loc = "/resource/domains/STUDENT/harjo391/R/lib")
-library('XVector', warn.conflicts = F, lib.loc = "/resource/domains/STUDENT/harjo391/R/lib")
-library('Biostrings', lib.loc = "/resource/domains/STUDENT/harjo391/R/lib")
-library('seqinr', lib.loc = "/resource/domains/STUDENT/harjo391/R/lib")
+# # # Defining library location
+# # Lib_loc <- "./R_libs"
+# # library('tidyverse', warn.conflicts = F, lib.loc = "/resource/domains/STUDENT/harjo391/R/lib")
+# library('TFBSTools', lib.loc = "/resource/domains/STUDENT/harjo391/R/lib")
+# library('BiocGenerics', lib.loc = "/resource/domains/STUDENT/harjo391/R/lib")
+# library('JASPAR2018', lib.loc = "/resource/domains/STUDENT/harjo391/R/lib")
+# library('dplyr', warn.conflicts = F, lib.loc = "/resource/domains/STUDENT/harjo391/R/lib")
+# library('magrittr', warn.conflicts = F, lib.loc = "/resource/domains/STUDENT/harjo391/R/lib")
+# library('S4Vectors', warn.conflicts = F, lib.loc = "/resource/domains/STUDENT/harjo391/R/lib")
+# library('IRanges', warn.conflicts = F, lib.loc = "/resource/domains/STUDENT/harjo391/R/lib")
+# library('XVector', warn.conflicts = F, lib.loc = "/resource/domains/STUDENT/harjo391/R/lib")
+# library('Biostrings', lib.loc = "/resource/domains/STUDENT/harjo391/R/lib")
+# library('seqinr', lib.loc = "/resource/domains/STUDENT/harjo391/R/lib")
 
 # Run Local
 library('TFBSTools')
@@ -73,7 +73,7 @@ icmList <- PFMatrixList %>% toPWM()
 
 #' # Scanning Sequences for PWM pattern
 # Loading Reference sequence
-Fn14_pro_refseq <- readDNAStringSet("sequences/Fn14_3kb_up_5utr_hg19_ucsc.fasta")
+Fn14_pro_refseq <- readDNAStringSet("sequences/Fn14_3kb_up_5utr_hg38_ucsc.fasta")
 Fn14_pro_refseq <- Fn14_pro_refseq %>% paste()
 Fn14_pro_refseq <- DNAString(Fn14_pro_refseq)
 
@@ -86,8 +86,8 @@ output_df_ref <- searchSeq(pwmList, Fn14_pro_refseq, seqname="Hg19_Fn14_3kb_upst
 
 # Updating chromosmal position details
 output_df_ref$chromosome <- 16
-output_df_ref$start <- output_df_ref$start + 3067313
-output_df_ref$end <- output_df_ref$end + 3067313
+output_df_ref$start <- output_df_ref$start + 3017312
+output_df_ref$end <- output_df_ref$end + 3017312
 # Function to stich together full genomic region
 genom_reg <- function(start, end, chromosome){
   x <- paste('chr', chromosome, ':', start, '-', end, sep = '')
@@ -95,8 +95,8 @@ genom_reg <- function(start, end, chromosome){
 }
 output_df_ref$location <- genom_reg(output_df_ref$start, output_df_ref$end, output_df_ref$chromosome)
 # Adding distance from ATG
-output_df_ref$dist_atg_start <- 3070398- output_df_ref$start
-output_df_ref$dist_atg_end <- 3070398- output_df_ref$end
+output_df_ref$dist_atg_start <- 3020397- output_df_ref$start
+output_df_ref$dist_atg_end <- 3020397- output_df_ref$end
 
 
 # Joining JASPAR annotation df with output_df by ID
@@ -149,27 +149,27 @@ colnames(export_df)[colnames(export_df) == 'RELSCORE'] <- "REL_SCORE"
 colnames(export_df)[colnames(export_df) == 'SEQNAMES'] <- "SEQ_NAMES"
 colnames(export_df)[colnames(export_df) == 'SITESEQS'] <- "SITE_SEQS"
 
-# Adding in emperical pvalues
-pval_df <- unlist(pvalues(output_ref, type = "TFMPvalue")) %>% as.data.frame()
-export_df$PVAL_EMPERICAL <- pval_df[, 1]
+# Finding Duplicate rows
+export_df <- export_df %>%  distinct()
 
+# # Adding in emperical pvalues
+# pval_df <- unlist(pvalues(output_ref, type = "TFMPvalue")) %>% as.data.frame()
+# export_df$PVAL_EMPERICAL <- pval_df[, 1]
 
+# # Adding in adjusted pvalue
+# export_df$ADJUST_PVAL <- p.adjust(export_df$PVAL_EMPERICAL, method = "BH", n = length(export_df$PVAL_EMPERICAL))
 
-
-# Adding in adjusted pvalue
-export_df$ADJUST_PVAL <- p.adjust(export_df$PVAL_EMPERICAL, method = "BH", n = length(export_df$PVAL_EMPERICAL))
-
-# Creating Value Filtered DF
-export_df_sig <- export_df[export_df$ADJUST_PVAL < 0.05, ]
+# # Creating Value Filtered DF
+# export_df_sig <- export_df[export_df$ADJUST_PVAL < 0.05, ]
 
 # Getting list of unique transcription factors 
 unique_tf <- unique(export_df$TF_NAME)[order(unique(export_df$TF_NAME))]
-unique_tf_sig <- unique(export_df_sig$TF_NAME)[order(unique(export_df_sig$TF_NAME))]
+# unique_tf_sig <- unique(export_df_sig$TF_NAME)[order(unique(export_df_sig$TF_NAME))]
 
 # Exporting dataframe 
 write.csv(export_df, file = 'tfbs_table/Fn14_3kb_up_JASPAR_TFBS.csv')
-write.csv(export_df_sig, file = 'tfbs_table/Fn14_3kb_up_JASPAR_TFBS_SIGNIF.csv')
+# write.csv(export_df_sig, file = 'tfbs_table/Fn14_3kb_up_JASPAR_TFBS_SIGNIF.csv')
 
 # Exporting lists
 write(unique_tf, file = "tfbs_table/Fn14_unique_TF.txt")
-write(unique_tf_sig, file = "tfbs_table/Fn14_unique_TF_signif.txt")
+# write(unique_tf_sig, file = "tfbs_table/Fn14_unique_TF_signif.txt")
