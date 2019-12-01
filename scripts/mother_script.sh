@@ -34,16 +34,19 @@ echo $ARRAY_N
 
 # Running Array and defining dependancies
 echo "== Running Array and defining dependancies =="
-cmd="sbatch --array=1-${ARRAY_N} --export=DATA=$DATA $SCRIPT_REF/quality_control.sh"
-JOB_QC=$(eval $cmd | awk '{print $4}')
+# cmd="sbatch --array=1-${ARRAY_N} --export=DATA=$DATA $SCRIPT_REF/quality_control.sh"
+# JOB_QC=$(eval $cmd | awk '{print $4}')
+#
+# cmd="sbatch --array=1-${ARRAY_N} --dependency=aftercorr:${JOB_QC} --export=DATA=$DATA $SCRIPT_REF/bwa_alignment.sh"
+# JOB_BWA=$(eval $cmd | awk '{print $4}')
+#
+# cmd="sbatch --array=1-${ARRAY_N} --dependency=aftercorr:${JOB_BWA} --export=DATA=$DATA $SCRIPT_REF/mark_duplicates.sh"
+# JOB_MD=$(eval $cmd | awk '{print $4}')
+#
+# cmd="sbatch --array=1-${ARRAY_N} --dependency=aftercorr:${JOB_MD} --export=DATA=$DATA $SCRIPT_REF/bam_index.sh"
+# JOB_INDEX=$(eval $cmd | awk '{print $4}')
 
-cmd="sbatch --array=1-${ARRAY_N} --dependency=aftercorr:${JOB_QC} --export=DATA=$DATA $SCRIPT_REF/bwa_alignment.sh"
-JOB_BWA=$(eval $cmd | awk '{print $4}')
-
-cmd="sbatch --array=1-${ARRAY_N} --dependency=aftercorr:${JOB_BWA} --export=DATA=$DATA $SCRIPT_REF/mark_duplicates.sh"
-JOB_MD=$(eval $cmd | awk '{print $4}')
-
-cmd="sbatch --array=1-${ARRAY_N} --dependency=aftercorr:${JOB_MD} --export=DATA=$DATA $SCRIPT_REF/bam_index.sh"
+cmd="sbatch --array=1-${ARRAY_N} --export=DATA=$DATA $SCRIPT_REF/bam_index.sh"
 JOB_INDEX=$(eval $cmd | awk '{print $4}')
 
 cmd="sbatch --array=1-${ARRAY_N} --dependency=aftercorr:${JOB_INDEX} --export=DATA=$DATA $SCRIPT_REF/base_recalibration.sh"
