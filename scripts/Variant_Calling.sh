@@ -1,8 +1,8 @@
 #!/bin/bash
 #SBATCH --job-name=Mutect_2 # job name (shows up in the queue)
-#SBATCH --time=24:00:00 #Walltime (HH:MM:SS)
-#SBATCH --mem=4000 # Memory in MB
-#SBATCH --cpus-per-task=4
+#SBATCH --time=72:00:00 #Walltime (HH:MM:SS)
+#SBATCH --mem=3000 # Memory in MB
+#SBATCH --cpus-per-task=2
 #SBATCH --output=slurm_%x_%j_array_%a.out
 
 # Setting Directory variables
